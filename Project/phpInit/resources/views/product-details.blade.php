@@ -11,27 +11,27 @@
 	<!-- Google Font Dancing Script -->
 	<link href='https://fonts.googleapis.com/css?family=Dancing+Script' rel='stylesheet' type='text/css'>
 	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}" />
 	<!-- Font Awesome CSS -->
-	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/font-awesome.min.css') }}" />
 	<!-- Owl Carousel CSS -->
-	<link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css" />
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/owl.carousel.min.css') }}" />
 	<!-- Animate CSS -->
-	<link rel="stylesheet" type="text/css" href="css/animate.min.css" />
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/animate.min.css') }}" />
 	<!-- simpleLens CSS -->
-	<link rel="stylesheet" type="text/css" href="css/jquery.simpleLens.css" />
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/jquery.simpleLens.css') }}" />
 	<!-- Price Slider CSS -->
-	<link rel="stylesheet" type="text/css" href="css/jquery-price-slider.css" />
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/jquery-price-slider.css" />') }}
 	<!-- MeanMenu CSS -->
-	<link rel="stylesheet" type="text/css" href="css/meanmenu.min.css" />
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/meanmenu.min.css') }}" />
 	<!-- Magnific Popup CSS -->
-	<link rel="stylesheet" type="text/css" href="css/magnific-popup.css" />
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/magnific-popup.css') }}" />
 	<!-- Nivo Slider CSS -->
-	<link rel="stylesheet" type="text/css" href="css/nivo-slider.css" />
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/nivo-slider.css') }}" />
 	<!-- Stylesheet CSS -->
-	<link rel="stylesheet" type="text/css" href="style.css" />
+	<link rel="stylesheet" type="text/css" href="{{ asset('style.css') }}" />
 	<!-- Responsive Stylesheet -->
-	<link rel="stylesheet" type="text/css" href="css/responsive.css" />
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/responsive.css') }}" />
 	<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 <body>
@@ -92,7 +92,7 @@
 			<div class="col-sm-4 col-lg-6">
 				<div class="logo text-center">
 					<a href="index.html">
-						<img src="img/header/logo.png" alt="" />
+						<img src="{{ asset('img/header/logo.png') }}" alt="" />
 						<h4>online jewelry store</h4>
 					</a>
 				</div>
@@ -106,12 +106,12 @@
 					<div class="cart-hover">
 						<ul class="header-cart-pro">
 							<li>
-								<div class="image"><a href="#"><img alt="cart item" src="img/cart-1.jpg"></a></div>
+								<div class="image"><a href="#"><img alt="cart item" src="{{ asset('img/cart-1.jpg') }}"></a></div>
 								<div class="content fix"><a href="#">Product Name</a><span class="price">Price: $130</span><span class="quantity">Quantity: 1</span></div>
 								<i class="fa fa-trash delete"></i>
 							</li>
 							<li>
-								<div class="image"><a href="#"><img alt="cart item" src="img/cart-2.jpg"></a></div>
+								<div class="image"><a href="#"><img alt="cart item" src="{{ asset('img/cart-2.jpg') }}"></a></div>
 								<div class="content fix"><a href="#">Product Name</a><span class="price">Price: $130</span><span class="quantity">Quantity: 2</span></div>
 								<i class="fa fa-trash delete"></i>
 							</li>
@@ -214,7 +214,7 @@
 										</ul>
 									</div>
 									<div class="column-4 column">
-										<a href="#"><img src="img/product/10.jpg" alt="" /></a>
+										<a href="#"><img src="{{ asset('img/product/10.jpg') }}" alt="" /></a>
 									</div>
 								</div>
 							</li>
@@ -420,46 +420,46 @@
 					<div class="tab-content details-pro-tab-content">
 						<div class="tab-pane fade in active" id="image-1">
 							<div class="simpleLens-big-image-container">
-								<a class="simpleLens-lens-image" data-lens-image="img/single-product/1.jpg">
-									<img src="img/single-product/1.jpg" alt="" class="simpleLens-big-image">
+								<a class="simpleLens-lens-image" data-lens-image="{{ asset('img/single-product/1.jpg') }}">
+									<img src="{{ asset('img/single-product/1.jpg') }}" alt="" class="simpleLens-big-image">
 								</a>
 							</div>
 						</div>
 						<div class="tab-pane fade" id="image-2">
 							<div class="simpleLens-big-image-container">
-								<a class="simpleLens-lens-image" data-lens-image="img/single-product/2.jpg">
-									<img src="img/single-product/2.jpg" alt="" class="simpleLens-big-image">
+								<a class="simpleLens-lens-image" data-lens-image="{{ asset('img/single-product/2.jpg') }}">
+									<img src="{{ asset('img/single-product/2.jpg') }}" alt="" class="simpleLens-big-image">
 								</a>
 							</div>
 						</div>
 						<div class="tab-pane fade" id="image-3">
 							<div class="simpleLens-big-image-container">
-								<a class="simpleLens-lens-image" data-lens-image="img/single-product/3.jpg">
-									<img src="img/single-product/3.jpg" alt="" class="simpleLens-big-image">
+								<a class="simpleLens-lens-image" data-lens-image="{{ asset('img/single-product/3.jpg') }}">
+									<img src="{{ asset('img/single-product/3.jpg') }}" alt="" class="simpleLens-big-image">
 								</a>
 							</div>
 						</div>
 						<div class="tab-pane fade" id="image-4">
 							<div class="simpleLens-big-image-container">
-								<a class="simpleLens-lens-image" data-lens-image="img/single-product/4.jpg">
-									<img src="img/single-product/4.jpg" alt="" class="simpleLens-big-image">
+								<a class="simpleLens-lens-image" data-lens-image="{{ asset('img/single-product/4.jpg') }}">
+									<img src="{{ asset('img/single-product/4.jpg') }}" alt="" class="simpleLens-big-image">
 								</a>
 							</div>
 						</div>
 					</div>
 					<!-- Nav tabs -->
 					<ul class="tabs-list details-pro-tab-list" role="tablist">
-						<li class="active"><a href="#image-1" data-toggle="tab"><img src="img/single-product/thumb-1.jpg" alt="" /></a></li>
-						<li><a href="#image-2" data-toggle="tab"><img src="img/single-product/thumb-2.jpg" alt="" /></a></li>
-						<li><a href="#image-3" data-toggle="tab"><img src="img/single-product/thumb-3.jpg" alt="" /></a></li>
-						<li><a href="#image-4" data-toggle="tab"><img src="img/single-product/thumb-4.jpg" alt="" /></a></li>
+						<li class="active"><a href="#image-1" data-toggle="tab"><img src="{{ asset('img/single-product/thumb-1.jpg') }}" alt="" /></a></li>
+						<li><a href="#image-2" data-toggle="tab"><img src="{{ asset('img/single-product/thumb-2.jpg') }}" alt="" /></a></li>
+						<li><a href="#image-3" data-toggle="tab"><img src="{{ asset('img/single-product/thumb-3.jpg') }}" alt="" /></a></li>
+						<li><a href="#image-4" data-toggle="tab"><img src="{{ asset('img/single-product/thumb-4.jpg') }}" alt="" /></a></li>
 					</ul>
 				</div>
 			</div>
 			<div class="col-sm-6">
 				<div class="shop-details">
 					<!-- Product Name -->
-					<h2>PRODUCT NAME DEMO</h2>
+					<h2>{{$product->prod_name}}</h2>
 					<!-- Product Ratting -->
 					<div class="pro-ratting">
 						<i class="on fa fa-star"></i>
@@ -468,7 +468,7 @@
 						<i class="on fa fa-star"></i>
 						<i class="on fa fa-star-half-o"></i>
 					</div>
-					<h3><span>$165</span>$150</h3>
+					<h3><span>{{$product->prod_MRP_price}}</span>$135</h3>
 					<h4>10 Reviews</h4>
 					<h5>Availability - <span>In Stock</span></h5>
 					<h6>QUICK OVERVIEW</h6>
@@ -549,7 +549,7 @@
 					<div class="product-item fix">
 						<div class="product-img-hover">
 							<!-- Product image -->
-							<a href="product-details.html" class="pro-image fix"><img src="img/product/1.jpg" alt="product" /></a>
+							<a href="product-details.html" class="pro-image fix"><img src="{{ asset('img/product/1.jpg') }}" alt="product" /></a>
 							<!-- Product action Btn -->
 							<div class="product-action-btn">
 								<a class="quick-view" href="#"><i class="fa fa-search"></i></a>
@@ -580,7 +580,7 @@
 					<div class="product-item fix">
 						<div class="product-img-hover">
 							<!-- Product image -->
-							<a href="product-details.html" class="pro-image fix"><img src="img/product/2.jpg" alt="product" /></a>
+							<a href="product-details.html" class="pro-image fix"><img src="{{ asset('img/product/2.jpg') }}" alt="product" /></a>
 							<!-- Product action Btn -->
 							<div class="product-action-btn">
 								<a class="quick-view" href="#"><i class="fa fa-search"></i></a>
@@ -611,7 +611,7 @@
 					<div class="product-item fix">
 						<div class="product-img-hover">
 							<!-- Product image -->
-							<a href="product-details.html" class="pro-image fix"><img src="img/product/3.jpg" alt="product" /></a>
+							<a href="product-details.html" class="pro-image fix"><img src="{{ asset('img/product/3.jpg') }}" alt="product" /></a>
 							<!-- Product action Btn -->
 							<div class="product-action-btn">
 								<a class="quick-view" href="#"><i class="fa fa-search"></i></a>
@@ -642,7 +642,7 @@
 					<div class="product-item fix">
 						<div class="product-img-hover">
 							<!-- Product image -->
-							<a href="product-details.html" class="pro-image fix"><img src="img/product/4.jpg" alt="product" /></a>
+							<a href="product-details.html" class="pro-image fix"><img src="{{ asset('img/product/4.jpg') }}" alt="product" /></a>
 							<!-- Product action Btn -->
 							<div class="product-action-btn">
 								<a class="quick-view" href="#"><i class="fa fa-search"></i></a>
@@ -673,7 +673,7 @@
 					<div class="product-item fix">
 						<div class="product-img-hover">
 							<!-- Product image -->
-							<a href="product-details.html" class="pro-image fix"><img src="img/product/5.jpg" alt="product" /></a>
+							<a href="product-details.html" class="pro-image fix"><img src="{{ asset('img/product/5.jpg') }}" alt="product" /></a>
 							<!-- Product action Btn -->
 							<div class="product-action-btn">
 								<a class="quick-view" href="#"><i class="fa fa-search"></i></a>
@@ -713,16 +713,16 @@
 				<div class="underline"></div>
 			</div>
 			<div class="brand-slider owl-carousel">
-				<div class="brand-item"><img src="img/brand/brand-1.png" alt="" /></div>
-				<div class="brand-item"><img src="img/brand/brand-2.png" alt="" /></div>
-				<div class="brand-item"><img src="img/brand/brand-3.png" alt="" /></div>
-				<div class="brand-item"><img src="img/brand/brand-4.png" alt="" /></div>
-				<div class="brand-item"><img src="img/brand/brand-5.png" alt="" /></div>
-				<div class="brand-item"><img src="img/brand/brand-1.png" alt="" /></div>
-				<div class="brand-item"><img src="img/brand/brand-2.png" alt="" /></div>
-				<div class="brand-item"><img src="img/brand/brand-3.png" alt="" /></div>
-				<div class="brand-item"><img src="img/brand/brand-4.png" alt="" /></div>
-				<div class="brand-item"><img src="img/brand/brand-5.png" alt="" /></div>
+				<div class="brand-item"><img src="{{ asset('img/brand/brand-1.png') }}" alt="" /></div>
+				<div class="brand-item"><img src="{{ asset('img/brand/brand-2.png') }}" alt="" /></div>
+				<div class="brand-item"><img src="{{ asset('img/brand/brand-3.png') }}" alt="" /></div>
+				<div class="brand-item"><img src="{{ asset('img/brand/brand-4.png') }}" alt="" /></div>
+				<div class="brand-item"><img src="{{ asset('img/brand/brand-5.png') }}" alt="" /></div>
+				<div class="brand-item"><img src="{{ asset('img/brand/brand-1.png') }}" alt="" /></div>
+				<div class="brand-item"><img src="{{ asset('img/brand/brand-2.png') }}" alt="" /></div>
+				<div class="brand-item"><img src="{{ asset('img/brand/brand-3.png') }}" alt="" /></div>
+				<div class="brand-item"><img src="{{ asset('img/brand/brand-4.png') }}" alt="" /></div>
+				<div class="brand-item"><img src="{{ asset('img/brand/brand-5.png') }}" alt="" /></div>
 			</div>
 		</div>
 	</div>
@@ -759,7 +759,7 @@
 			<div class="col-sm-6 col-md-3">
 				<div class="footer-about">
 					<div class="image">
-						<img src="img/header/logo.png" alt="" />
+						<img src="{{ asset('img/header/logo.png') }}" alt="" />
 						<h3>online jewelry store</h3>
 					</div>
 					<p>perspiciatis unde omnis iste natus error sit voluptatem accm doloremque antium, totam rem aperiam, eaque ipsa perspiciatis unde omnis iste</p>
@@ -858,11 +858,11 @@
 			<div class="col-sm-6">
 				<div class="payment">
 					<ul>
-						<li><a href="#"><img src="img/footer/paypal.jpg" alt="" /></a></li>
-						<li><a href="#"><img src="img/footer/visa.jpg" alt="" /></a></li>
-						<li><a href="#"><img src="img/footer/master.jpg" alt="" /></a></li>
-						<li><a href="#"><img src="img/footer/cards.jpg" alt="" /></a></li>
-						<li><a href="#"><img src="img/footer/discover.jpg" alt="" /></a></li>
+						<li><a href="#"><img src="{{ asset('img/footer/paypal.jpg') }}" alt="" /></a></li>
+						<li><a href="#"><img src="{{ asset('img/footer/visa.jpg') }}" alt="" /></a></li>
+						<li><a href="#"><img src="{{ asset('img/footer/master.jpg') }}" alt="" /></a></li>
+						<li><a href="#"><img src="{{ asset('img/footer/cards.jpg') }}" alt="" /></a></li>
+						<li><a href="#"><img src="{{ asset('img/footer/discover.jpg') }}" alt="" /></a></li>
 					</ul>
 				</div>
 			</div>
@@ -871,36 +871,36 @@
 </div><!--End Footer Area-->
 	
 <!-- jQuery 2.1.4 -->
-<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="{{ asset('js/jquery-2.1.4.min.js') }}"></script>
 <!-- Bootstrap JS -->
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
 <!-- Owl Carousel JS -->
-<script type="text/javascript" src="js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="{{ asset('js/owl.carousel.min.js') }}"></script>
 <!--countTo JS -->
-<script type="text/javascript" src="js/jquery.countTo.js"></script>
+<script type="text/javascript" src="{{ asset('js/jquery.countTo.js') }}"></script>
 <!-- mixitup JS -->
-<script type="text/javascript" src="js/jquery.mixitup.min.js"></script>
+<script type="text/javascript" src="{{ asset('js/jquery.mixitup.min.js') }}"></script>
 <!-- magnific popup JS -->
-<script type="text/javascript" src="js/jquery.magnific-popup.min.js"></script>
+<script type="text/javascript" src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
 <!-- Appear JS -->
-<script type="text/javascript" src="js/jquery.appear.js"></script>
+<script type="text/javascript" src="{{ asset('js/jquery.appear.js') }}"></script>
 <!-- MeanMenu JS -->
-<script type="text/javascript" src="js/jquery.meanmenu.min.js"></script>
+<script type="text/javascript" src="{{ asset('js/jquery.meanmenu.min.js') }}"></script>
 <!-- Nivo Slider JS -->
-<script type="text/javascript" src="js/jquery.nivo.slider.pack.js"></script>
+<script type="text/javascript" src="{{ asset('js/jquery.nivo.slider.pack.js') }}"></script>
 <!-- Scrollup JS -->
-<script type="text/javascript" src="js/jquery.scrollup.min.js"></script>
+<script type="text/javascript" src="{{ asset('js/jquery.scrollup.min.js') }}"></script>
 <!-- simpleLens JS -->
-<script type="text/javascript" src="js/jquery.simpleLens.min.js"></script>
+<script type="text/javascript" src="{{ asset('js/jquery.simpleLens.min.js') }}"></script>
 <!-- Price Slider JS -->
-<script type="text/javascript" src="js/jquery-price-slider.js"></script>
+<script type="text/javascript" src="{{ asset('js/jquery-price-slider.js') }}"></script>
 <!-- WOW JS -->
-<script type="text/javascript" src="js/wow.min.js"></script>
+<script type="text/javascript" src="{{ asset('js/wow.min.js') }}"></script>
 <script>
 	new WOW().init();
 </script>	
 <!-- Main JS -->
-<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
 
 </body>
 

@@ -460,7 +460,7 @@
 					<div class="product-item fix">
 						<div class="product-img-hover">
 							<!-- Product image -->
-							<a href="/product/{{$dt->prod_id}}" class="pro-image fix"><img src="img/featured/1.jpg" alt="featured" /></a>
+							<a href="/product-details/{{$dt->prod_id}}" class="pro-image fix"><img src="img/featured/1.jpg" alt="featured" /></a>
 							<!-- Product action Btn -->
 							<div class="product-action-btn">
 								<a class="quick-view" href="#"><i class="fa fa-search"></i></a>
@@ -471,7 +471,7 @@
 						<div class="pro-name-price-ratting">
 							<!-- Product Name -->
 							<div class="pro-name">
-								<a href="/product/{{$dt->prod_id}}">{{$dt->prod_name}}</a>
+								<a href="/product-details/{{$dt->prod_id}}">{{$dt->prod_name}}</a>
 							</div>
 							<!-- Product Ratting -->
 							<div class="pro-ratting">

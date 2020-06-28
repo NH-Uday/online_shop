@@ -15,3 +15,6 @@ Route::get('/logout','LogoutController@index')->name('logout.index');
 Route::get('/about',function(){
 	return view("about");
 });
+
+Route::get('product-details','productController@show');
+Route::get('product-details/{id}','productController@auth');
