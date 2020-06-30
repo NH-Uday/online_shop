@@ -6,8 +6,11 @@ Route::get('/','HomeController@index')->name('home.index');
 
 Route::get('/login','LoginController@login');
 Route::post('/login','LoginController@check');
-Route::get('/system/register','LoginController@register')->name('login.register');
-Route::post('/system/register','LoginController@registerCheck')->name('login.registerCheck');
+Route::post('/reg','LoginController@registerCheck')->name('login.registerCheck');
+
+Route::post('/unameChk','LoginController@unameCheck')->name('login.unameCheck');
+Route::post('/emailChk','LoginController@emailChk')->name('login.emailChk');
+Route::post('/contactCheck','LoginController@contactCheck')->name('login.contactCheck');
 
 
 

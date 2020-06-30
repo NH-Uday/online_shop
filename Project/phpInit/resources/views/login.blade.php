@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
 	<meta charset="UTF-8">
-	<title>Olongkar | Login & Reg</title>
+	<title>Shopify | Login & Reg</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Fav Icon -->
 	<link id="favicon" rel="icon" type="image/png" href="img/favicon.ico" />
@@ -32,6 +32,11 @@
 	<link rel="stylesheet" type="text/css" href="style.css" />
 	<!-- Responsive Stylesheet -->
 	<link rel="stylesheet" type="text/css" href="css/responsive.css" />
+	
+	<script src="{{asset('js/jquery-3.4.1.js')}}"></script>
+	<script src="{{asset('js/myScript.js')}}"></script>
+	<meta name="csrf-token" content="{{csrf_token()}}">
+	
 	<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 <body>
@@ -61,19 +66,7 @@
 			<div class="col-sm-12 col-md-4">
 				<div id="top-menu" class="float-right">
 					<ul>
-						<li><a href="">My Account</a></li>
-						<li><a href="">$USD <i class="fa fa-angle-down"></i></a>
-							<ul>
-								<li><a href="">Pound</a></li>
-								<li><a href="">BDT</a></li>
-							</ul>
-						</li>
-						<li><a href="">English(UK) <i class="fa fa-angle-down"></i></a>
-							<ul>
-								<li><a href="">English(USA)</a></li>
-								<li><a href="">Bangla</a></li>
-							</ul>
-						</li>
+						<li><a href="/">Visit as a guest</a></li>
 					</ul>
 				</div>
 			</div>
@@ -90,7 +83,7 @@
 			</div>
 			<div class="col-sm-4 col-lg-6">
 				<div class="logo text-center">
-					<a href="index.html">
+					<a href="/">
 						<img src="img/header/logo.png" alt="" />
 						<h4>online jewelry store</h4>
 					</a>
@@ -187,29 +180,29 @@
 								<div class="mega-menu mega-menu-1">
 									<div class="column-1 column">
 										<ul>
-											<li><a href="shop-list.html">rings</a></li>
-											<li><a href="shop-left-sidebar.html">diamond ring</a></li>
-											<li><a href="shop-right-sidebar.html">gold ring</a></li>
-											<li><a href="shop-list.html">sliver ring</a></li>
-											<li><a href="shop-left-sidebar.html">Platinum ring</a></li>
+											<li><a href="shop-list.html">Category 1</a></li>
+											<li><a href="shop-left-sidebar.html">Sub 1</a></li>
+											<li><a href="shop-right-sidebar.html">Sub 2</a></li>
+											<li><a href="shop-list.html">Sub 3</a></li>
+											<li><a href="shop-left-sidebar.html">Sub 4</a></li>
 										</ul>
 									</div>
 									<div class="column-2 column">
 										<ul>
-											<li><a href="shop-list.html">Bracelets</a></li>
-											<li><a href="shop-left-sidebar.html">diamond Bracelets</a></li>
-											<li><a href="shop-right-sidebar.html">gold Bracelets</a></li>
-											<li><a href="shop-left-sidebar.html">sliver Bracelets</a></li>
-											<li><a href="shop-right-sidebar.html">Platinum Bracelets</a></li>
+											<li><a href="shop-list.html">Category 2</a></li>
+											<li><a href="shop-left-sidebar.html">Sub 1</a></li>
+											<li><a href="shop-right-sidebar.html">Sub 2</a></li>
+											<li><a href="shop-left-sidebar.html">Sub 3</a></li>
+											<li><a href="shop-right-sidebar.html">Sub 4</a></li>
 										</ul>
 									</div>
 									<div class="column-3 column">
 										<ul>
-											<li><a href="shop-list.html">lecklaces</a></li>
-											<li><a href="shop-right-sidebar.html">diamond lecklaces</a></li>
-											<li><a href="shop-left-sidebar.html">gold lecklaces</a></li>
-											<li><a href="shop-right-sidebar.html">sliver lecklaces</a></li>
-											<li><a href="shop-left-sidebar.html">Platinum lecklaces</a></li>
+											<li><a href="shop-list.html">Category 3</a></li>
+											<li><a href="shop-right-sidebar.html">Sub 1</a></li>
+											<li><a href="shop-left-sidebar.html">Sub 2</a></li>
+											<li><a href="shop-right-sidebar.html">Sub 3</a></li>
+											<li><a href="shop-left-sidebar.html">Sub 4</a></li>
 										</ul>
 									</div>
 									<div class="column-4 column">
@@ -221,38 +214,38 @@
 								<div class="mega-menu mega-menu-1">
 									<div class="column-1 column">
 										<ul>
-											<li><a href="shop-list.html">rings</a></li>
-											<li><a href="shop-left-sidebar.html">diamond ring</a></li>
-											<li><a href="shop-right-sidebar.html">gold ring</a></li>
-											<li><a href="shop-list.html">sliver ring</a></li>
-											<li><a href="shop-left-sidebar.html">Platinum ring</a></li>
+											<li><a href="shop-list.html">Category 1</a></li>
+											<li><a href="shop-left-sidebar.html">Sub 1</a></li>
+											<li><a href="shop-right-sidebar.html">Sub 2</a></li>
+											<li><a href="shop-list.html">Sub 3</a></li>
+											<li><a href="shop-left-sidebar.html">Sub 4</a></li>
 										</ul>
 									</div>
 									<div class="column-2 column">
 										<ul>
-											<li><a href="shop-list.html">Bracelets</a></li>
-											<li><a href="shop-left-sidebar.html">diamond Bracelets</a></li>
-											<li><a href="shop-right-sidebar.html">gold Bracelets</a></li>
-											<li><a href="shop-left-sidebar.html">sliver Bracelets</a></li>
-											<li><a href="shop-right-sidebar.html">Platinum Bracelets</a></li>
+											<li><a href="shop-list.html">Category 2</a></li>
+											<li><a href="shop-left-sidebar.html">Sub 1</a></li>
+											<li><a href="shop-right-sidebar.html">Sub 2</a></li>
+											<li><a href="shop-left-sidebar.html">Sub 3</a></li>
+											<li><a href="shop-right-sidebar.html">Sub 4</a></li>
 										</ul>
 									</div>
 									<div class="column-3 column">
 										<ul>
-											<li><a href="shop-list.html">lecklaces</a></li>
-											<li><a href="shop-right-sidebar.html">diamond lecklaces</a></li>
-											<li><a href="shop-left-sidebar.html">gold lecklaces</a></li>
-											<li><a href="shop-right-sidebar.html">sliver lecklaces</a></li>
-											<li><a href="shop-left-sidebar.html">Platinum lecklaces</a></li>
+											<li><a href="shop-list.html">Category 3</a></li>
+											<li><a href="shop-right-sidebar.html">Sub 1</a></li>
+											<li><a href="shop-left-sidebar.html">Sub 2</a></li>
+											<li><a href="shop-right-sidebar.html">Sub 3</a></li>
+											<li><a href="shop-left-sidebar.html">Sub 4</a></li>
 										</ul>
 									</div>
 									<div class="column-4 column">
 										<ul>
-											<li><a href="shop-right-sidebar.html">earrings</a></li>
-											<li><a href="shop-list.html">diamond earrings</a></li>
-											<li><a href="shop-left-sidebar.html">gold earrings</a></li>
-											<li><a href="shop-list.html">sliver earrings</a></li>
-											<li><a href="shop-left-sidebar.html">Platinum earrings</a></li>
+											<li><a href="shop-right-sidebar.html">Category 4</a></li>
+											<li><a href="shop-left-sidebar.html">Sub 1</a></li>
+											<li><a href="shop-right-sidebar.html">Sub 2</a></li>
+											<li><a href="shop-list.html">Sub 3</a></li>
+											<li><a href="shop-left-sidebar.html">Sub 4</a></li>
 										</ul>
 									</div>
 								</div>
@@ -428,9 +421,9 @@
 							<a id="twitter" href="#"><i class="fa fa-twitter"></i>Sign In with Twitter</a>
 						</div>
 						<label>E-mail Address or Username<span>*</span></label>
-						<input type="text" name="identity" />
+						<input type="text" name="identity" required />
 						<label>Password<span>*</span></label>
-						<input type="password" name="pass" />
+						<input type="password" name="pass" required />
 						<div class="remember">
 							<input type="checkbox" />
 							<p>Remember me!</p>
@@ -443,15 +436,27 @@
 			<div class="col-md-2"></div>
 			<div class="col-sm-6 col-md-5">
 				<div class="login">
-					<form id="signup-form" action="#">
+					<form id="signup-form" action="/reg" method="post" name="reg">
+						@csrf
 						<h2>Create A new Account</h2>
 						<p>Create your own account</p>
-						<label>E-mail Address<span>*</span></label>
-						<input type="text" />
-						<label>Password<span>*</span></label>
-						<input type="password" />
-						<label>Confirm Password<span>*</span></label>
-						<input type="password" />
+						<p style="color:red;">@foreach($errors->all() as $err)
+							{{$err}} <br>
+								@endforeach</p>
+						<label id="unameLbl">Username<span>*</span></label>
+						<input type="text" name="username" onkeyup="unameChk('{{csrf_token()}}')" />
+						<label id="emailLbl">E-mail Address<span>*</span></label>
+						<input type="text" name="email" onkeyup="emailChk('{{csrf_token()}}')"/>
+						<label id="contactLbl">Contact Number<span>*</span></label>
+						<input type="text" name="contact" onkeyup="contactChk('{{csrf_token()}}')"/>
+						
+						<label id="addressLbl">Address</label>
+						<input type="text" name="address"/><br/><br/><br/>
+						
+						<label id="pass1Lbl">Password<span>*</span></label>
+						<input type="password" name="pass1" onkeyup="passChk('{{csrf_token()}}')" />
+						<label id="pass2Lbl">Confirm Password<span>*</span></label>
+						<input type="password" name="pass2" required />
 						<input type="submit" value="Sign up" />
 					</form>
 				</div>

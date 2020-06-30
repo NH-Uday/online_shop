@@ -61,18 +61,17 @@
 			<div class="col-sm-12 col-md-4">
 				<div id="top-menu" class="float-right">
 					<ul>
-						<li><a href="">My Account</a></li>
-						<li><a href="">$USD <i class="fa fa-angle-down"></i></a>
-							<ul>
-								<li><a href="">Pound</a></li>
-								<li><a href="">BDT</a></li>
-							</ul>
-						</li>
-						<li><a href="">English(UK) <i class="fa fa-angle-down"></i></a>
-							<ul>
-								<li><a href="">English(USA)</a></li>
-								<li><a href="">Bangla</a></li>
-							</ul>
+						<li>@if(isset($userData))
+							<li><a href="/profile">{{$userData->username}} <i class="fa fa-angle-down"></i></a>
+								<ul>
+									<li><a href="/profile">Profile</a></li>
+									<li><a href="/wishlist">Wishlists</a></li>
+									<li><a href="/logout">Logout</a></li>
+								</ul>
+							</li>
+							@else
+								<a href="/login">Do you have an Account? or Sign Up</a>
+							@endif
 						</li>
 					</ul>
 				</div>
@@ -84,14 +83,16 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-4 col-lg-3">
+				@if(!isset($userData))
 				<div class="log-link">
 					<p>Well come visitor you can</p>
-					<h5><a href="login.html">Login</a> or <a href="login.html">Create an account</a></h5>
+					<h5><a href="/login">Login</a> or <a href="/login">Create an account</a></h5>
 				</div>
+				@endif
 			</div>
 			<div class="col-sm-4 col-lg-6">
 				<div class="logo text-center">
-					<a href="index.html">
+					<a href="/">
 						<img src="{{ asset('img/header/logo.png') }}" alt="" />
 						<h4>online jewelry store</h4>
 					</a>
@@ -137,9 +138,9 @@
 				<div class="main-menu hidden-sm hidden-xs">
 					<nav>
 						<ul>
-							<li><a href="index.html" class="active">Home</a>
+							<li><a href="/" class="active">Home</a>
 								<ul class="sub-menu">
-									<li><a href="index.html">Home 1</a></li>
+									<li><a href="/">Home 1</a></li>
 									<li><a href="index-2.html">Home 2</a></li>
 									<li><a href="index-3.html">Home 3</a></li>
 								</ul>
@@ -188,33 +189,33 @@
 								<div class="mega-menu mega-menu-1">
 									<div class="column-1 column">
 										<ul>
-											<li><a href="shop-list.html">rings</a></li>
-											<li><a href="shop-left-sidebar.html">diamond ring</a></li>
-											<li><a href="shop-right-sidebar.html">gold ring</a></li>
-											<li><a href="shop-list.html">sliver ring</a></li>
-											<li><a href="shop-left-sidebar.html">Platinum ring</a></li>
+											<li><a href="shop-list.html">Category 1</a></li>
+											<li><a href="shop-left-sidebar.html">Sub 1</a></li>
+											<li><a href="shop-right-sidebar.html">Sub 2</a></li>
+											<li><a href="shop-list.html">Sub 3</a></li>
+											<li><a href="shop-left-sidebar.html">Sub 4</a></li>
 										</ul>
 									</div>
 									<div class="column-2 column">
 										<ul>
-											<li><a href="shop-list.html">Bracelets</a></li>
-											<li><a href="shop-left-sidebar.html">diamond Bracelets</a></li>
-											<li><a href="shop-right-sidebar.html">gold Bracelets</a></li>
-											<li><a href="shop-left-sidebar.html">sliver Bracelets</a></li>
-											<li><a href="shop-right-sidebar.html">Platinum Bracelets</a></li>
+											<li><a href="shop-list.html">Category 2</a></li>
+											<li><a href="shop-left-sidebar.html">Sub 1</a></li>
+											<li><a href="shop-right-sidebar.html">Sub 2</a></li>
+											<li><a href="shop-left-sidebar.html">Sub 3</a></li>
+											<li><a href="shop-right-sidebar.html">Sub 4</a></li>
 										</ul>
 									</div>
 									<div class="column-3 column">
 										<ul>
-											<li><a href="shop-list.html">lecklaces</a></li>
-											<li><a href="shop-right-sidebar.html">diamond lecklaces</a></li>
-											<li><a href="shop-left-sidebar.html">gold lecklaces</a></li>
-											<li><a href="shop-right-sidebar.html">sliver lecklaces</a></li>
-											<li><a href="shop-left-sidebar.html">Platinum lecklaces</a></li>
+											<li><a href="shop-list.html">Category 3</a></li>
+											<li><a href="shop-right-sidebar.html">Sub 1</a></li>
+											<li><a href="shop-left-sidebar.html">Sub 2</a></li>
+											<li><a href="shop-right-sidebar.html">Sub 3</a></li>
+											<li><a href="shop-left-sidebar.html">Sub 4</a></li>
 										</ul>
 									</div>
 									<div class="column-4 column">
-										<a href="#"><img src="{{ asset('img/product/10.jpg') }}" alt="" /></a>
+										<a href="#"><img src="img/product/10.jpg" alt="" /></a>
 									</div>
 								</div>
 							</li>
@@ -222,38 +223,38 @@
 								<div class="mega-menu mega-menu-1">
 									<div class="column-1 column">
 										<ul>
-											<li><a href="shop-list.html">rings</a></li>
-											<li><a href="shop-left-sidebar.html">diamond ring</a></li>
-											<li><a href="shop-right-sidebar.html">gold ring</a></li>
-											<li><a href="shop-list.html">sliver ring</a></li>
-											<li><a href="shop-left-sidebar.html">Platinum ring</a></li>
+											<li><a href="shop-list.html">Category 1</a></li>
+											<li><a href="shop-left-sidebar.html">Sub 1</a></li>
+											<li><a href="shop-right-sidebar.html">Sub 2</a></li>
+											<li><a href="shop-list.html">Sub 3</a></li>
+											<li><a href="shop-left-sidebar.html">Sub 4</a></li>
 										</ul>
 									</div>
 									<div class="column-2 column">
 										<ul>
-											<li><a href="shop-list.html">Bracelets</a></li>
-											<li><a href="shop-left-sidebar.html">diamond Bracelets</a></li>
-											<li><a href="shop-right-sidebar.html">gold Bracelets</a></li>
-											<li><a href="shop-left-sidebar.html">sliver Bracelets</a></li>
-											<li><a href="shop-right-sidebar.html">Platinum Bracelets</a></li>
+											<li><a href="shop-list.html">Category 2</a></li>
+											<li><a href="shop-left-sidebar.html">Sub 1</a></li>
+											<li><a href="shop-right-sidebar.html">Sub 2</a></li>
+											<li><a href="shop-left-sidebar.html">Sub 3</a></li>
+											<li><a href="shop-right-sidebar.html">Sub 4</a></li>
 										</ul>
 									</div>
 									<div class="column-3 column">
 										<ul>
-											<li><a href="shop-list.html">lecklaces</a></li>
-											<li><a href="shop-right-sidebar.html">diamond lecklaces</a></li>
-											<li><a href="shop-left-sidebar.html">gold lecklaces</a></li>
-											<li><a href="shop-right-sidebar.html">sliver lecklaces</a></li>
-											<li><a href="shop-left-sidebar.html">Platinum lecklaces</a></li>
+											<li><a href="shop-list.html">Category 3</a></li>
+											<li><a href="shop-right-sidebar.html">Sub 1</a></li>
+											<li><a href="shop-left-sidebar.html">Sub 2</a></li>
+											<li><a href="shop-right-sidebar.html">Sub 3</a></li>
+											<li><a href="shop-left-sidebar.html">Sub 4</a></li>
 										</ul>
 									</div>
 									<div class="column-4 column">
 										<ul>
-											<li><a href="shop-right-sidebar.html">earrings</a></li>
-											<li><a href="shop-list.html">diamond earrings</a></li>
-											<li><a href="shop-left-sidebar.html">gold earrings</a></li>
-											<li><a href="shop-list.html">sliver earrings</a></li>
-											<li><a href="shop-left-sidebar.html">Platinum earrings</a></li>
+											<li><a href="shop-right-sidebar.html">Category 4</a></li>
+											<li><a href="shop-left-sidebar.html">Sub 1</a></li>
+											<li><a href="shop-right-sidebar.html">Sub 2</a></li>
+											<li><a href="shop-list.html">Sub 3</a></li>
+											<li><a href="shop-left-sidebar.html">Sub 4</a></li>
 										</ul>
 									</div>
 								</div>
@@ -284,9 +285,9 @@
 				<div class="mobile-menu hidden-md hidden-lg">
 					<nav>
 						<ul>
-							<li><a href="index.html" class="active">Home</a>
+							<li><a href="/" class="active">Home</a>
 								<ul>
-									<li><a href="index.html">Home 1</a></li>
+									<li><a href="/">Home 1</a></li>
 									<li><a href="index-2.html">Home 2</a></li>
 									<li><a href="index-3.html">Home 3</a></li>
 								</ul>
@@ -511,6 +512,7 @@
 					</div>
 				</div>
 			</div>
+			
 			<div class="col-sm-12 fix">
 				<div class="description">
 					<!-- Nav tabs -->
@@ -539,9 +541,10 @@
 					</div>
 				</div>
 			</div>
+			
 			<div class="col-md-12 fix">
 				<div class="section-title">
-					<h2>RELATEDE PRODUCT</h2>
+					<h2>RELATED PRODUCT</h2>
 					<div class="underline"></div>
 				</div>
 				<div class="related-pro-slider owl-carousel">
@@ -702,9 +705,60 @@
 					</div><!-- Single Product End -->
 				</div>
 			</div>
+			
+			@if(isset($historyData))
+			<div class="col-md-12 fix">
+				<div class="section-title">
+					<h2>Products you visited</h2>
+					<div class="underline"></div>
+				</div>
+				<div class="related-pro-slider owl-carousel">
+					
+					@foreach($historyData as $dt)
+					<!-- Single Product Start -->
+					<div class="product-item fix">
+						<div class="product-img-hover">
+							<!-- Product image -->
+							<a href="/product-details/{{$dt->prod_id}}" class="pro-image fix"><img src="{{ asset('img/product/1.jpg') }}" alt="product" /></a>
+							<!-- Product action Btn -->
+							<div class="product-action-btn">
+								<a class="quick-view" href="#"><i class="fa fa-search"></i></a>
+								<a class="favorite" href="#"><i class="fa fa-heart-o"></i></a>
+								<a class="add-cart" href="#"><i class="fa fa-shopping-cart"></i></a>
+							</div>
+						</div>
+						<div class="pro-name-price-ratting">
+							<!-- Product Name -->
+							<div class="pro-name">
+								<a "/product-details/{{$dt->prod_id}}">{{$dt->prod_name}}</a>
+							</div>
+							<!-- Product Ratting -->
+							<div class="pro-ratting">
+								<i class="on fa fa-star"></i>
+								<i class="on fa fa-star"></i>
+								<i class="on fa fa-star"></i>
+								<i class="on fa fa-star"></i>
+								<i class="on fa fa-star-half-o"></i>
+							</div>
+							<!-- Product Price -->
+							<div class="pro-price fix">
+								<p><span class="old">$165</span><span class="new">${{$dt->prod_MRP_price}}</span></p>
+							</div>
+						</div>
+					</div><!-- Single Product End -->
+					@endforeach
+					
+					
+				</div>
+			</div>
+			@endif
+			
 		</div>
 	</div>
+	
 </section><!--End Product Details Area-->
+
+
 <div class="brand-area section fix"><!--Start Brand Area-->
 	<div class="container">
 		<div class="row">
@@ -798,7 +852,7 @@
 				<div class="footer-quick-link footer-links">
 					<h2>QUICK LINK</h2>
 					<ul>
-						<li><a href="index.html">Home</a></li>
+						<li><a href="/">Home</a></li>
 						<li><a href="shop.html">Shop</a></li>
 						<li><a href="shop-left-sidebar.html">New Arrivals</a></li>
 						<li><a href="services.html">Services</a></li>	
