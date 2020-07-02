@@ -29,18 +29,30 @@ class productController extends Controller
 			
 			$product = DB::table('tbl_prod_details')
                     ->where('prod_id', $id)->first();
-            
-			return view('/product-details',['prodData'=>$product, 'userData'=>$userData, 'historyData'=>$historyData])->with(compact('product'));
+
+            $stock = DB::table('tbl_prod_details')
+                    ->where('prod_id', $id)->sum('prod_qty');
+
+            $relatedProduct = DB::table('tbl_prod_details')
+            		->where('prod_id','!=',$id)->where(['prod_cat'=>$product->prod_cat])->get();
+
+
+			return view('/product-details',['prodData'=>$product, 'stock'=>$stock, 'userData'=>$userData, 'historyData'=>$historyData])->with(compact('product','stock','relatedProduct'));
 			
 		}else{
 			
 			$product = DB::table('tbl_prod_details')
                     ->where('prod_id', $id)->first();
-            
-			return view('/product-details',['prodData'=>$product])->with(compact('product'));
+
+            $stock = DB::table('tbl_prod_details')
+                    ->where('prod_id', $id)->sum('prod_qty');
+
+            $relatedProduct = DB::table('tbl_prod_details')
+            		->where('prod_id','!=',$id)->where(['prod_cat'=>$product->prod_cat])->get();
+
+
+			return view('/product-details',['stock'=>$stock, 'prodData'=>$product])->with(compact('product','stock','relatedProduct'));
 			
-		}
-		
-    	
+		}	   	
     }
 }

@@ -469,11 +469,11 @@
 						<i class="on fa fa-star"></i>
 						<i class="on fa fa-star-half-o"></i>
 					</div>
-					<h3><span>{{$product->prod_MRP_price}}</span>$135</h3>
-					<h4>10 Reviews</h4>
-					<h5>Availability - <span>In Stock</span></h5>
+					<h3><span>{{$product->prod_MRP_price}}</span>{{$product->prod_SELLER_price}}</h3>
+					<h4>10 Reviews</h4>	
+					<h5>Availability - @if($stock>0) In Stock @else Out of Stock @endif</h5> 
 					<h6>QUICK OVERVIEW</h6>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco aboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepte.</p>
+					<p>{{$product->prod_details}}</p>
 					<div class="select-menu fix">
 						<div class="sort fix">
 							<h4>SIZE</h4>
@@ -525,8 +525,7 @@
 					<!-- Tab panes -->
 					<div class="tab-content">
 						<div id="description" class="tab-pane fade active in" role="tabpanel">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco aboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepte.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamc.</p>
+							<p>{{$product->prod_description}}</p>
 						</div>
 						<div id="review" class="tab-pane fade" role="tabpanel">
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco aboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepte.</p>
@@ -549,10 +548,11 @@
 				</div>
 				<div class="related-pro-slider owl-carousel">
 					<!-- Single Product Start -->
+					@foreach($relatedProduct as $dt)
 					<div class="product-item fix">
 						<div class="product-img-hover">
 							<!-- Product image -->
-							<a href="product-details.html" class="pro-image fix"><img src="{{ asset('img/product/1.jpg') }}" alt="product" /></a>
+							<a href="/product-details/{{$dt->prod_id}}" class="pro-image fix"><img src="{{ asset('img/product/1.jpg') }}" alt="product" /></a>
 							<!-- Product action Btn -->
 							<div class="product-action-btn">
 								<a class="quick-view" href="#"><i class="fa fa-search"></i></a>
@@ -563,7 +563,7 @@
 						<div class="pro-name-price-ratting">
 							<!-- Product Name -->
 							<div class="pro-name">
-								<a href="product-details.html">Product Name Demo</a>
+								<a href="/product-details/{{$dt->prod_id}}">{{$dt->prod_name}}</a>
 							</div>
 							<!-- Product Ratting -->
 							<div class="pro-ratting">
@@ -575,10 +575,11 @@
 							</div>
 							<!-- Product Price -->
 							<div class="pro-price fix">
-								<p><span class="old">$165</span><span class="new">$150</span></p>
+								<p><span class="old">{{$dt->prod_MRP_price}}</span><span class="new">{{$dt->prod_SELLER_price}}</span></p>
 							</div>
 						</div>
 					</div><!-- Single Product End -->
+					@endforeach
 					<!-- Single Product Start -->
 					<div class="product-item fix">
 						<div class="product-img-hover">

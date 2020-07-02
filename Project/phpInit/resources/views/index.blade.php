@@ -492,7 +492,7 @@
 							</div>
 							<!-- Product Price -->
 							<div class="pro-price fix">
-								<p><span class="old">$200</span><span class="new">{{$dt->prod_MRP_price}}</span></p>
+								<p><span class="old">{{$dt->prod_MRP_price}}</span><span class="new">{{$dt->prod_SELLER_price}}</span></p>
 							</div>
 						</div>
 					</div><!-- Single Product End -->
