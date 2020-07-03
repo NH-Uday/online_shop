@@ -36,7 +36,6 @@ class productController extends Controller
             $relatedProduct = DB::table('tbl_prod_details')
             		->where('prod_id','!=',$id)->where(['prod_cat'=>$product->prod_cat])->get();
 
-
 			return view('/product-details',['prodData'=>$product, 'stock'=>$stock, 'userData'=>$userData, 'historyData'=>$historyData])->with(compact('product','stock','relatedProduct'));
 			
 		}else{

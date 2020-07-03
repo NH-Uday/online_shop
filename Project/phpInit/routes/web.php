@@ -21,3 +21,5 @@ Route::get('/about',function(){
 
 Route::get('product-details','productController@show');
 Route::get('product-details/{id}','productController@auth');
+
+Route::get('addProduct','addProductdetails@show');
