@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 30, 2020 at 01:33 PM
--- Server version: 10.1.28-MariaDB
--- PHP Version: 7.1.11
+-- Generation Time: Jul 07, 2020 at 07:58 PM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -107,6 +107,7 @@ CREATE TABLE `tbl_prod_details` (
   `prod_id` int(11) NOT NULL,
   `prod_name` varchar(120) DEFAULT NULL,
   `prod_details` varchar(768) NOT NULL,
+  `prod_description` mediumtext NOT NULL,
   `prod_MRP_price` varchar(50) DEFAULT NULL,
   `prod_SELLER_price` varchar(20) DEFAULT NULL,
   `prod_qty` int(11) DEFAULT NULL,
@@ -120,38 +121,38 @@ CREATE TABLE `tbl_prod_details` (
 -- Dumping data for table `tbl_prod_details`
 --
 
-INSERT INTO `tbl_prod_details` (`prod_id`, `prod_name`, `prod_details`, `prod_MRP_price`, `prod_SELLER_price`, `prod_qty`, `prod_image`, `created_date`, `prod_shop`, `prod_cat`) VALUES
-(1, 'Lixiandi pearl whitening cream', '', '150', NULL, 10, NULL, '2020-03-27 17:18:00', 'jamijoy', 'Category 1'),
-(2, 'Lanxi cherry kiwi tomato whitening cream', '', '180', NULL, 10, NULL, '2020-03-27 17:18:00', 'jamijoy', 'Category 1'),
-(3, 'Lanxi apple and gingo whitening cream', '', '170', NULL, 10, NULL, '2020-03-27 17:18:00', 'jamijoy', 'Category 1'),
-(4, 'kim whitening pearl cream', '', '122', NULL, 18, NULL, '2020-03-27 17:18:00', 'jamijoy', 'Category 1'),
-(5, 'Aichun beauty whitening face cream', '', '182', NULL, 20, NULL, '2020-03-27 17:18:00', 'jamijoy', 'Category 1'),
-(6, 'Lanxi ginseng whitening beauty melatonin cream', '', '182', NULL, 20, NULL, '2020-03-27 17:18:00', 'jamijoy', 'Category 1'),
-(7, 'Dermeinaier egg shell yeast mask cream', '', '110', NULL, 10, NULL, '2020-03-27 17:18:00', 'jamijoy', 'Category 1'),
-(8, 'Bio active facial ehitening cream for men', '', '170', NULL, 6, NULL, '2020-03-27 17:18:00', 'jamijoy', 'Category 2'),
-(9, 'Bio active face whitening cream', '', '180', NULL, 6, NULL, '2020-03-27 17:18:00', 'jamijoy', 'Category 2'),
-(10, 'ALIKE boost luster Superior whitening cream', '', '110', NULL, 6, NULL, '2020-03-27 17:18:00', 'jamijoy', 'Category 2'),
-(11, '7 days plastic whitening regeneration cream', '', '150', NULL, 6, NULL, '2020-03-27 17:18:00', 'jamijoy', 'Category 2'),
-(12, 'Garnier light complete farness cream', '', '180', NULL, 4, NULL, '2020-03-27 17:18:00', 'jamijoy', 'Category 2'),
-(13, 'zafran whitening cream', '', '120', NULL, 4, NULL, '2020-03-27 17:18:00', 'jamijoy', 'Category 2'),
-(14, 'Gul white 7 in 1 cream', '', '110', NULL, 11, NULL, '2020-03-27 17:18:00', 'jamijoy', 'Category 2'),
-(15, '4k plus whitening cream', '', '150', NULL, 10, NULL, '2020-03-27 17:18:00', 'jamijoy', 'Category 2'),
-(16, 'Cathy doll L-Glutathione Magic cream', '', '120', NULL, 10, NULL, '2020-03-27 17:18:00', 'jamijoy', 'Category 2'),
-(17, 'Egg white & Cherry whitening cream', '', '110', NULL, 5, NULL, '2020-03-27 17:18:00', 'jamijoy', 'Category 3'),
-(18, 'lanting Birds nest whitening cream', '', '160', NULL, 11, NULL, '2020-03-27 17:18:00', 'jamijoy', 'Category 3'),
-(19, 'Yc whitenimg Total Fairness cream & Herbal formula', '', '160', NULL, 18, NULL, '2020-03-27 17:18:00', 'jamijoy', 'Category 3'),
-(20, 'U white peral cream Ginseng whitening cream', '', '120', NULL, 12, NULL, '2020-03-27 17:18:00', 'jamijoy', 'Category 3'),
-(21, 'Whitening Rose Beauty cream', '', '110', NULL, 12, NULL, '2020-03-28 17:50:00', 'jamijoy', 'Category 3'),
-(22, 'Berry plus Extra  whitening cream', '', '110', NULL, 11, NULL, '2020-03-28 17:46:00', 'jamijoy', 'Category 3'),
-(23, 'Collagen Deep cleansing snail whitening cream', '', '140', NULL, 11, NULL, '2020-03-28 17:45:00', 'jamijoy', 'Category 3'),
-(24, '2 pcs FEIQUE herbal extract skin whitening Anti-Freckle cream', '', '110', NULL, 11, NULL, '2020-03-28 17:42:00', 'jamijoy', 'Category 3'),
-(25, 'Lanxi pearl whitening Beauty Melatonin cream', '', '140', NULL, 14, NULL, '2020-03-28 17:40:00', 'jamijoy', 'Category 4'),
-(26, 'Lanxi Birds Nest whitenimg cream', '', '140', NULL, 14, NULL, '2020-03-28 17:38:00', 'jamijoy', 'Category 4'),
-(27, 'Body Cream NO-1 ..Vietnam Whitening cream', '', '120', NULL, 14, NULL, '2020-03-28 17:28:00', 'jamijoy', 'Category 4'),
-(28, 'Cherry whitening Beauty Melatonin cream', '', '170', NULL, 14, NULL, '2020-03-28 17:10:00', 'jamijoy', 'Category 4'),
-(29, 'LAB-Y whitening Booster body cream', '', '120', NULL, 14, NULL, '2020-03-28 17:18:00', 'jamijoy', 'Category 4'),
-(30, 'Biocos beauty cream', '', '110', NULL, 14, NULL, '2020-03-29 17:18:00', 'jamijoy', 'Category 4'),
-(42, 'Hola Biscuit', '', '60', NULL, 25, NULL, '2020-03-31 02:22:00', 'jami 2', 'Category 4');
+INSERT INTO `tbl_prod_details` (`prod_id`, `prod_name`, `prod_details`, `prod_description`, `prod_MRP_price`, `prod_SELLER_price`, `prod_qty`, `prod_image`, `created_date`, `prod_shop`, `prod_cat`) VALUES
+(1, 'Lixiandi pearl whitening cream', 'Top product.', 'MacBook. The MacBook is a brand of Macintosh laptop computers by Apple Inc. that merged the PowerBook and iBook lines during Apple\'s transition to Intel processors. The current lineup consists of the MacBook Air (2008–present) and the MacBook Pro (2006–present).', '150', '135', 10, NULL, '2020-03-27 17:18:00', 'jamijoy', 'Category 1'),
+(2, 'Lanxi cherry kiwi tomato whitening cream', 'Top product.', 'MacBook. The MacBook is a brand of Macintosh laptop computers by Apple Inc. that merged the PowerBook and iBook lines during Apple\'s transition to Intel processors. The current lineup consists of the MacBook Air (2008–present) and the MacBook Pro (2006–present).', '180', '155', 10, NULL, '2020-03-27 17:18:00', 'jamijoy', 'Category 1'),
+(3, 'Lanxi apple and gingo whitening cream', 'Top product.', 'MacBook. The MacBook is a brand of Macintosh laptop computers by Apple Inc. that merged the PowerBook and iBook lines during Apple\'s transition to Intel processors. The current lineup consists of the MacBook Air (2008–present) and the MacBook Pro (2006–present).', '170', '135', 10, NULL, '2020-03-27 17:18:00', 'jamijoy', 'Category 1'),
+(4, 'kim whitening pearl cream', 'Top product.', 'MacBook. The MacBook is a brand of Macintosh laptop computers by Apple Inc. that merged the PowerBook and iBook lines during Apple\'s transition to Intel processors. The current lineup consists of the MacBook Air (2008–present) and the MacBook Pro (2006–present).', '122', '100', 18, NULL, '2020-03-27 17:18:00', 'jamijoy', 'Category 1'),
+(5, 'Aichun beauty whitening face cream', 'Top product.', 'MacBook. The MacBook is a brand of Macintosh laptop computers by Apple Inc. that merged the PowerBook and iBook lines during Apple\'s transition to Intel processors. The current lineup consists of the MacBook Air (2008–present) and the MacBook Pro (2006–present).', '182', '140', 20, NULL, '2020-03-27 17:18:00', 'jamijoy', 'Category 1'),
+(6, 'Lanxi ginseng whitening beauty melatonin cream', 'Top product.', 'MacBook. The MacBook is a brand of Macintosh laptop computers by Apple Inc. that merged the PowerBook and iBook lines during Apple\'s transition to Intel processors. The current lineup consists of the MacBook Air (2008–present) and the MacBook Pro (2006–present).', '182', '175', 20, NULL, '2020-03-27 17:18:00', 'jamijoy', 'Category 1'),
+(7, 'Dermeinaier egg shell yeast mask cream', 'Top product.', 'MacBook. The MacBook is a brand of Macintosh laptop computers by Apple Inc. that merged the PowerBook and iBook lines during Apple\'s transition to Intel processors. The current lineup consists of the MacBook Air (2008–present) and the MacBook Pro (2006–present).', '110', '90', 10, NULL, '2020-03-27 17:18:00', 'jamijoy', 'Category 1'),
+(8, 'Bio active facial ehitening cream for men', 'Top product.', 'MacBook. The MacBook is a brand of Macintosh laptop computers by Apple Inc. that merged the PowerBook and iBook lines during Apple\'s transition to Intel processors. The current lineup consists of the MacBook Air (2008–present) and the MacBook Pro (2006–present).', '170', '155', 6, NULL, '2020-03-27 17:18:00', 'jamijoy', 'Category 2'),
+(9, 'Bio active face whitening cream', 'Top product.', 'MacBook. The MacBook is a brand of Macintosh laptop computers by Apple Inc. that merged the PowerBook and iBook lines during Apple\'s transition to Intel processors. The current lineup consists of the MacBook Air (2008–present) and the MacBook Pro (2006–present).', '180', '155', 6, NULL, '2020-03-27 17:18:00', 'jamijoy', 'Category 2'),
+(10, 'ALIKE boost luster Superior whitening cream', 'Top product.', 'MacBook. The MacBook is a brand of Macintosh laptop computers by Apple Inc. that merged the PowerBook and iBook lines during Apple\'s transition to Intel processors. The current lineup consists of the MacBook Air (2008–present) and the MacBook Pro (2006–present).', '110', '85', 6, NULL, '2020-03-27 17:18:00', 'jamijoy', 'Category 2'),
+(11, '7 days plastic whitening regeneration cream', 'new model', 'MacBook. The MacBook is a brand of Macintosh laptop computers by Apple Inc. that merged the PowerBook and iBook lines during Apple\'s transition to Intel processors. The current lineup consists of the MacBook Air (2008–present) and the MacBook Pro (2006–present).', '150', '122', 6, NULL, '2020-03-27 17:18:00', 'jamijoy', 'Category 2'),
+(12, 'Garnier light complete farness cream', 'new model', 'MacBook. The MacBook is a brand of Macintosh laptop computers by Apple Inc. that merged the PowerBook and iBook lines during Apple\'s transition to Intel processors. The current lineup consists of the MacBook Air (2008–present) and the MacBook Pro (2006–present).', '180', '172', 4, NULL, '2020-03-27 17:18:00', 'jamijoy', 'Category 2'),
+(13, 'zafran whitening cream', 'new model', 'MacBook. The MacBook is a brand of Macintosh laptop computers by Apple Inc. that merged the PowerBook and iBook lines during Apple\'s transition to Intel processors. The current lineup consists of the MacBook Air (2008–present) and the MacBook Pro (2006–present).', '120', '95', 4, NULL, '2020-03-27 17:18:00', 'jamijoy', 'Category 2'),
+(14, 'Gul white 7 in 1 cream', 'new model', 'MacBook. The MacBook is a brand of Macintosh laptop computers by Apple Inc. that merged the PowerBook and iBook lines during Apple\'s transition to Intel processors. The current lineup consists of the MacBook Air (2008–present) and the MacBook Pro (2006–present).', '110', '85', 11, NULL, '2020-03-27 17:18:00', 'jamijoy', 'Category 2'),
+(15, '4k plus whitening cream', 'new model', 'MacBook. The MacBook is a brand of Macintosh laptop computers by Apple Inc. that merged the PowerBook and iBook lines during Apple\'s transition to Intel processors. The current lineup consists of the MacBook Air (2008–present) and the MacBook Pro (2006–present).', '150', '120', 10, NULL, '2020-03-27 17:18:00', 'jamijoy', 'Category 2'),
+(16, 'Cathy doll L-Glutathione Magic cream', 'new model', 'MacBook. The MacBook is a brand of Macintosh laptop computers by Apple Inc. that merged the PowerBook and iBook lines during Apple\'s transition to Intel processors. The current lineup consists of the MacBook Air (2008–present) and the MacBook Pro (2006–present).', '120', '80', 10, NULL, '2020-03-27 17:18:00', 'jamijoy', 'Category 2'),
+(17, 'Egg white & Cherry whitening cream', 'new product', 'MacBook. The MacBook is a brand of Macintosh laptop computers by Apple Inc. that merged the PowerBook and iBook lines during Apple\'s transition to Intel processors. The current lineup consists of the MacBook Air (2008–present) and the MacBook Pro (2006–present).', '110', '77', 5, NULL, '2020-03-27 17:18:00', 'jamijoy', 'Category 3'),
+(18, 'lanting Birds nest whitening cream', 'new product', 'MacBook. The MacBook is a brand of Macintosh laptop computers by Apple Inc. that merged the PowerBook and iBook lines during Apple\'s transition to Intel processors. The current lineup consists of the MacBook Air (2008–present) and the MacBook Pro (2006–present).', '160', '135', 11, NULL, '2020-03-27 17:18:00', 'jamijoy', 'Category 3'),
+(19, 'Yc whitenimg Total Fairness cream & Herbal formula', 'new product', 'MacBook. The MacBook is a brand of Macintosh laptop computers by Apple Inc. that merged the PowerBook and iBook lines during Apple\'s transition to Intel processors. The current lineup consists of the MacBook Air (2008–present) and the MacBook Pro (2006–present).', '160', '122', 18, NULL, '2020-03-27 17:18:00', 'jamijoy', 'Category 3'),
+(20, 'U white peral cream Ginseng whitening cream', 'new product', 'MacBook. The MacBook is a brand of Macintosh laptop computers by Apple Inc. that merged the PowerBook and iBook lines during Apple\'s transition to Intel processors. The current lineup consists of the MacBook Air (2008–present) and the MacBook Pro (2006–present).', '120', '85', 12, NULL, '2020-03-27 17:18:00', 'jamijoy', 'Category 3'),
+(21, 'Whitening Rose Beauty cream', 'new product', 'MacBook. The MacBook is a brand of Macintosh laptop computers by Apple Inc. that merged the PowerBook and iBook lines during Apple\'s transition to Intel processors. The current lineup consists of the MacBook Air (2008–present) and the MacBook Pro (2006–present).', '110', '80', 12, NULL, '2020-03-28 17:50:00', 'jamijoy', 'Category 3'),
+(22, 'Berry plus Extra  whitening cream', 'new product', 'MacBook. The MacBook is a brand of Macintosh laptop computers by Apple Inc. that merged the PowerBook and iBook lines during Apple\'s transition to Intel processors. The current lineup consists of the MacBook Air (2008–present) and the MacBook Pro (2006–present).', '110', '80', 11, NULL, '2020-03-28 17:46:00', 'jamijoy', 'Category 3'),
+(23, 'Collagen Deep cleansing snail whitening cream', 'new arrived', 'MacBook. The MacBook is a brand of Macintosh laptop computers by Apple Inc. that merged the PowerBook and iBook lines during Apple\'s transition to Intel processors. The current lineup consists of the MacBook Air (2008–present) and the MacBook Pro (2006–present).', '140', '112', 11, NULL, '2020-03-28 17:45:00', 'jamijoy', 'Category 3'),
+(24, '2 pcs FEIQUE herbal extract skin whitening Anti-Freckle cream', 'new arrived', 'MacBook. The MacBook is a brand of Macintosh laptop computers by Apple Inc. that merged the PowerBook and iBook lines during Apple\'s transition to Intel processors. The current lineup consists of the MacBook Air (2008–present) and the MacBook Pro (2006–present).', '110', '80', 11, NULL, '2020-03-28 17:42:00', 'jamijoy', 'Category 3'),
+(25, 'Lanxi pearl whitening Beauty Melatonin cream', 'new arrived', 'MacBook. The MacBook is a brand of Macintosh laptop computers by Apple Inc. that merged the PowerBook and iBook lines during Apple\'s transition to Intel processors. The current lineup consists of the MacBook Air (2008–present) and the MacBook Pro (2006–present).', '140', '110', 14, NULL, '2020-03-28 17:40:00', 'jamijoy', 'Category 4'),
+(26, 'Lanxi Birds Nest whitenimg cream', 'new arrived', 'MacBook. The MacBook is a brand of Macintosh laptop computers by Apple Inc. that merged the PowerBook and iBook lines during Apple\'s transition to Intel processors. The current lineup consists of the MacBook Air (2008–present) and the MacBook Pro (2006–present).', '140', '120', 14, NULL, '2020-03-28 17:38:00', 'jamijoy', 'Category 4'),
+(27, 'Body Cream NO-1 ..Vietnam Whitening cream', 'new arrived', 'MacBook. The MacBook is a brand of Macintosh laptop computers by Apple Inc. that merged the PowerBook and iBook lines during Apple\'s transition to Intel processors. The current lineup consists of the MacBook Air (2008–present) and the MacBook Pro (2006–present).', '120', '87', 14, NULL, '2020-03-28 17:28:00', 'jamijoy', 'Category 4'),
+(28, 'Cherry whitening Beauty Melatonin cream', 'special product', 'MacBook. The MacBook is a brand of Macintosh laptop computers by Apple Inc. that merged the PowerBook and iBook lines during Apple\'s transition to Intel processors. The current lineup consists of the MacBook Air (2008–present) and the MacBook Pro (2006–present).', '170', '160', 14, NULL, '2020-03-28 17:10:00', 'jamijoy', 'Category 4'),
+(29, 'LAB-Y whitening Booster body cream', 'special product', 'MacBook. The MacBook is a brand of Macintosh laptop computers by Apple Inc. that merged the PowerBook and iBook lines during Apple\'s transition to Intel processors. The current lineup consists of the MacBook Air (2008–present) and the MacBook Pro (2006–present).', '120', '96', 14, NULL, '2020-03-28 17:18:00', 'jamijoy', 'Category 4'),
+(30, 'Biocos beauty cream', 'special product', 'MacBook. The MacBook is a brand of Macintosh laptop computers by Apple Inc. that merged the PowerBook and iBook lines during Apple\'s transition to Intel processors. The current lineup consists of the MacBook Air (2008–present) and the MacBook Pro (2006–present).', '110', '100', 14, NULL, '2020-03-29 17:18:00', 'jamijoy', 'Category 4'),
+(42, 'Hola Biscuit', 'special product', 'MacBook. The MacBook is a brand of Macintosh laptop computers by Apple Inc. that merged the PowerBook and iBook lines during Apple\'s transition to Intel processors. The current lineup consists of the MacBook Air (2008–present) and the MacBook Pro (2006–present).', '60', '45', 0, NULL, '2020-03-31 02:22:00', 'jami 2', 'Category 4');
 
 -- --------------------------------------------------------
 
@@ -187,6 +188,17 @@ INSERT INTO `tbl_prod_visits` (`prod_id`, `userid`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_user_feedback`
+--
+
+CREATE TABLE `tbl_user_feedback` (
+  `userid` int(10) NOT NULL,
+  `feedback` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -207,7 +219,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`userid`, `username`, `email`, `password`, `type`, `company`, `address`, `contact`) VALUES
 (1, 'Jami', 'jamijoyy@gmail.com', '7815696ecbf1c96e6894b779456d330e', 'admin', 'Blu Fashion Ltd.', 'Mohakhali, Dhaka - 1220.', 1779611966),
-(2, 'Uday', 'nahinuday@gmail.com', '7815696ecbf1c96e6894b779456d330e', 'admin', 'N/A', 'N/A', 1700598073),
+(2, 'Nahin', 'nahinuday@gmail.com', '7815696ecbf1c96e6894b779456d330e', 'user', 'N/A', 'basundhara', 1621484741),
 (4, 'jamijoy.science', 'jami@gmail.com', '7815696ecbf1c96e6894b779456d330e', 'user', 'teset', '', 1726900207),
 (5, 'ranakader', 'rana.kader@gmail.com', 'debdeecd7ed7c3258ab945cba0396e15', 'user', 'N/A', 'Brooklyn Height, Barisal.', 1581273245);
 
@@ -259,25 +271,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `tbl_cust_info`
 --
 ALTER TABLE `tbl_cust_info`
-  MODIFY `custID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `custID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_invoice`
 --
 ALTER TABLE `tbl_invoice`
-  MODIFY `inv_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `inv_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_invoice_details`
 --
 ALTER TABLE `tbl_invoice_details`
-  MODIFY `invDet_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `invDet_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_order_details`
 --
 ALTER TABLE `tbl_order_details`
-  MODIFY `ordID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ordID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_prod_details`

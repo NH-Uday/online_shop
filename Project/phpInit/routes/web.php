@@ -22,4 +22,13 @@ Route::get('/about',function(){
 Route::get('product-details','productController@show');
 Route::get('product-details/{id}','productController@auth');
 
-Route::get('addProduct','addProductdetails@show');
+Route::get('addDetails','addProductdetails@show');
+
+Route::get('aboutus','aboutusController@show');
+
+Route::get('contact','contactController@show');
+Route::post('/feedback','contactController@feedback')->name('contact.feedback');
+
+Route::get('profile','accountController@account');
+Route::post('/account','accountController@updateCheck')->name('account.updateCheck');
+

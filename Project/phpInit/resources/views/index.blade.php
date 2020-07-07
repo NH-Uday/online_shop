@@ -272,12 +272,8 @@
 									<li><a href="blog-right-sidebar.html">Discount Coupons</a></li>
 								</ul>
 							</li>
-							<li><a href="about-us.html">About Us</a></li>
-							<li><a href="contact.html">Contact</a>
-								<ul class="sub-menu">
-									<li><a href="contact.html">Contact 1</a></li>
-									<li><a href="contact-2.html">Contact 2</a></li>
-								</ul>
+							<li><a href="/aboutus">About Us</a></li>
+							<li><a href="/contact">Contact</a>
 							</li>
 						</ul>
 					</nav>
@@ -294,7 +290,7 @@
 							</li>
 							<li><a href="#">Pages</a>
 								<ul>
-									<li><a href="about-us.html">About US</a></li>
+									<li><a href="aboutus.html">About US</a></li>
 									<li><a href="blog.html">Blog</a></li>
 									<li><a href="blog-left-sidebar.html">Blog left sidebar</a></li>
 									<li><a href="blog-right-sidebar.html">Blog right sidebar</a></li>

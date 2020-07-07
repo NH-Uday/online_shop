@@ -406,228 +406,44 @@
 
 <div class="page-title fix"><!--Start Title-->
 	<div class="overlay section">
-		<h2>Product Details</h2>
+		<h2>Update Your Information</h2>
 	</div>
 </div><!--End Title-->
-<section class="product-page page fix"><!--Start Product Details Area-->
+
+
+<div class="login-page page fix"><!--start login Area-->
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-6">
-				<div class="details-pro-tab">
-			<!-- Tab panes -->
-					<div class="tab-content details-pro-tab-content">
-						<div class="tab-pane fade in active" id="image-1">
-							<div class="simpleLens-big-image-container">
-								<a class="simpleLens-lens-image" data-lens-image="{{ asset('img/single-product/1.jpg') }}">
-									<img src="{{ asset('img/single-product/1.jpg') }}" alt="" class="simpleLens-big-image">
-								</a>
-							</div>
-						</div>
-						<div class="tab-pane fade" id="image-2">
-							<div class="simpleLens-big-image-container">
-								<a class="simpleLens-lens-image" data-lens-image="{{ asset('img/single-product/2.jpg') }}">
-									<img src="{{ asset('img/single-product/2.jpg') }}" alt="" class="simpleLens-big-image">
-								</a>
-							</div>
-						</div>
-						<div class="tab-pane fade" id="image-3">
-							<div class="simpleLens-big-image-container">
-								<a class="simpleLens-lens-image" data-lens-image="{{ asset('img/single-product/3.jpg') }}">
-									<img src="{{ asset('img/single-product/3.jpg') }}" alt="" class="simpleLens-big-image">
-								</a>
-							</div>
-						</div>
-						<div class="tab-pane fade" id="image-4">
-							<div class="simpleLens-big-image-container">
-								<a class="simpleLens-lens-image" data-lens-image="{{ asset('img/single-product/4.jpg') }}">
-									<img src="{{ asset('img/single-product/4.jpg') }}" alt="" class="simpleLens-big-image">
-								</a>
-							</div>
-						</div>
-					</div>
-					<!-- Nav tabs -->
-					<ul class="tabs-list details-pro-tab-list" role="tablist">
-						<li class="active"><a href="#image-1" data-toggle="tab"><img src="{{ asset('img/single-product/thumb-1.jpg') }}" alt="" /></a></li>
-						<li><a href="#image-2" data-toggle="tab"><img src="{{ asset('img/single-product/thumb-2.jpg') }}" alt="" /></a></li>
-						<li><a href="#image-3" data-toggle="tab"><img src="{{ asset('img/single-product/thumb-3.jpg') }}" alt="" /></a></li>
-						<li><a href="#image-4" data-toggle="tab"><img src="{{ asset('img/single-product/thumb-4.jpg') }}" alt="" /></a></li>
-					</ul>
+			<div class="col-md-2"></div>
+			<div class="col-sm-6 col-md-5">
+				<div class="login">
+					<form id="accountform" action="/account" method="post" name="reg">
+						@csrf
+						<h2>Update yur account here.</h2>
+						<p style="color:red;">@foreach($errors->all() as $err)
+							{{$err}} <br>
+								@endforeach</p>
+						<label id="unameLbl">Username<span>*</span></label>
+						<input value="{{$userData->username}}" type="text" name="username" onkeyup="unameChk('{{csrf_token()}}')" />
+						<label id="emailLbl">E-mail Address<span>*</span></label>
+						<input value="{{$userData->email}}" type="text" name="email" onkeyup="emailChk('{{csrf_token()}}')"/>
+						<label id="contactLbl">Contact Number<span>*</span></label>
+						<input value="{{$userData->contact}}" type="text" name="contact" onkeyup="contactChk('{{csrf_token()}}')"/>
+						
+						<label id="addressLbl">Address</label>
+						<input value="{{$userData->address}}" type="text" name="address"/><br/><br/><br/>
+						
+						<label id="pass1Lbl">New Password<span>*</span></label>
+						<input value="" type="password" name="pass1"/>
+						<label id="pass2Lbl">Confirm New Password<span>*</span></label>
+						<input type="password" name="pass2"/>
+						<input type="submit" value="Update"/>
+					</form>
 				</div>
 			</div>
-			<div class="col-sm-6">
-				<div class="shop-details">
-					<!-- Product Name -->
-					<h2>{{$product->prod_name}}</h2>
-					<!-- Product Ratting -->
-					<div class="pro-ratting">
-						<i class="on fa fa-star"></i>
-						<i class="on fa fa-star"></i>
-						<i class="on fa fa-star"></i>
-						<i class="on fa fa-star"></i>
-						<i class="on fa fa-star-half-o"></i>
-					</div>
-					<h3><span>{{$product->prod_MRP_price}}</span>{{$product->prod_SELLER_price}}</h3>
-					<h4>10 Reviews</h4>	
-					<h5>Availability - @if($stock>0) In Stock @else Out of Stock @endif</h5> 
-					<h6>QUICK OVERVIEW</h6>
-					<p>{{$product->prod_details}}</p>
-					<div class="select-menu fix">
-						<div class="sort fix">
-							<h4>SIZE</h4>
-							<select>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-							</select>
-						</div>
-						<div class="sort fix">
-							<h4>Color</h4>
-							<select>
-								<option value="pink">pink</option>
-								<option value="red">red</option>
-								<option value="blue">blue</option>
-							</select>
-						</div>
-						<div class="sort fix">
-							<h4>Qty</h4>
-							<select>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-							</select>
-						</div>
-					</div>
-					<div class="review">
-						<textarea rows="4" placeholder="Write Your Review..."></textarea>
-					</div>
-					<div class="action-btn">
-						<a href="#"><i class="fa fa-shopping-cart"></i></a>
-						<a href="#"><i class="fa fa-heart-o"></i></a>
-						<a href="#"><i class="fa fa-refresh"></i></a>
-					</div>
-				</div>
-			</div>
-			
-			<div class="col-sm-12 fix">
-				<div class="description">
-					<!-- Nav tabs -->
-					<ul class="nav product-nav">
-						<li class="active"><a data-toggle="tab" href="#description">DESCRIPTION</a></li>
-						<li class=""><a data-toggle="tab" href="#review">REVIEWS</a></li>
-						<li class=""><a data-toggle="tab" href="#tags">PRODUCTS TAGS</a></li>
-						<li class=""><a data-toggle="tab" href="#custom-tags">CUSTOM TABS</a></li>
-					</ul>
-					<!-- Tab panes -->
-					<div class="tab-content">
-						<div id="description" class="tab-pane fade active in" role="tabpanel">
-							<p>{{$product->prod_description}}</p>
-						</div>
-						<div id="review" class="tab-pane fade" role="tabpanel">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco aboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepte.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamc.</p>
-						</div>
-						<div id="tags" class="tab-pane fade" role="tabpanel">
-							<a href="#">JEWELRY</a><a href="#">Necklaces</a><a href="#">Jewelry Sets</a><a href="#">Churi</a>
-						</div>
-						<div id="custom-tags" class="tab-pane fade" role="tabpanel">
-							<a href="#">JEWELRY</a><a href="#">Necklaces</a><a href="#">Jewelry Sets</a><a href="#">Churi</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-			<div class="col-md-12 fix">
-				<div class="section-title">
-					<h2>RELATED PRODUCT</h2>
-					<div class="underline"></div>
-				</div>
-				<div class="related-pro-slider owl-carousel">
-					<!-- Single Product Start -->
-					@foreach($relatedProduct as $dt)
-					<div class="product-item fix">
-						<div class="product-img-hover">
-							<!-- Product image -->
-							<a href="/product-details/{{$dt->prod_id}}" class="pro-image fix"><img src="{{ asset('img/product/1.jpg') }}" alt="product" /></a>
-							<!-- Product action Btn -->
-							<div class="product-action-btn">
-								<a class="quick-view" href="#"><i class="fa fa-search"></i></a>
-								<a class="favorite" href="#"><i class="fa fa-heart-o"></i></a>
-								<a class="add-cart" href="#"><i class="fa fa-shopping-cart"></i></a>
-							</div>
-						</div>
-						<div class="pro-name-price-ratting">
-							<!-- Product Name -->
-							<div class="pro-name">
-								<a href="/product-details/{{$dt->prod_id}}">{{$dt->prod_name}}</a>
-							</div>
-							<!-- Product Ratting -->
-							<div class="pro-ratting">
-								<i class="on fa fa-star"></i>
-								<i class="on fa fa-star"></i>
-								<i class="on fa fa-star"></i>
-								<i class="on fa fa-star"></i>
-								<i class="on fa fa-star-half-o"></i>
-							</div>
-							<!-- Product Price -->
-							<div class="pro-price fix">
-								<p><span class="old">{{$dt->prod_MRP_price}}</span><span class="new">{{$dt->prod_SELLER_price}}</span></p>
-							</div>
-						</div>
-					</div><!-- Single Product End -->
-					@endforeach
-				</div>
-			</div>
-			
-			@if(isset($historyData))
-			<div class="col-md-12 fix">
-				<div class="section-title">
-					<h2>Products you visited</h2>
-					<div class="underline"></div>
-				</div>
-				<div class="related-pro-slider owl-carousel">
-					
-					@foreach($historyData as $dt)
-					<!-- Single Product Start -->
-					<div class="product-item fix">
-						<div class="product-img-hover">
-							<!-- Product image -->
-							<a href="/product-details/{{$dt->prod_id}}" class="pro-image fix"><img src="{{ asset('img/product/1.jpg') }}" alt="product" /></a>
-							<!-- Product action Btn -->
-							<div class="product-action-btn">
-								<a class="quick-view" href="#"><i class="fa fa-search"></i></a>
-								<a class="favorite" href="#"><i class="fa fa-heart-o"></i></a>
-								<a class="add-cart" href="#"><i class="fa fa-shopping-cart"></i></a>
-							</div>
-						</div>
-						<div class="pro-name-price-ratting">
-							<!-- Product Name -->
-							<div class="pro-name">
-								<a "/product-details/{{$dt->prod_id}}">{{$dt->prod_name}}</a>
-							</div>
-							<!-- Product Ratting -->
-							<div class="pro-ratting">
-								<i class="on fa fa-star"></i>
-								<i class="on fa fa-star"></i>
-								<i class="on fa fa-star"></i>
-								<i class="on fa fa-star"></i>
-								<i class="on fa fa-star-half-o"></i>
-							</div>
-							<!-- Product Price -->
-							<div class="pro-price fix">
-								<p><span class="old">${{$dt->prod_MRP_price}}</span><span class="new">${{$dt->prod_SELLER_price}}</span></p>
-							</div>
-						</div>
-					</div><!-- Single Product End -->
-					@endforeach		
-				</div>
-			</div>
-			@endif		
 		</div>
 	</div>
-</section><!--End Product Details Area-->
-
+</div><!--End login Area-->
 
 <div class="brand-area section fix"><!--Start Brand Area-->
 	<div class="container">
@@ -637,16 +453,16 @@
 				<div class="underline"></div>
 			</div>
 			<div class="brand-slider owl-carousel">
-				<div class="brand-item"><img src="{{ asset('img/brand/brand-1.png') }}" alt="" /></div>
-				<div class="brand-item"><img src="{{ asset('img/brand/brand-2.png') }}" alt="" /></div>
-				<div class="brand-item"><img src="{{ asset('img/brand/brand-3.png') }}" alt="" /></div>
-				<div class="brand-item"><img src="{{ asset('img/brand/brand-4.png') }}" alt="" /></div>
-				<div class="brand-item"><img src="{{ asset('img/brand/brand-5.png') }}" alt="" /></div>
-				<div class="brand-item"><img src="{{ asset('img/brand/brand-1.png') }}" alt="" /></div>
-				<div class="brand-item"><img src="{{ asset('img/brand/brand-2.png') }}" alt="" /></div>
-				<div class="brand-item"><img src="{{ asset('img/brand/brand-3.png') }}" alt="" /></div>
-				<div class="brand-item"><img src="{{ asset('img/brand/brand-4.png') }}" alt="" /></div>
-				<div class="brand-item"><img src="{{ asset('img/brand/brand-5.png') }}" alt="" /></div>
+				<div class="brand-item"><img src="img/brand/brand-1.png" alt="" /></div>
+				<div class="brand-item"><img src="img/brand/brand-2.png" alt="" /></div>
+				<div class="brand-item"><img src="img/brand/brand-3.png" alt="" /></div>
+				<div class="brand-item"><img src="img/brand/brand-4.png" alt="" /></div>
+				<div class="brand-item"><img src="img/brand/brand-5.png" alt="" /></div>
+				<div class="brand-item"><img src="img/brand/brand-1.png" alt="" /></div>
+				<div class="brand-item"><img src="img/brand/brand-2.png" alt="" /></div>
+				<div class="brand-item"><img src="img/brand/brand-3.png" alt="" /></div>
+				<div class="brand-item"><img src="img/brand/brand-4.png" alt="" /></div>
+				<div class="brand-item"><img src="img/brand/brand-5.png" alt="" /></div>
 			</div>
 		</div>
 	</div>
@@ -683,7 +499,7 @@
 			<div class="col-sm-6 col-md-3">
 				<div class="footer-about">
 					<div class="image">
-						<img src="{{ asset('img/header/logo.png') }}" alt="" />
+						<img src="img/header/logo.png" alt="" />
 						<h3>online jewelry store</h3>
 					</div>
 					<p>perspiciatis unde omnis iste natus error sit voluptatem accm doloremque antium, totam rem aperiam, eaque ipsa perspiciatis unde omnis iste</p>
@@ -722,7 +538,7 @@
 				<div class="footer-quick-link footer-links">
 					<h2>QUICK LINK</h2>
 					<ul>
-						<li><a href="/">Home</a></li>
+						<li><a href="index.html">Home</a></li>
 						<li><a href="shop.html">Shop</a></li>
 						<li><a href="shop-left-sidebar.html">New Arrivals</a></li>
 						<li><a href="services.html">Services</a></li>	
@@ -782,11 +598,11 @@
 			<div class="col-sm-6">
 				<div class="payment">
 					<ul>
-						<li><a href="#"><img src="{{ asset('img/footer/paypal.jpg') }}" alt="" /></a></li>
-						<li><a href="#"><img src="{{ asset('img/footer/visa.jpg') }}" alt="" /></a></li>
-						<li><a href="#"><img src="{{ asset('img/footer/master.jpg') }}" alt="" /></a></li>
-						<li><a href="#"><img src="{{ asset('img/footer/cards.jpg') }}" alt="" /></a></li>
-						<li><a href="#"><img src="{{ asset('img/footer/discover.jpg') }}" alt="" /></a></li>
+						<li><a href="#"><img src="img/footer/paypal.jpg" alt="" /></a></li>
+						<li><a href="#"><img src="img/footer/visa.jpg" alt="" /></a></li>
+						<li><a href="#"><img src="img/footer/master.jpg" alt="" /></a></li>
+						<li><a href="#"><img src="img/footer/cards.jpg" alt="" /></a></li>
+						<li><a href="#"><img src="img/footer/discover.jpg" alt="" /></a></li>
 					</ul>
 				</div>
 			</div>
@@ -795,36 +611,36 @@
 </div><!--End Footer Area-->
 	
 <!-- jQuery 2.1.4 -->
-<script type="text/javascript" src="{{ asset('js/jquery-2.1.4.min.js') }}"></script>
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 <!-- Bootstrap JS -->
-<script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
 <!-- Owl Carousel JS -->
-<script type="text/javascript" src="{{ asset('js/owl.carousel.min.js') }}"></script>
+<script type="text/javascript" src="js/owl.carousel.min.js"></script>
 <!--countTo JS -->
-<script type="text/javascript" src="{{ asset('js/jquery.countTo.js') }}"></script>
+<script type="text/javascript" src="js/jquery.countTo.js"></script>
 <!-- mixitup JS -->
-<script type="text/javascript" src="{{ asset('js/jquery.mixitup.min.js') }}"></script>
+<script type="text/javascript" src="js/jquery.mixitup.min.js"></script>
 <!-- magnific popup JS -->
-<script type="text/javascript" src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
+<script type="text/javascript" src="js/jquery.magnific-popup.min.js"></script>
 <!-- Appear JS -->
-<script type="text/javascript" src="{{ asset('js/jquery.appear.js') }}"></script>
+<script type="text/javascript" src="js/jquery.appear.js"></script>
 <!-- MeanMenu JS -->
-<script type="text/javascript" src="{{ asset('js/jquery.meanmenu.min.js') }}"></script>
+<script type="text/javascript" src="js/jquery.meanmenu.min.js"></script>
 <!-- Nivo Slider JS -->
-<script type="text/javascript" src="{{ asset('js/jquery.nivo.slider.pack.js') }}"></script>
+<script type="text/javascript" src="js/jquery.nivo.slider.pack.js"></script>
 <!-- Scrollup JS -->
-<script type="text/javascript" src="{{ asset('js/jquery.scrollup.min.js') }}"></script>
+<script type="text/javascript" src="js/jquery.scrollup.min.js"></script>
 <!-- simpleLens JS -->
-<script type="text/javascript" src="{{ asset('js/jquery.simpleLens.min.js') }}"></script>
+<script type="text/javascript" src="js/jquery.simpleLens.min.js"></script>
 <!-- Price Slider JS -->
-<script type="text/javascript" src="{{ asset('js/jquery-price-slider.js') }}"></script>
+<script type="text/javascript" src="js/jquery-price-slider.js"></script>
 <!-- WOW JS -->
-<script type="text/javascript" src="{{ asset('js/wow.min.js') }}"></script>
+<script type="text/javascript" src="js/wow.min.js"></script>
 <script>
 	new WOW().init();
 </script>	
 <!-- Main JS -->
-<script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
+<script type="text/javascript" src="js/main.js"></script>
 
 </body>
 

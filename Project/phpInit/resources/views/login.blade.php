@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
 	<meta charset="UTF-8">
-	<title>Shopify | Login & Reg</title>
+	<title>Shopify | Home Page</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Fav Icon -->
 	<link id="favicon" rel="icon" type="image/png" href="img/favicon.ico" />
@@ -32,11 +32,6 @@
 	<link rel="stylesheet" type="text/css" href="style.css" />
 	<!-- Responsive Stylesheet -->
 	<link rel="stylesheet" type="text/css" href="css/responsive.css" />
-	
-	<script src="{{asset('js/jquery-3.4.1.js')}}"></script>
-	<script src="{{asset('js/myScript.js')}}"></script>
-	<meta name="csrf-token" content="{{csrf_token()}}">
-	
 	<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 <body>
@@ -66,7 +61,18 @@
 			<div class="col-sm-12 col-md-4">
 				<div id="top-menu" class="float-right">
 					<ul>
-						<li><a href="/">Visit as a guest</a></li>
+						<li>@if(isset($userData))
+							<li><a href="/profile">{{$userData->username}} <i class="fa fa-angle-down"></i></a>
+								<ul>
+									<li><a href="/profile">Profile</a></li>
+									<li><a href="/wishlist">Wishlists</a></li>
+									<li><a href="/logout">Logout</a></li>
+								</ul>
+							</li>
+							@else
+								<a href="/login">Do you have an Account? or Sign Up</a>
+							@endif
+						</li>
 					</ul>
 				</div>
 			</div>
@@ -77,9 +83,12 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-4 col-lg-3">
+				@if(!isset($userData))
 				<div class="log-link">
-					
+					<p>Well come visitor you can</p>
+					<h5><a href="/login">Login</a> or <a href="/login">Create an account</a></h5>
 				</div>
+				@endif
 			</div>
 			<div class="col-sm-4 col-lg-6">
 				<div class="logo text-center">
@@ -129,9 +138,9 @@
 				<div class="main-menu hidden-sm hidden-xs">
 					<nav>
 						<ul>
-							<li><a href="index.html" class="active">Home</a>
+							<li><a href="/" class="active">Home</a>
 								<ul class="sub-menu">
-									<li><a href="index.html">Home 1</a></li>
+									<li><a href="/">Home 1</a></li>
 									<li><a href="index-2.html">Home 2</a></li>
 									<li><a href="index-3.html">Home 3</a></li>
 								</ul>
@@ -250,25 +259,21 @@
 									</div>
 								</div>
 							</li>
-							<li><a href="portfolio.html">Portfolio</a>
+							<li><a href="portfolio.html">Orders</a>
 								<ul class="sub-menu">
-									<li><a href="portfolio.html">Portfolio 3 column</a></li>
-									<li><a href="portfolio-2.html">Portfolio 4 column</a></li>
+									<li><a href="portfolio.html">Track Order</a></li>
+									<li><a href="portfolio-2.html">Purchase History</a></li>
 								</ul>
 							</li>
-							<li><a href="blog.html">Blog</a>
+							<li><a href="blog.html">Discount</a>
 								<ul class="sub-menu">
-									<li><a href="blog.html">Blog Page</a></li>
-									<li><a href="blog-left-sidebar.html">Blog left sidebar</a></li>
-									<li><a href="blog-right-sidebar.html">Blog right sidebar</a></li>
+									<li><a href="blog-left-sidebar.html">Rewards</a></li>
+									<li><a href="blog.html">Shop Coupons</a></li>
+									<li><a href="blog-right-sidebar.html">Discount Coupons</a></li>
 								</ul>
 							</li>
-							<li><a href="about-us.html">About Us</a></li>
-							<li><a href="contact.html">Contact</a>
-								<ul class="sub-menu">
-									<li><a href="contact.html">Contact 1</a></li>
-									<li><a href="contact-2.html">Contact 2</a></li>
-								</ul>
+							<li><a href="/aboutus">About Us</a></li>
+							<li><a href="/contact">Contact</a>
 							</li>
 						</ul>
 					</nav>
@@ -276,16 +281,16 @@
 				<div class="mobile-menu hidden-md hidden-lg">
 					<nav>
 						<ul>
-							<li><a href="index.html" class="active">Home</a>
+							<li><a href="/" class="active">Home</a>
 								<ul>
-									<li><a href="index.html">Home 1</a></li>
+									<li><a href="/">Home 1</a></li>
 									<li><a href="index-2.html">Home 2</a></li>
 									<li><a href="index-3.html">Home 3</a></li>
 								</ul>
 							</li>
 							<li><a href="#">Pages</a>
 								<ul>
-									<li><a href="about-us.html">About US</a></li>
+									<li><a href="aboutus.html">About US</a></li>
 									<li><a href="blog.html">Blog</a></li>
 									<li><a href="blog-left-sidebar.html">Blog left sidebar</a></li>
 									<li><a href="blog-right-sidebar.html">Blog right sidebar</a></li>

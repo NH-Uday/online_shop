@@ -4,16 +4,16 @@
 <title>Matrix Admin</title>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="css/bootstrap.min.css" />
-<link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
-<link rel="stylesheet" href="css/colorpicker.css" />
-<link rel="stylesheet" href="css/datepicker.css" />
-<link rel="stylesheet" href="css/uniform.css" />
-<link rel="stylesheet" href="css/select2.css" />
-<link rel="stylesheet" href="css/matrix-style.css" />
-<link rel="stylesheet" href="css/matrix-media.css" />
-<link rel="stylesheet" href="css/bootstrap-wysihtml5.css" />
-<link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
+<link rel="stylesheet" href="{{ asset('css/backendcss/bootstrap.min.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/backendcss/bootstrap-responsive.min.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/backendcss/colorpicker.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/backendcss/datepicker.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/backendcss/uniform.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/backendcss/select2.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/backendcss/matrix-style.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/backendcss/matrix-media.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/backendcss/bootstrap-wysihtml5.css') }}" />
+<link href="{{ asset('backendfonts/font-awesome/css/font-awesome.css') }}" rel="stylesheet" />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
 </head>
 <body>
@@ -519,20 +519,20 @@
   <div id="footer" class="span12"> 2013 &copy; Matrix Admin. Brought to you by <a href="http://themedesigner.in">Themedesigner.in</a> </div>
 </div>
 <!--end-Footer-part--> 
-<script src="js/jquery.min.js"></script> 
-<script src="js/jquery.ui.custom.js"></script> 
-<script src="js/bootstrap.min.js"></script> 
-<script src="js/bootstrap-colorpicker.js"></script> 
-<script src="js/bootstrap-datepicker.js"></script> 
-<script src="js/jquery.toggle.buttons.js"></script> 
-<script src="js/masked.js"></script> 
-<script src="js/jquery.uniform.js"></script> 
-<script src="js/select2.min.js"></script> 
-<script src="js/matrix.js"></script> 
-<script src="js/matrix.form_common.js"></script> 
-<script src="js/wysihtml5-0.3.0.js"></script> 
-<script src="js/jquery.peity.min.js"></script> 
-<script src="js/bootstrap-wysihtml5.js"></script> 
+<script src="{{ asset('js/backendjs/jquery.min.js') }}"></script> 
+<script src="{{ asset('js/backendjs/jquery.ui.custom.js') }}"></script> 
+<script src="{{ asset('js/backendjs/bootstrap.min.js') }}"></script> 
+<script src="{{ asset('js/backendjs/bootstrap-colorpicker.js') }}"></script> 
+<script src="{{ asset('js/backendjs/bootstrap-datepicker.js') }}"></script> 
+<script src="{{ asset('js/backendjs/jquery.toggle.buttons.js') }}"></script> 
+<script src="{{ asset('js/backendjs/masked.js') }}"></script> 
+<script src="{{ asset('js/backendjs/jquery.uniform.js') }}"></script> 
+<script src="{{ asset('js/backendjs/select2.min.js') }}"></script> 
+<script src="{{ asset('js/backendjs/matrix.js') }}"></script> 
+<script src="{{ asset('js/backendjs/matrix.form_common.js') }}"></script> 
+<script src="{{ asset('js/backendjs/wysihtml5-0.3.0.js') }}"></script> 
+<script src="{{ asset('js/backendjs/jquery.peity.min.js') }}"></script> 
+<script src="{{ asset('js/backendjs/bootstrap-wysihtml5.js') }}"></script> 
 <script>
   $('.textarea_editor').wysihtml5();
 </script>
