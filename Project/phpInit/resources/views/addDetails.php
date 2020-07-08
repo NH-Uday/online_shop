@@ -1,540 +1,236 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html lang="en-US">
 <head>
-<title>Matrix Admin</title>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="{{ asset('css/backendcss/bootstrap.min.css') }}" />
-<link rel="stylesheet" href="{{ asset('css/backendcss/bootstrap-responsive.min.css') }}" />
-<link rel="stylesheet" href="{{ asset('css/backendcss/colorpicker.css') }}" />
-<link rel="stylesheet" href="{{ asset('css/backendcss/datepicker.css') }}" />
-<link rel="stylesheet" href="{{ asset('css/backendcss/uniform.css') }}" />
-<link rel="stylesheet" href="{{ asset('css/backendcss/select2.css') }}" />
-<link rel="stylesheet" href="{{ asset('css/backendcss/matrix-style.css') }}" />
-<link rel="stylesheet" href="{{ asset('css/backendcss/matrix-media.css') }}" />
-<link rel="stylesheet" href="{{ asset('css/backendcss/bootstrap-wysihtml5.css') }}" />
-<link href="{{ asset('backendfonts/font-awesome/css/font-awesome.css') }}" rel="stylesheet" />
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+  <meta charset="UTF-8">
+  <title>Shopify Add Details Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Fav Icon -->
+  <link id="favicon" rel="icon" type="image/png" href="img/favicon.ico" />
+  <!-- Google Font Raleway -->
+  <link href='https://fonts.googleapis.com/css?family=Raleway:200,300,500,400,600,700,800' rel='stylesheet' type='text/css'>
+  <!-- Google Font Dancing Script -->
+  <link href='https://fonts.googleapis.com/css?family=Dancing+Script' rel='stylesheet' type='text/css'>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+  <!-- Font Awesome CSS -->
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+  <!-- Owl Carousel CSS -->
+  <link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css" />
+  <!-- Animate CSS -->
+  <link rel="stylesheet" type="text/css" href="css/animate.min.css" />
+  <!-- simpleLens CSS -->
+  <link rel="stylesheet" type="text/css" href="css/jquery.simpleLens.css" />
+  <!-- Price Slider CSS -->
+  <link rel="stylesheet" type="text/css" href="css/jquery-price-slider.css" />
+  <!-- MeanMenu CSS -->
+  <link rel="stylesheet" type="text/css" href="css/meanmenu.min.css" />
+  <!-- Magnific Popup CSS -->
+  <link rel="stylesheet" type="text/css" href="css/magnific-popup.css" />
+  <!-- Nivo Slider CSS -->
+  <link rel="stylesheet" type="text/css" href="css/nivo-slider.css" />
+  <!-- Stylesheet CSS -->
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <!-- Responsive Stylesheet -->
+  <link rel="stylesheet" type="text/css" href="css/responsive.css" />
+  <!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 <body>
 
-<!--Header-part-->
-<div id="header">
-  <h1><a href="dashboard.html">Matrix Admin</a></h1>
-</div>
-<!--close-Header-part--> 
-
-<!--top-Header-menu-->
-<div id="user-nav" class="navbar navbar-inverse">
-  <ul class="nav">
-    <li  class="dropdown" id="profile-messages" ><a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i>  <span class="text">Welcome User</span><b class="caret"></b></a>
-      <ul class="dropdown-menu">
-        <li><a href="#"><i class="icon-user"></i> My Profile</a></li>
-        <li class="divider"></li>
-        <li><a href="#"><i class="icon-check"></i> My Tasks</a></li>
-        <li class="divider"></li>
-        <li><a href="login.html"><i class="icon-key"></i> Log Out</a></li>
-      </ul>
-    </li>
-    <li class="dropdown" id="menu-messages"><a href="#" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle"><i class="icon icon-envelope"></i> <span class="text">Messages</span> <span class="label label-important">5</span> <b class="caret"></b></a>
-      <ul class="dropdown-menu">
-        <li><a class="sAdd" title="" href="#"><i class="icon-plus"></i> new message</a></li>
-        <li class="divider"></li>
-        <li><a class="sInbox" title="" href="#"><i class="icon-envelope"></i> inbox</a></li>
-        <li class="divider"></li>
-        <li><a class="sOutbox" title="" href="#"><i class="icon-arrow-up"></i> outbox</a></li>
-        <li class="divider"></li>
-        <li><a class="sTrash" title="" href="#"><i class="icon-trash"></i> trash</a></li>
-      </ul>
-    </li>
-    <li class=""><a title="" href="#"><i class="icon icon-cog"></i> <span class="text">Settings</span></a></li>
-    <li class=""><a title="" href="login.html"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
-  </ul>
-</div>
-
-<!--start-top-serch-->
-<div id="search">
-  <input type="text" placeholder="Search here..."/>
-  <button type="submit" class="tip-bottom" title="Search"><i class="icon-search icon-white"></i></button>
-</div>
-<!--close-top-serch--> 
-
-<!--sidebar-menu-->
-
-<div id="sidebar"> <a href="#" class="visible-phone"><i class="icon icon-list"></i>Forms</a>
-  <ul>
-    <li><a href="index.html"><i class="icon icon-home"></i> <span>Dashboard</span></a> </li>
-    <li><a href="charts.html"><i class="icon icon-signal"></i> <span>Charts &amp; graphs</span></a> </li>
-    <li><a href="widgets.html"><i class="icon icon-inbox"></i> <span>Widgets</span></a> </li>
-    <li><a href="tables.html"><i class="icon icon-th"></i> <span>Tables</span></a></li>
-    <li><a href="grid.html"><i class="icon icon-fullscreen"></i> <span>Full width</span></a></li>
-    <li class="submenu active"> <a href="#"><i class="icon icon-list"></i> <span>Forms</span> <span class="label label-important">3</span></a>
-      <ul>
-        <li><a href="form-common.html">Basic Form</a></li>
-        <li><a href="form-validation.html">Form with Validation</a></li>
-        <li><a href="form-wizard.html">Form with Wizard</a></li>
-      </ul>
-    </li>
-    <li><a href="buttons.html"><i class="icon icon-tint"></i> <span>Buttons &amp; icons</span></a></li>
-    <li><a href="interface.html"><i class="icon icon-pencil"></i> <span>Eelements</span></a></li>
-    <li class="submenu"> <a href="#"><i class="icon icon-file"></i> <span>Addons</span> <span class="label label-important">5</span></a>
-      <ul>
-        <li><a href="index2.html">Dashboard2</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="calendar.html">Calendar</a></li>
-        <li><a href="invoice.html">Invoice</a></li>
-        <li><a href="chat.html">Chat option</a></li>
-      </ul>
-    </li>
-    <li class="submenu"> <a href="#"><i class="icon icon-info-sign"></i> <span>Error</span> <span class="label label-important">4</span></a>
-      <ul>
-        <li><a href="error403.html">Error 403</a></li>
-        <li><a href="error404.html">Error 404</a></li>
-        <li><a href="error405.html">Error 405</a></li>
-        <li><a href="error500.html">Error 500</a></li>
-      </ul>
-    </li>
-    <li class="content"> <span>Monthly Bandwidth Transfer</span>
-      <div class="progress progress-mini progress-danger active progress-striped">
-        <div style="width: 77%;" class="bar"></div>
-      </div>
-      <span class="percent">77%</span>
-      <div class="stat">21419.94 / 14000 MB</div>
-    </li>
-    <li class="content"> <span>Disk Space Usage</span>
-      <div class="progress progress-mini active progress-striped">
-        <div style="width: 87%;" class="bar"></div>
-      </div>
-      <span class="percent">87%</span>
-      <div class="stat">604.44 / 4000 MB</div>
-    </li>
-  </ul>
-</div>
-
-<!--close-left-menu-stats-sidebar-->
-
-<div id="content">
-<div id="content-header">
-  <div id="breadcrumb"> <a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#" class="tip-bottom">Form elements</a> <a href="#" class="current">Common elements</a> </div>
-  <h1>Common Form Elements</h1>
-</div>
-<div class="container-fluid">
-  <hr>
-  <div class="row-fluid">
-    <div class="span6">
-      <div class="widget-box">
-        <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
-          <h5>Personal-info</h5>
-        </div>
-        <div class="widget-content nopadding">
-          <form action="#" method="get" class="form-horizontal">
-            <div class="control-group">
-              <label class="control-label">First Name :</label>
-              <div class="controls">
-                <input type="text" class="span11" placeholder="First name" />
-              </div>
-            </div>
-            <div class="control-group">
-              <label class="control-label">Last Name :</label>
-              <div class="controls">
-                <input type="text" class="span11" placeholder="Last name" />
-              </div>
-            </div>
-            <div class="control-group">
-              <label class="control-label">Password input</label>
-              <div class="controls">
-                <input type="password"  class="span11" placeholder="Enter Password"  />
-              </div>
-            </div>
-            <div class="control-group">
-              <label class="control-label">Company info :</label>
-              <div class="controls">
-                <input type="text" class="span11" placeholder="Company name" />
-              </div>
-            </div>
-            <div class="control-group">
-              <label class="control-label">Description field:</label>
-              <div class="controls">
-                <input type="text" class="span11" />
-                <span class="help-block">Description field</span> </div>
-            </div>
-            <div class="control-group">
-              <label class="control-label">Message</label>
-              <div class="controls">
-                <textarea class="span11" ></textarea>
-              </div>
-            </div>
-            <div class="form-actions">
-              <button type="submit" class="btn btn-success">Save</button>
-            </div>
-          </form>
-        </div>
-      </div>
-      <div class="widget-box">
-        <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
-          <h5>Form Elements</h5>
-        </div>
-        <div class="widget-content nopadding">
-          <form action="#" method="get" class="form-horizontal">
-            <div class="control-group">
-              <label class="control-label">Select input</label>
-              <div class="controls">
-                <select >
-                  <option>First option</option>
-                  <option>Second option</option>
-                  <option>Third option</option>
-                  <option>Fourth option</option>
-                  <option>Fifth option</option>
-                  <option>Sixth option</option>
-                  <option>Seventh option</option>
-                  <option>Eighth option</option>
-                </select>
-              </div>
-            </div>
-            <div class="control-group">
-              <label class="control-label">Multiple Select input</label>
-              <div class="controls">
-                <select multiple >
-                  <option>First option</option>
-                  <option selected>Second option</option>
-                  <option>Third option</option>
-                  <option>Fourth option</option>
-                  <option>Fifth option</option>
-                  <option>Sixth option</option>
-                  <option>Seventh option</option>
-                  <option>Eighth option</option>
-                </select>
-              </div>
-            </div>
-            <div class="control-group">
-              <label class="control-label">Radio inputs</label>
-              <div class="controls">
-                <label>
-                  <input type="radio" name="radios" />
-                  First One</label>
-                <label>
-                  <input type="radio" name="radios" />
-                  Second One</label>
-                <label>
-                  <input type="radio" name="radios" />
-                  Third One</label>
-              </div>
-            </div>
-            <div class="control-group">
-              <label class="control-label">Checkboxes</label>
-              <div class="controls">
-                <label>
-                  <input type="checkbox" name="radios" />
-                  First One</label>
-                <label>
-                  <input type="checkbox" name="radios" />
-                  Second One</label>
-                <label>
-                  <input type="checkbox" name="radios" />
-                  Third One</label>
-              </div>
-            </div>
-            <div class="control-group">
-              <label for="checkboxes" class="control-label">Data Toggle checkbox</label>
-              <div class="controls">
-                <div data-toggle="buttons-checkbox" class="btn-group">
-                  <button class="btn btn-primary" type="button">Left</button>
-                  <button class="btn btn-primary" type="button">Middle</button>
-                  <button class="btn btn-primary" type="button">Right</button>
-                </div>
-              </div>
-            </div>
-            <div class="control-group">
-              <label for="checkboxes" class="control-label">Data Radio button</label>
-              <div class="controls">
-                <div data-toggle="buttons-radio" class="btn-group">
-                  <button class="btn btn-primary" type="button">Left</button>
-                  <button class="btn btn-primary" type="button">Middle</button>
-                  <button class="btn btn-primary" type="button">Right</button>
-                </div>
-              </div>
-            </div>
-            <div class="control-group">
-              <label class="control-label">File upload input</label>
-              <div class="controls">
-                <input type="file" />
-              </div>
-            </div>
-            <div class="control-group">
-              <label class="control-label">Disabled Input</label>
-              <div class="controls">
-                <input type="text" placeholder="You can't type anything…" disabled="" class="span11">
-              </div>
-            </div>
-            <div class="form-actions">
-              <button type="submit" class="btn btn-success">Save</button>
-            </div>
-          </form>
-        </div>
-      </div>
-      <div class="widget-box">
-        <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
-          <h5>Form Elements</h5>
-        </div>
-        <div class="widget-content nopadding">
-          <form class="form-horizontal">
-            <div class="control-group">
-              <label class="control-label">Color picker (hex)</label>
-              <div class="controls">
-                <input type="text" data-color="#ffffff" value="#ffffff" class="colorpicker input-big span11">
-                <span class="help-block">Color picker with Formate of  (hex)</span> </div>
-            </div>
-            <div class="control-group">
-              <label class="control-label">Color picker (rgba)</label>
-              <div class="controls">
-                <input type="text" data-color="rgba(344,232,53,0.5)" value="rgba(344,232,53,0.5)" data-color-format="rgba" class="colorpicker span11">
-                <span class="help-block">Color picker with Formate of  (rgba)</span> </div>
-            </div>
-            <div class="control-group">
-              <label class="control-label">Date picker (dd-mm)</label>
-              <div class="controls">
-                <input type="text" data-date="01-02-2013" data-date-format="dd-mm-yyyy" value="01-02-2013" class="datepicker span11">
-                <span class="help-block">Date with Formate of  (dd-mm-yy)</span> </div>
-            </div>
-            <div class="control-group">
-              <label class="control-label">Date Picker (mm-dd)</label>
-              <div class="controls">
-                <div  data-date="12-02-2012" class="input-append date datepicker">
-                  <input type="text" value="12-02-2012"  data-date-format="mm-dd-yyyy" class="span11" >
-                  <span class="add-on"><i class="icon-th"></i></span> </div>
-              </div>
-            </div>
-            <div class="control-group">
-              <label class="control-label">Color Picker (rgb)</label>
-              <div class="controls">
-                <div data-color-format="rgb" data-color="rgb(155, 142, 180)" class="input-append color colorpicker colorpicker-rgb">
-                  <input type="text" value="rgb(155, 142, 180)" class="span11">
-                  <span class="add-on"><i style="background-color: rgb(155, 142, 180)"></i></span> </div>
-              </div>
-            </div>
-            <div class="control-group">
-              <label class="control-label">Color Picker (hex)</label>
-              <div class="controls">
-                <div data-color-format="hex" data-color="#000000"  class="input-append color colorpicker">
-                  <input type="text" value="#000000" class="span11">
-                  <span class="add-on"><i style="background-color: #000000"></i></span> </div>
-              </div>
-            </div>
-            <div class="form-actions">
-              <button type="submit" class="btn btn-success">Save</button>
-              <button type="submit" class="btn btn-primary">Reset</button>
-              <button type="submit" class="btn btn-info">Edit</button>
-              <button type="submit" class="btn btn-danger">Cancel</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-    <div class="span6">
-      <div class="widget-box">
-        <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
-          <h5>Form Elements</h5>
-        </div>
-        <div class="widget-content nopadding">
-          <form action="#" class="form-horizontal">
-            <div class="control-group">
-              <label for="normal" class="control-label">Phone field</label>
-              <div class="controls">
-                <input type="text" id="mask-phone" class="span8 mask text">
-                <span class="help-block blue span8">(999) 999-9999</span> </div>
-            </div>
-            <div class="control-group">
-              <label for="normal" class="control-label">Phone field + ext.</label>
-              <div class="controls">
-                <input type="text" id="mask-phoneExt" class="span8 mask text">
-                <span class="help-block blue span8">(999) 999-9999? x99999</span> </div>
-            </div>
-            <div class="control-group">
-              <label for="normal" class="control-label">Phone field + ext.</label>
-              <div class="controls">
-                <input type="text" id="mask-phoneInt" class="span8 mask text">
-                <span class="help-block blue span8">+40 999 999 999</span> </div>
-            </div>
-            <div class="control-group">
-              <label for="normal" class="control-label">Date field</label>
-              <div class="controls">
-                <input type="text" id="mask-date" class="span8 mask text">
-                <span class="help-block blue span8">99/99/9999</span> </div>
-            </div>
-            <div class="control-group">
-              <label for="normal" class="control-label">SSN field</label>
-              <div class="controls">
-                <input type="text" id="mask-ssn" class="span8 mask text">
-                <span class="help-block blue span8">999-99-9999</span> </div>
-            </div>
-            <div class="control-group">
-              <label for="normal" class="control-label">Product Key</label>
-              <div class="controls">
-                <input type="text" id="mask-productKey" class="span8 mask text">
-                <span class="help-block blue span8">a*-999-a999</span> </div>
-            </div>
-            <div class="control-group">
-              <label for="normal" class="control-label">Eye Script</label>
-              <div class="controls">
-                <input type="text" id="mask-eyeScript" class="span8 mask text">
-                <span class="help-block blue span8">~9.99 ~9.99 999</span> </div>
-            </div>
-            <div class="control-group">
-              <label for="normal" class="control-label">Percent</label>
-              <div class="controls">
-                <input type="text" id="mask-percent" class="span8 mask text">
-                <span class="help-block blue span8">99%</span> </div>
-            </div>
-          </form>
-        </div>
-      </div>
-      <div class="widget-box">
-        <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
-          <h5>Form Elements</h5>
-        </div>
-        <div class="widget-content nopadding">
-          <form class="form-horizontal">
-            <div class="control-group">
-              <label class="control-label">Tooltip Input</label>
-              <div class="controls">
-                <input type="text" placeholder="Hover for tooltip…" data-title="A tooltip for the input" class="span11 tip" data-original-title="">
-              </div>
-            </div>
-            <div class="control-group">
-              <label class="control-label">Type ahead Input</label>
-              <div class="controls">
-                <input type="text" placeholder="Type here for auto complete…" style="margin: 0 auto;" data-provide="typeahead" data-items="4" data-source="[&quot;Alabama&quot;,&quot;Alaska&quot;,&quot;Arizona&quot;,&quot;Arkansas&quot;,&quot;California&quot;,&quot;Colorado&quot;,&quot;Ahmedabad&quot;,&quot;India&quot;,&quot;Florida&quot;,&quot;Georgia&quot;,&quot;Hawaii&quot;,&quot;Idaho&quot;,&quot;Illinois&quot;,&quot;Indiana&quot;,&quot;Iowa&quot;,&quot;Kansas&quot;,&quot;Kentucky&quot;,&quot;Louisiana&quot;,&quot;Maine&quot;,&quot;Maryland&quot;,&quot;Massachusetts&quot;,&quot;Michigan&quot;,&quot;Minnesota&quot;,&quot;Mississippi&quot;,&quot;Missouri&quot;,&quot;Montana&quot;,&quot;Nebraska&quot;,&quot;Nevada&quot;,&quot;New Hampshire&quot;,&quot;New Jersey&quot;,&quot;New Mexico&quot;,&quot;New York&quot;,&quot;North Dakota&quot;,&quot;North Carolina&quot;,&quot;Ohio&quot;,&quot;Oklahoma&quot;,&quot;Oregon&quot;,&quot;Pennsylvania&quot;,&quot;Rhode Island&quot;,&quot;South Carolina&quot;,&quot;South Dakota&quot;,&quot;Tennessee&quot;,&quot;Texas&quot;,&quot;Utah&quot;,&quot;Vermont&quot;,&quot;Virginia&quot;,&quot;Washington&quot;,&quot;West Virginia&quot;,&quot;Wisconsin&quot;,&quot;Wyoming&quot;]" class="span11">
-              </div>
-            </div>
-            <div class="control-group">
-              <label class="control-label">Prepended Input</label>
-              <div class="controls">
-                <div class="input-prepend"> <span class="add-on">#</span>
-                  <input type="text" placeholder="prepend" class="span11">
-                </div>
-              </div>
-            </div>
-            <div class="control-group">
-              <label class="control-label">Appended Input</label>
-              <div class="controls">
-                <div class="input-append">
-                  <input type="text" placeholder="5.000" class="span11">
-                  <span class="add-on">$</span> </div>
-              </div>
-            </div>
-            <div class="control-group warning">
-              <label class="control-label" for="inputWarning">Input with warning</label>
-              <div class="controls">
-                <input type="text" id="inputWarning" class="span11">
-                <span class="help-inline">Something may have gone wrong</span> </div>
-            </div>
-            <div class="control-group error">
-              <label class="control-label" for="inputError">Input with error</label>
-              <div class="controls">
-                <input type="text" id="inputError" class="span11">
-                <span class="help-inline">Please correct the error</span> </div>
-            </div>
-            <div class="control-group info">
-              <label class="control-label" for="inputInfo">Input with info</label>
-              <div class="controls">
-                <input type="text" id="inputInfo" class="span11">
-                <span class="help-inline">Username is already taken</span> </div>
-            </div>
-            <div class="control-group success">
-              <label class="control-label" for="inputSuccess">Input with success</label>
-              <div class="controls">
-                <input type="text" id="inputSuccess" class="span11">
-                <span class="help-inline">Woohoo!</span> </div>
-            </div>
-          </form>
-        </div>
-      </div>
-      <div class="widget-box">
-        <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
-          <h5>Form Layout</h5>
-        </div>
-        <div class="widget-content">
-          <div class="controls">
-            <input type="text" placeholder=".span12" class="span12 m-wrap">
-          </div>
-          <div class="controls controls-row">
-            <input type="text" placeholder=".span11" class="span11 m-wrap">
-            <input type="text" placeholder=".span1" class="span1 m-wrap">
-          </div>
-          <div class="controls controls-row">
-            <input type="text" placeholder=".span10" class="span10 m-wrap">
-            <input type="text" placeholder=".span2" class="span2 m-wrap">
-          </div>
-          <div class="controls controls-row">
-            <input type="text" placeholder=".span9" class="span9 m-wrap">
-            <input type="text" placeholder=".span3" class="span3 m-wrap">
-          </div>
-          <div class="controls controls-row">
-            <input type="text" placeholder=".span8" class="span8 m-wrap">
-            <input type="text" placeholder=".span4" class="span4 m-wrap">
-          </div>
-          <div class="controls controls-row">
-            <input type="text" placeholder=".span7" class="span7 m-wrap">
-            <input type="text" placeholder=".span5" class="span5 m-wrap">
-          </div>
-          <div class="controls controls-row">
-            <input type="text" placeholder=".span6" class="span6 m-wrap">
-            <input type="text" placeholder=".span6" class="span6 m-wrap">
-          </div>
-          <div class="controls controls-row">
-            <input type="text" placeholder=".span5" class="span5 m-wrap">
-            <input type="text" placeholder=".span7" class="span7 m-wrap">
-          </div>
-         
-          <div class="controls controls-row">
-            <input type="text" placeholder=".span2" class="span2 m-wrap">
-            <input type="text" placeholder=".span3" class="span3 m-wrap">
-            <input type="text" placeholder=".span4" class="span4 m-wrap">
-            <input type="text" placeholder=".span1" class="span2 m-wrap">
-            <input type="text" placeholder=".span1" class="span1 m-wrap">
-          </div>
-        </div>
-      </div>
-    </div>
+<div class="page-title fix"><!--Start Title-->
+  <div class="overlay section">
+    <h2>Add Product Information</h2>
   </div>
-  <div class="row-fluid">
-    <div class="widget-box">
-      <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
-        <h5>wysihtml5</h5>
-      </div>
-      <div class="widget-content">
-        <div class="control-group">
-          <form>
-            <div class="controls">
-              <textarea class="textarea_editor span12" rows="6" placeholder="Enter text ..."></textarea>
+</div><!--End Title-->
+
+
+<div class="login-page page fix"><!--start login Area-->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-sm-6 col-md-5">
+        <div class="login">
+          <form id="accountform" action="/account" method="post" name="reg">
+            <h2>Product Information.</h2>
+            <p style="color:red;"> <br></p>
+            <label id="prodnameLbl"><strong>Product name</strong><span>*</span></label>
+            <input value="" type="text" name="prodname" />
+            <label id="proddtlsLb2"><strong>Product Details (Short details which will be showing with the product.)</strong><span>*</span></label>
+            <input value="" type="text" name="proddetails"/>
+            <label id="proddesLb3"><strong>Product Description (Full description of the product.)</strong><span>*</span></label>
+            <input value="" type="text" name="proddes"/> 
+            <label id="prodprcLb4"><strong>Product price</strong></label>
+            <input value="" type="text" name="prodprice"/>
+            <label id="spclprcLb5"><strong>Speacial price</strong></label>
+            <input value="" type="text" name="spclprice"/>
+            <label id="prodqtyLb6"><strong>Product Quantity</strong><span>*</span></label>
+            <input value="" type="text" name="prodqty"/> 
+            <div class="form-group mt-3">
+              <label class="mr-2" id="prodpicLb7"><strong>Upload product image</strong></label>
+              <input type="file" name="prodpic">
             </div>
+            <label id="shopnamesLb8"><strong>Shop name</strong> <span>*</span></label>
+            <input value="" type="text" name="shopname"/>  
+            <label for="exampleFormControlSelect1"><strong>Product category <span>*</span></strong></label>
+            <select class="form-control" id="prodcatLb9" name="prodcat" required="required">
+              <option>category1</option>
+              <option>category2</option>
+              <option>category3</option>
+              <option>category4</option>
+              <option>category5</option>
+              <option>category6</option>
+            </select></br></br>  
+
+            <div class="offset-md-2 col-md-2">
+              <button type="submit" class="btn btn-primary">Submit</button></br></br>
+            </div>
+
           </form>
         </div>
       </div>
     </div>
   </div>
-</div></div>
-<!--Footer-part-->
-<div class="row-fluid">
-  <div id="footer" class="span12"> 2013 &copy; Matrix Admin. Brought to you by <a href="http://themedesigner.in">Themedesigner.in</a> </div>
-</div>
-<!--end-Footer-part--> 
-<script src="{{ asset('js/backendjs/jquery.min.js') }}"></script> 
-<script src="{{ asset('js/backendjs/jquery.ui.custom.js') }}"></script> 
-<script src="{{ asset('js/backendjs/bootstrap.min.js') }}"></script> 
-<script src="{{ asset('js/backendjs/bootstrap-colorpicker.js') }}"></script> 
-<script src="{{ asset('js/backendjs/bootstrap-datepicker.js') }}"></script> 
-<script src="{{ asset('js/backendjs/jquery.toggle.buttons.js') }}"></script> 
-<script src="{{ asset('js/backendjs/masked.js') }}"></script> 
-<script src="{{ asset('js/backendjs/jquery.uniform.js') }}"></script> 
-<script src="{{ asset('js/backendjs/select2.min.js') }}"></script> 
-<script src="{{ asset('js/backendjs/matrix.js') }}"></script> 
-<script src="{{ asset('js/backendjs/matrix.form_common.js') }}"></script> 
-<script src="{{ asset('js/backendjs/wysihtml5-0.3.0.js') }}"></script> 
-<script src="{{ asset('js/backendjs/jquery.peity.min.js') }}"></script> 
-<script src="{{ asset('js/backendjs/bootstrap-wysihtml5.js') }}"></script> 
+</div><!--End login Area-->
+
+<div class="footer-top-area fix"><!--Start Footer top area-->
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-md-3">
+        <div class="footer-about">
+          <div class="image">
+            <img src="img/header/logo.png" alt="" />
+            <h3>online jewelry store</h3>
+          </div>
+          <p>perspiciatis unde omnis iste natus error sit voluptatem accm doloremque antium, totam rem aperiam, eaque ipsa perspiciatis unde omnis iste</p>
+        </div>
+        <div class="footer-contact">
+          <div class="single-contact">
+            <div class="icon">
+              <i class="fa fa-map-marker"></i>
+            </div>
+            <div class="details">
+              <p>Main town, Anystreen</p>
+              <p>C/A 1254 New Yourk</p>
+            </div>
+          </div>
+          <div class="single-contact">
+            <div class="icon">
+              <i class="fa fa-phone"></i>
+            </div>
+            <div class="details">
+              <p>+012  456  456  456</p>
+              <p>+012  356  897  222</p>
+            </div>
+          </div>
+          <div class="single-contact">
+            <div class="icon">
+              <i class="fa fa-dribbble"></i>
+            </div>
+            <div class="details">
+              <a href="#">info@olongker.com</a>
+              <a href="#">www.olongker.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="footer-quick-link footer-links">
+          <h2>QUICK LINK</h2>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="shop-left-sidebar.html">New Arrivals</a></li>
+            <li><a href="services.html">Services</a></li> 
+            <li><a href="portfolio-1.html">Portfolio</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="#">Shortcodes</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <div class="row">
+          <div class="col-sm-8 footer-support footer-links">
+            <h2>OUR SUPPORT</h2>
+            <ul>
+              <li><a href="#">Site Map</a></li>
+              <li><a href="#">privacy Policy</a></li>
+              <li><a href="#">Your Account</a></li>
+              <li><a href="#">Term & Conditions</a></li>
+              <li><a href="#">Advance Search</a></li>
+              <li><a href="faq.html">Help & FAQs</a></li>
+              <li><a href="#">Gift Voucher</a></li>
+              <li><a href="contact-2.html">Contact Us</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-4 footer-account footer-links">
+            <h2>my Account</h2>
+            <ul>
+              <li><a href="#">my Account</a></li>
+              <li><a href="#">order History</a></li>
+              <li><a href="#">Returns</a></li>
+              <li><a href="#">Specials</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!--Start Footer top area-->
+<div class="footer-area fix"><!--Start Footer Area-->
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="copy-right">
+          <p>Shared by <i class="fa fa-love"></i><a href="https://bootstrapthemes.co">BootstrapThemes</a></p>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="payment">
+          <ul>
+            <li><a href="#"><img src="img/footer/paypal.jpg" alt="" /></a></li>
+            <li><a href="#"><img src="img/footer/visa.jpg" alt="" /></a></li>
+            <li><a href="#"><img src="img/footer/master.jpg" alt="" /></a></li>
+            <li><a href="#"><img src="img/footer/cards.jpg" alt="" /></a></li>
+            <li><a href="#"><img src="img/footer/discover.jpg" alt="" /></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!--End Footer Area-->
+  
+<!-- jQuery 2.1.4 -->
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<!-- Bootstrap JS -->
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!-- Owl Carousel JS -->
+<script type="text/javascript" src="js/owl.carousel.min.js"></script>
+<!--countTo JS -->
+<script type="text/javascript" src="js/jquery.countTo.js"></script>
+<!-- mixitup JS -->
+<script type="text/javascript" src="js/jquery.mixitup.min.js"></script>
+<!-- magnific popup JS -->
+<script type="text/javascript" src="js/jquery.magnific-popup.min.js"></script>
+<!-- Appear JS -->
+<script type="text/javascript" src="js/jquery.appear.js"></script>
+<!-- MeanMenu JS -->
+<script type="text/javascript" src="js/jquery.meanmenu.min.js"></script>
+<!-- Nivo Slider JS -->
+<script type="text/javascript" src="js/jquery.nivo.slider.pack.js"></script>
+<!-- Scrollup JS -->
+<script type="text/javascript" src="js/jquery.scrollup.min.js"></script>
+<!-- simpleLens JS -->
+<script type="text/javascript" src="js/jquery.simpleLens.min.js"></script>
+<!-- Price Slider JS -->
+<script type="text/javascript" src="js/jquery-price-slider.js"></script>
+<!-- WOW JS -->
+<script type="text/javascript" src="js/wow.min.js"></script>
 <script>
-  $('.textarea_editor').wysihtml5();
-</script>
+  new WOW().init();
+</script> 
+<!-- Main JS -->
+<script type="text/javascript" src="js/main.js"></script>
+
 </body>
+
 </html>

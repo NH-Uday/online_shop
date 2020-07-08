@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
 	<meta charset="UTF-8">
-	<title>Olongkar | Cart</title>
+	<title>Shopify | Cart</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Fav Icon -->
 	<link id="favicon" rel="icon" type="image/png" href="img/favicon.ico" />
@@ -33,6 +33,16 @@
 	<!-- Responsive Stylesheet -->
 	<link rel="stylesheet" type="text/css" href="css/responsive.css" />
 	<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+	<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.14/moment-timezone-with-data-2012-2022.min.js"></script>
+	<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="{{asset('js/jquery-3.4.1.js')}}"></script>
+	<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="{{asset('js/myScript.js')}}"></script>
+	<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<meta name="csrf-token" content="{{csrf_token()}}">
+	
 </head>
 <body>
 <div class="header-top"><!--Start Header Top Area-->
@@ -42,38 +52,39 @@
 				<div class="info">
 					<div class="phn-num float-left">
 						<i class="fa fa-phone float-left"></i>
-						<p>(000)  123  288  456 </p>
+						<p>{{$SiteData[0]->data}}</p>
 					</div>
 					<div class="mail-id float-left">
 						<i class="fa fa-envelope-o float-left"></i>
-						<p><a href="#">info@olongker.com</a></p>
+						<p><a>{{$SiteData[1]->data}}</a></p>
 					</div>
 				</div>
 			</div>
 			<div class="col-sm-12 col-md-4">
 				<div class="socials text-center">
-					<a href="#"><i class="fa fa-facebook"></i></a>
-					<a href="#"><i class="fa fa-twitter"></i></a>
-					<a href="#"><i class="fa fa-linkedin"></i></a>
-					<a href="#"><i class="fa fa-google-plus"></i></a>
+					<a href="{{$SiteData[2]->data}}"><i class="fa fa-facebook"></i></a>
+					<a href="{{$SiteData[3]->data}}"><i class="fa fa-twitter"></i></a>
+					<a href="{{$SiteData[4]->data}}"><i class="fa fa-linkedin"></i></a>
+					<a href="{{$SiteData[5]->data}}"><i class="fa fa-google-plus"></i></a>
 				</div>
 			</div>
 			<div class="col-sm-12 col-md-4">
 				<div id="top-menu" class="float-right">
 					<ul>
-						<li><a href="">My Account</a></li>
-						<li><a href="">$USD <i class="fa fa-angle-down"></i></a>
-							<ul>
-								<li><a href="">Pound</a></li>
-								<li><a href="">BDT</a></li>
-							</ul>
-						</li>
-						<li><a href="">English(UK) <i class="fa fa-angle-down"></i></a>
-							<ul>
-								<li><a href="">English(USA)</a></li>
-								<li><a href="">Bangla</a></li>
-							</ul>
-						</li>
+						@if(isset($userData))
+							<li><a href="/profile"><h4><small>Welcome {{$userData->username}} ! </small><span id="tz"> </span>  &nbsp  <i class="fa fa-angle-down"></i></h4></a>
+								<ul>
+									<li><a href="/profile"><i class="fa fa-child"> Profile </i></a></li>
+									<li><a href="/wishlist"><i class="	fa fa-bookmark"> Wishlist </i></a></li>
+									<li><a href="/logout"><i class="fa fa-sign-out"> Sign out </i></a></li>
+									@if($userData->type=='admin')
+										<li><a href="/Admin/Home/Edit"><i class="fa fa-bank"> Admin Home </i></a></li>
+									@endif
+								</ul>
+							</li>
+						@else
+							Welcome<a href="/login"> Guest ! </a> <h3><span id="tz"></span></h3>
+						@endif
 					</ul>
 				</div>
 			</div>
@@ -84,52 +95,56 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-4 col-lg-3">
+				@if(!isset($userData))
 				<div class="log-link">
 					<p>Well come visitor you can</p>
-					<h5><a href="login.html">Login</a> or <a href="login.html">Create an account</a></h5>
+					<h5><a href="/login">Login</a> or <a href="/login">Create an account</a></h5>
 				</div>
+				@endif
 			</div>
 			<div class="col-sm-4 col-lg-6">
 				<div class="logo text-center">
-					<a href="index.html">
+					<a href="/">
 						<img src="img/header/logo.png" alt="" />
-						<h4>online jewelry store</h4>
+						<h4>{{$SiteData[6]->data}}</h4>
 					</a>
 				</div>
 			</div>
 			<div class="col-sm-4 col-lg-3">
 				<div class="cart-info float-right">
-					<a href="cart.html">
-						<h5>My cart <span>2</span> items - <span>$390</span></h5>
+					@if(isset($userData))
+					<a href="/ProductCart">
+						<h5>My cart ( <span>{{count($CartData)}}</span> items ) </h5>
 						<i class="fa fa-shopping-cart"></i>
 					</a>
+					@endif
 					<div class="cart-hover">
 						<ul class="header-cart-pro">
+						
+							@php($tot=0)
+							@foreach($CartData as $dt)
 							<li>
-								<div class="image"><a href="#"><img alt="cart item" src="img/cart-1.jpg"></a></div>
-								<div class="content fix"><a href="#">Product Name</a><span class="price">Price: $130</span><span class="quantity">Quantity: 1</span></div>
-								<i class="fa fa-trash delete"></i>
+								<div class="image"><a href="/product-details/{{$dt->prod_id}}"><img alt="cart item" src="img/cart-1.jpg"></a></div>
+								<div class="content fix"><a href="/product-details/{{$dt->prod_id}}">{{$dt->prod_name}}</a><span class="price">Price: ${{$dt->prod_MRP_price * $dt->prod_quantity}}</span><span class="quantity">Quantity: {{$dt->prod_quantity}}</span></div> @php($tot=$tot+$dt->prod_MRP_price*$dt->prod_quantity)
 							</li>
-							<li>
-								<div class="image"><a href="#"><img alt="cart item" src="img/cart-2.jpg"></a></div>
-								<div class="content fix"><a href="#">Product Name</a><span class="price">Price: $130</span><span class="quantity">Quantity: 2</span></div>
-								<i class="fa fa-trash delete"></i>
-							</li>
+							@endforeach
+							
 						</ul>
 						<div class="header-button-price">
-							<a href="checkout.html"><i class="fa fa-sign-out"></i><span>Check Out</span></a>
-							<div class="total-price"><h3>Total Price : <span>$390</span></h3></div>
+							<a href="/ProductCart"><i class="fa fa-sign-out"></i><span>Check Out</span></a>
+							
 						</div>
 					</div>
 				</div>
 				<div class="search float-right">
-					<input type="text" value="" placeholder="Search Here...." />
-					<button class="submit"><i class="fa fa-search"></i></button>
+					<input type="text" value="" id="srcTxt" placeholder="Search Here...." onchange="searchBy()" />
+					<button class="submit"><i class="fa fa-search" onclick="searchBy()"></i></button>
 				</div>
 			</div>
 		</div>
 	</div>
 </div><!--End Header Area-->
+
 <div class="menu-area"><!--Start Main Menu Area-->
 	<div class="container">
 		<div class="row">
@@ -137,156 +152,132 @@
 				<div class="main-menu hidden-sm hidden-xs">
 					<nav>
 						<ul>
-							<li><a href="index.html" class="active">Home</a>
-								<ul class="sub-menu">
-									<li><a href="index.html">Home 1</a></li>
-									<li><a href="index-2.html">Home 2</a></li>
-									<li><a href="index-3.html">Home 3</a></li>
-								</ul>
-							</li>
+							<li><a href="/" class="active">Home</a></li>
 							<li><a href="#">Pages</a>
 								<div class="mega-menu mega-menu-page">
 									<div class="column-1 column">
 										<ul>
-											<li><a href="about-us.html">About US</a></li>
-											<li><a href="blog.html">Blog</a></li>
-											<li><a href="blog-left-sidebar.html">Blog left sidebar</a></li>
-											<li><a href="blog-right-sidebar.html">Blog right sidebar</a></li>
-											<li><a href="blog-details.html">Blog details</a></li>
+											<li><a href="aboutus">About US</a></li>
+											<li><a href="contact">Contact</a></li>
 										</ul>
 									</div>
 									<div class="column-2 column">
 										<ul>
-											<li><a href="cart.html">Cart</a></li>
-											<li><a href="checkout.html">Checkout</a></li>
-											<li><a href="coming-soon.html">Coming soon</a></li>
-											<li><a href="contact.html">Contact</a></li>
-											<li><a href="contact-2.html">Contact 2</a></li>
+											<li><a href="/ProductCart">Cart</a></li>
+											<li><a href="/checkout">Checkout</a></li>
 										</ul>
 									</div>
 									<div class="column-3 column">
 										<ul>
-											<li><a href="faq.html">FAQ</a></li>
-											<li><a href="login.html">Login</a></li>
-											<li><a href="portfolio.html">Portfolio 3 column</a></li>
-											<li><a href="portfolio-2.html">Portfolio 4 column</a></li>
-											<li><a href="404.html">404</a></li>
+											<li><a href="/login">Login</a></li>
+											<li><a href="/login">Register Account</a></li>
 										</ul>
 									</div>
 									<div class="column-4 column">
 										<ul>
-											<li><a href="shop.html">Shop</a></li>
-											<li><a href="shop-list.html">Shop list</a></li>
-											<li><a href="shop-left-sidebar.html">Shop left sidebar</a></li>
-											<li><a href="shop-right-sidebar.html">Shop right sidebar</a></li>
-											<li><a href="product-details.html">Product details</a></li>
+											<li><a href="/Shop/searchBy/lanxi">Shop</a></li>
+											<li><a href="/wishlist">Wishlist</a></li>
 										</ul>
 									</div>
 								</div>
 							</li>
-							<li><a href="shop.html">Shop</a>
+							<li><a href="/Shop/searchBy/lanxi">Shop</a>
 								<div class="mega-menu mega-menu-1">
 									<div class="column-1 column">
 										<ul>
-											<li><a href="shop-list.html">rings</a></li>
-											<li><a href="shop-left-sidebar.html">diamond ring</a></li>
-											<li><a href="shop-right-sidebar.html">gold ring</a></li>
-											<li><a href="shop-list.html">sliver ring</a></li>
-											<li><a href="shop-left-sidebar.html">Platinum ring</a></li>
+											<li><a href="/Shop/category/Category 1">Category 1</a></li>
+											<li><a href="/Shop/category/Category 1">Sub 1</a></li>
+											<li><a href="/Shop/category/Category 2">Sub 2</a></li>
+											<li><a href="/Shop/category/Category 3">Sub 3</a></li>
+											<li><a href="/Shop/category/Category 4">Sub 4</a></li>
 										</ul>
 									</div>
 									<div class="column-2 column">
 										<ul>
-											<li><a href="shop-list.html">Bracelets</a></li>
-											<li><a href="shop-left-sidebar.html">diamond Bracelets</a></li>
-											<li><a href="shop-right-sidebar.html">gold Bracelets</a></li>
-											<li><a href="shop-left-sidebar.html">sliver Bracelets</a></li>
-											<li><a href="shop-right-sidebar.html">Platinum Bracelets</a></li>
+											<li><a href="/Shop/category/Category 2">Category 2</a></li>
+											<li><a href="/Shop/category/Category 1">Sub 1</a></li>
+											<li><a href="/Shop/category/Category 2">Sub 2</a></li>
+											<li><a href="/Shop/category/Category 3">Sub 3</a></li>
+											<li><a href="/Shop/category/Category 4">Sub 4</a></li>
 										</ul>
 									</div>
 									<div class="column-3 column">
 										<ul>
-											<li><a href="shop-list.html">lecklaces</a></li>
-											<li><a href="shop-right-sidebar.html">diamond lecklaces</a></li>
-											<li><a href="shop-left-sidebar.html">gold lecklaces</a></li>
-											<li><a href="shop-right-sidebar.html">sliver lecklaces</a></li>
-											<li><a href="shop-left-sidebar.html">Platinum lecklaces</a></li>
+											<li><a href="/Shop/category/Category 3">Category 3</a></li>
+											<li><a href="/Shop/category/Category 1">Sub 1</a></li>
+											<li><a href="/Shop/category/Category 2">Sub 2</a></li>
+											<li><a href="/Shop/category/Category 3">Sub 3</a></li>
+											<li><a href="/Shop/category/Category 4">Sub 4</a></li>
 										</ul>
 									</div>
 									<div class="column-4 column">
-										<a href="#"><img src="img/product/10.jpg" alt="" /></a>
+										<a href=""><img src="{{ asset('img/product/10.jpg') }}" alt="" /></a>
 									</div>
 								</div>
 							</li>
-							<li><a href="shop.html">New Arrivals</a>
+							<li><a href="/Shop/category/Category%201/l2%hi">New Arrivals</a>
 								<div class="mega-menu mega-menu-1">
 									<div class="column-1 column">
 										<ul>
-											<li><a href="shop-list.html">rings</a></li>
-											<li><a href="shop-left-sidebar.html">diamond ring</a></li>
-											<li><a href="shop-right-sidebar.html">gold ring</a></li>
-											<li><a href="shop-list.html">sliver ring</a></li>
-											<li><a href="shop-left-sidebar.html">Platinum ring</a></li>
+											<li><a href="/Shop/category/Category 1">Category 1</a></li>
+											<li><a href="/Shop/category/Category 1">Sub 1</a></li>
+											<li><a href="/Shop/category/Category 2">Sub 2</a></li>
+											<li><a href="/Shop/category/Category 3">Sub 3</a></li>
+											<li><a href="/Shop/category/Category 4">Sub 4</a></li>
 										</ul>
 									</div>
 									<div class="column-2 column">
 										<ul>
-											<li><a href="shop-list.html">Bracelets</a></li>
-											<li><a href="shop-left-sidebar.html">diamond Bracelets</a></li>
-											<li><a href="shop-right-sidebar.html">gold Bracelets</a></li>
-											<li><a href="shop-left-sidebar.html">sliver Bracelets</a></li>
-											<li><a href="shop-right-sidebar.html">Platinum Bracelets</a></li>
+											<li><a href="/Shop/category/Category 2">Category 2</a></li>
+											<li><a href="/Shop/category/Category 1">Sub 1</a></li>
+											<li><a href="/Shop/category/Category 2">Sub 2</a></li>
+											<li><a href="/Shop/category/Category 3">Sub 3</a></li>
+											<li><a href="/Shop/category/Category 4">Sub 4</a></li>
 										</ul>
 									</div>
 									<div class="column-3 column">
 										<ul>
-											<li><a href="shop-list.html">lecklaces</a></li>
-											<li><a href="shop-right-sidebar.html">diamond lecklaces</a></li>
-											<li><a href="shop-left-sidebar.html">gold lecklaces</a></li>
-											<li><a href="shop-right-sidebar.html">sliver lecklaces</a></li>
-											<li><a href="shop-left-sidebar.html">Platinum lecklaces</a></li>
+											<li><a href="/Shop/category/Category 3">Category 3</a></li>
+											<li><a href="/Shop/category/Category 1">Sub 1</a></li>
+											<li><a href="/Shop/category/Category 2">Sub 2</a></li>
+											<li><a href="/Shop/category/Category 3">Sub 3</a></li>
+											<li><a href="/Shop/category/Category 4">Sub 4</a></li>
 										</ul>
 									</div>
 									<div class="column-4 column">
 										<ul>
-											<li><a href="shop-right-sidebar.html">earrings</a></li>
-											<li><a href="shop-list.html">diamond earrings</a></li>
-											<li><a href="shop-left-sidebar.html">gold earrings</a></li>
-											<li><a href="shop-list.html">sliver earrings</a></li>
-											<li><a href="shop-left-sidebar.html">Platinum earrings</a></li>
+											<li><a href="/Shop/category/Category 1">Category 4</a></li>
+											<li><a href="/Shop/category/Category 1">Sub 1</a></li>
+											<li><a href="/Shop/category/Category 2">Sub 2</a></li>
+											<li><a href="/Shop/category/Category 3">Sub 3</a></li>
+											<li><a href="/Shop/category/Category 4">Sub 4</a></li>
 										</ul>
 									</div>
 								</div>
 							</li>
-							<li><a href="portfolio.html">Portfolio</a>
+							<li><a href="portfolio.html">Orders</a>
 								<ul class="sub-menu">
-									<li><a href="portfolio.html">Portfolio 3 column</a></li>
-									<li><a href="portfolio-2.html">Portfolio 4 column</a></li>
+									<li><a href="portfolio.html">Track Order</a></li>
+									<li><a href="portfolio-2.html">Purchase History</a></li>
 								</ul>
 							</li>
-							<li><a href="blog.html">Blog</a>
+							<li><a href="blog.html">Discount</a>
 								<ul class="sub-menu">
-									<li><a href="blog.html">Blog Page</a></li>
-									<li><a href="blog-left-sidebar.html">Blog left sidebar</a></li>
-									<li><a href="blog-right-sidebar.html">Blog right sidebar</a></li>
+									<li><a href="blog-left-sidebar.html">Rewards</a></li>
+									<li><a href="blog-right-sidebar.html">Discount Coupons</a></li>
 								</ul>
 							</li>
-							<li><a href="about-us.html">About Us</a></li>
-							<li><a href="contact.html">Contact</a>
-								<ul class="sub-menu">
-									<li><a href="contact.html">Contact 1</a></li>
-									<li><a href="contact-2.html">Contact 2</a></li>
-								</ul>
-							</li>
+							<li><a href="aboutus">About Us</a></li>
+							<li><a href="contact">Contact</a></li>
 						</ul>
 					</nav>
 				</div>
 				<div class="mobile-menu hidden-md hidden-lg">
 					<nav>
 						<ul>
-							<li><a href="index.html" class="active">Home</a>
+							<li><a href="/" class="active">Home</a>
 								<ul>
-									<li><a href="index.html">Home 1</a></li>
+									<li><a href="/">Home 1</a></li>
 									<li><a href="index-2.html">Home 2</a></li>
 									<li><a href="index-3.html">Home 3</a></li>
 								</ul>
@@ -406,6 +397,8 @@
 		</div>
 	</div>
 </div><!--End Main Menu Area-->
+
+
 <div class="page-title fix"><!--Start Title-->
 	<div class="overlay section">
 		<h2>Cart</h2>
@@ -427,75 +420,61 @@
 								<th class="acti">ACTION</th>
 							</tr>													
 						</thead>
-						<tbody>
+						<tbody id="CartBody">
+							@php($subtot=0)
+							@foreach($CartData as $dt)
 							<tr class="table-info">
 								<td class="produ">
-									<a href="#"><img alt="" src="img/cart-1.jpg"></a>
+									<a href="/product-details/{{$dt->prod_id}}"><img alt="" src="img/cart-1.jpg"></a>
 								</td>
 								<td class="namedes">
-									<h2><a href="#">PRODUCT NAME DEMO</a></h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+									<h2><a href="/product-details/{{$dt->prod_id}}">{{$dt->prod_name}}</a></h2>
+									<p>{{$dt->prod_details}}</p>
 								</td>
 								<td class="unit">
-									<h5>$120</h5>
+									<h5>${{$dt->prod_MRP_price}}</h5>
 								</td>
 								<td class="quantity">
-									<div class="cart-plus-minus">
-										<input type="text" value="0" name="qtybutton" class="cart-plus-minus-box">
+									<div>
+										<input type="text" placeholder=" -" id="qtyminus-{{$dt->prod_id}}" onclick="qtyChange('remove','{{$dt->prod_id}}','{{$dt->prod_MRP_price}}')" class="cart-qty-box" readonly>
+										<input type="text" value="{{$dt->prod_quantity}}" id="qtytxt-{{$dt->prod_id}}" class="cart-qty-box" readonly disabled>
+										<input type="text" placeholder=" +" id="qtyplus-{{$dt->prod_id}}" onclick="qtyChange('add','{{$dt->prod_id}}','{{$dt->prod_MRP_price}}')" class="cart-qty-box" readonly>
 									</div>
 								</td>
 								<td class="valu">
-									<h5>$120</h5>
+									<h4><span id="val-{{$dt->prod_id}}">${{$dt->prod_quantity * $dt->prod_MRP_price}}<span></h4>
 								</td>
 								<td class="acti">
-									<a href="#"><i class="fa fa-trash-o"></i></a>
+									<a><i class="fa fa-trash-o" onclick="DelCart('{{$dt->prod_id}}')"></i></a>
 								</td>
 							</tr>
-							<tr class="table-info">
-								<td class="produ">
-									<a href="#"><img alt="" src="img/cart-2.jpg"></a>
-								</td>
-								<td class="namedes">
-									<h2><a href="#">PRODUCT NAME DEMO</a></h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-								</td>
-								<td class="unit">
-									<h5>$120</h5>
-								</td>
-								<td class="quantity">
-									<div class="cart-plus-minus">
-										<input type="text" value="0" name="qtybutton" class="cart-plus-minus-box">
-									</div>
-								</td>
-								<td class="valu">
-									<h5>$120</h5>
-								</td>
-								<td class="acti">
-									<a href="#"><i class="fa fa-trash-o"></i></a>
-								</td>
-							</tr>
+							@php($subtot=$subtot + $dt->prod_quantity * $dt->prod_MRP_price)
+							@endforeach
 						</tbody>
 					</table>
 				</div>
 			</div>
 			<div class="col-sm-6 col-md-7">
 				<div class="coupon">
-					<a href="#">Continue Shopping</a>
+					<a href="/">Continue Shopping</a>
 					<h3>DISCOUNT COUPON CODE</h3>
 					<input type="text" placeholder="DISCOUNT COUPON CODE HERE..." />
-					<a href="#">Apply Coupon</a>
+					<a href="">Apply Coupon</a>
 					<p><span>NOTE :</span> Shipping and Taxes are estimated and updated during checkout based on your billing and shipping information.</p>
 				</div>
 			</div>
 			<div class="col-sm-6 col-md-5">
 				<div class="proceed fix">
-					<a href="#">CLEAR SHOPPING CART</a>
+					<a href="/CartClear">CLEAR SHOPPING CART</a>
 					<a href="#">UPDATE SHOPPING CART</a>
 					<div class="total">
-						<h5>Sub Total <span>$420</span></h5>
-						<h6>Grand Total <span>$420</span></h6>
+						<h5>Sub Total <span id="subtot">${{$subtot}}</span></h5>
+						<h5 id="discount"></h5>
+						<h6>Grand Total <span id="tot">${{$subtot}}</span></h6>
+						<input type="text" id="subtottxt" value="{{$subtot}}" hidden>
+						<input type="text" id="tottxt" value="{{$subtot}}" hidden>
 					</div>
-					<a id="procedto" href="checkout.html">PROCEED TO CHECK OUT</a>
+					<a id="procedto" href="/checkout">PROCEED TO CHECK OUT</a>
 				</div>
 			</div>
 		</div>

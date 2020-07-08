@@ -8,6 +8,8 @@ use App\Http\Requests\LoginRequest;
 
 use Illuminate\Support\Facades\DB;
 
+use Carbon\Carbon;
+
 use App\User;
 
 use Validator;
@@ -15,7 +17,14 @@ use Validator;
 class LoginController extends Controller
 {
     public function login(Request $req){
-		return view('login');
+		$SiteData = DB::table('tbl_sitedata')-> get();
+					  
+			$mydate=Carbon::now();
+			$hour=$mydate->format("H:i:s");
+			$TimeData = array("Hour"=>$hour);
+			
+			
+		return view('login')->with(compact('SiteData'));
     }
 	
 	public function check(Request $req){

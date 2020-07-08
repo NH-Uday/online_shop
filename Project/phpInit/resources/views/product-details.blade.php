@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
 	<meta charset="UTF-8">
-	<title>Shopify | Home Page</title>
+	<title>Shopify | {{$product->prod_name}}</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Fav Icon -->
 	<link id="favicon" rel="icon" type="image/png" href="img/favicon.ico" />
@@ -11,28 +11,38 @@
 	<!-- Google Font Dancing Script -->
 	<link href='https://fonts.googleapis.com/css?family=Dancing+Script' rel='stylesheet' type='text/css'>
 	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}" />
 	<!-- Font Awesome CSS -->
-	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/font-awesome.min.css') }}" />
 	<!-- Owl Carousel CSS -->
-	<link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css" />
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/owl.carousel.min.css') }}" />
 	<!-- Animate CSS -->
-	<link rel="stylesheet" type="text/css" href="css/animate.min.css" />
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/animate.min.css') }}" />
 	<!-- simpleLens CSS -->
-	<link rel="stylesheet" type="text/css" href="css/jquery.simpleLens.css" />
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/jquery.simpleLens.css') }}" />
 	<!-- Price Slider CSS -->
-	<link rel="stylesheet" type="text/css" href="css/jquery-price-slider.css" />
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/jquery-price-slider.css" />') }}
 	<!-- MeanMenu CSS -->
-	<link rel="stylesheet" type="text/css" href="css/meanmenu.min.css" />
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/meanmenu.min.css') }}" />
 	<!-- Magnific Popup CSS -->
-	<link rel="stylesheet" type="text/css" href="css/magnific-popup.css" />
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/magnific-popup.css') }}" />
 	<!-- Nivo Slider CSS -->
-	<link rel="stylesheet" type="text/css" href="css/nivo-slider.css" />
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/nivo-slider.css') }}" />
 	<!-- Stylesheet CSS -->
-	<link rel="stylesheet" type="text/css" href="style.css" />
+	<link rel="stylesheet" type="text/css" href="{{ asset('style.css') }}" />
 	<!-- Responsive Stylesheet -->
-	<link rel="stylesheet" type="text/css" href="css/responsive.css" />
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/responsive.css') }}" />
 	<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+	<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.14/moment-timezone-with-data-2012-2022.min.js"></script>
+	<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="{{asset('js/jquery-3.4.1.js')}}"></script>
+	<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="{{asset('js/myScript.js')}}"></script>
+	<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<meta name="csrf-token" content="{{csrf_token()}}">
+	
 </head>
 <body>
 <div class="header-top"><!--Start Header Top Area-->
@@ -42,37 +52,39 @@
 				<div class="info">
 					<div class="phn-num float-left">
 						<i class="fa fa-phone float-left"></i>
-						<p>(000)  123  288  456 </p>
+						<p>{{$SiteData[0]->data}}</p>
 					</div>
 					<div class="mail-id float-left">
 						<i class="fa fa-envelope-o float-left"></i>
-						<p><a href="#">info@olongker.com</a></p>
+						<p><a>{{$SiteData[1]->data}}</a></p>
 					</div>
 				</div>
 			</div>
 			<div class="col-sm-12 col-md-4">
 				<div class="socials text-center">
-					<a href="#"><i class="fa fa-facebook"></i></a>
-					<a href="#"><i class="fa fa-twitter"></i></a>
-					<a href="#"><i class="fa fa-linkedin"></i></a>
-					<a href="#"><i class="fa fa-google-plus"></i></a>
+					<a href="{{$SiteData[2]->data}}"><i class="fa fa-facebook"></i></a>
+					<a href="{{$SiteData[3]->data}}"><i class="fa fa-twitter"></i></a>
+					<a href="{{$SiteData[4]->data}}"><i class="fa fa-linkedin"></i></a>
+					<a href="{{$SiteData[5]->data}}"><i class="fa fa-google-plus"></i></a>
 				</div>
 			</div>
 			<div class="col-sm-12 col-md-4">
 				<div id="top-menu" class="float-right">
 					<ul>
-						<li>@if(isset($userData))
-							<li><a href="/profile">{{$userData->username}} <i class="fa fa-angle-down"></i></a>
+						@if(isset($userData))
+							<li><a href="/profile"><h4><small>Welcome {{$userData->username}} ! </small><span id="tz"> </span>  &nbsp  <i class="fa fa-angle-down"></i></h4></a>
 								<ul>
-									<li><a href="/profile">Profile</a></li>
-									<li><a href="/wishlist">Wishlists</a></li>
-									<li><a href="/logout">Logout</a></li>
+									<li><a href="/profile"><i class="fa fa-child"> Profile </i></a></li>
+									<li><a href="/wishlist"><i class="	fa fa-bookmark"> Wishlist </i></a></li>
+									<li><a href="/logout"><i class="fa fa-sign-out"> Sign out </i></a></li>
+									@if($userData->type=='admin')
+										<li><a href="/Admin/Home/Edit"><i class="fa fa-bank"> Admin Home </i></a></li>
+									@endif
 								</ul>
 							</li>
-							@else
-								<a href="/login">Do you have an Account? or Sign Up</a>
-							@endif
-						</li>
+						@else
+							Welcome<a href="/login"> Guest ! </a> <h3><span id="tz"></span></h3>
+						@endif
 					</ul>
 				</div>
 			</div>
@@ -94,43 +106,45 @@
 				<div class="logo text-center">
 					<a href="/">
 						<img src="img/header/logo.png" alt="" />
-						<h4>online jewelry store</h4>
+						<h4>{{$SiteData[6]->data}}</h4>
 					</a>
 				</div>
 			</div>
 			<div class="col-sm-4 col-lg-3">
 				<div class="cart-info float-right">
-					<a href="cart.html">
-						<h5>My cart <span>2</span> items - <span>$390</span></h5>
+					@if(isset($userData) && isset($CartData))
+					<a href="/ProductCart">
+						<h5>My cart ( <span>{{count($CartData)}}</span> items ) </h5>
 						<i class="fa fa-shopping-cart"></i>
 					</a>
 					<div class="cart-hover">
 						<ul class="header-cart-pro">
+						
+							@php($tot=0)
+							@foreach($CartData as $dt)
 							<li>
-								<div class="image"><a href="#"><img alt="cart item" src="img/cart-1.jpg"></a></div>
-								<div class="content fix"><a href="#">Product Name</a><span class="price">Price: $130</span><span class="quantity">Quantity: 1</span></div>
-								<i class="fa fa-trash delete"></i>
+								<div class="image"><a href="/product-details/{{$dt->prod_id}}"><img alt="cart item" src="img/cart-1.jpg"></a></div>
+								<div class="content fix"><a href="/product-details/{{$dt->prod_id}}">{{$dt->prod_name}}</a><span class="price">Price: ${{$dt->prod_MRP_price * $dt->prod_quantity}}</span><span class="quantity">Quantity: {{$dt->prod_quantity}}</span></div> @php($tot=$tot+$dt->prod_MRP_price*$dt->prod_quantity)
 							</li>
-							<li>
-								<div class="image"><a href="#"><img alt="cart item" src="img/cart-2.jpg"></a></div>
-								<div class="content fix"><a href="#">Product Name</a><span class="price">Price: $130</span><span class="quantity">Quantity: 2</span></div>
-								<i class="fa fa-trash delete"></i>
-							</li>
+							@endforeach
+							
 						</ul>
 						<div class="header-button-price">
-							<a href="checkout.html"><i class="fa fa-sign-out"></i><span>Check Out</span></a>
-							<div class="total-price"><h3>Total Price : <span>$390</span></h3></div>
+							<a href="/ProductCart"><i class="fa fa-sign-out"></i><span>Check Out</span></a>
+							
 						</div>
 					</div>
+					@endif
 				</div>
 				<div class="search float-right">
-					<input type="text" value="" placeholder="Search Here...." />
-					<button class="submit"><i class="fa fa-search"></i></button>
+					<input type="text" value="" id="srcTxt" placeholder="Search Here...." onchange="searchBy()" />
+					<button class="submit"><i class="fa fa-search" onclick="searchBy()"></i></button>
 				</div>
 			</div>
 		</div>
 	</div>
 </div><!--End Header Area-->
+
 <div class="menu-area"><!--Start Main Menu Area-->
 	<div class="container">
 		<div class="row">
@@ -138,123 +152,105 @@
 				<div class="main-menu hidden-sm hidden-xs">
 					<nav>
 						<ul>
-							<li><a href="/" class="active">Home</a>
-								<ul class="sub-menu">
-									<li><a href="/">Home 1</a></li>
-									<li><a href="index-2.html">Home 2</a></li>
-									<li><a href="index-3.html">Home 3</a></li>
-								</ul>
-							</li>
+							<li><a href="/" class="active">Home</a></li>
 							<li><a href="#">Pages</a>
 								<div class="mega-menu mega-menu-page">
 									<div class="column-1 column">
 										<ul>
-											<li><a href="about-us.html">About US</a></li>
-											<li><a href="blog.html">Blog</a></li>
-											<li><a href="blog-left-sidebar.html">Blog left sidebar</a></li>
-											<li><a href="blog-right-sidebar.html">Blog right sidebar</a></li>
-											<li><a href="blog-details.html">Blog details</a></li>
+											<li><a href="aboutus">About US</a></li>
+											<li><a href="contact">Contact</a></li>
 										</ul>
 									</div>
 									<div class="column-2 column">
 										<ul>
-											<li><a href="cart.html">Cart</a></li>
-											<li><a href="checkout.html">Checkout</a></li>
-											<li><a href="coming-soon.html">Coming soon</a></li>
-											<li><a href="contact.html">Contact</a></li>
-											<li><a href="contact-2.html">Contact 2</a></li>
+											<li><a href="/ProductCart">Cart</a></li>
+											<li><a href="/checkout">Checkout</a></li>
 										</ul>
 									</div>
 									<div class="column-3 column">
 										<ul>
-											<li><a href="faq.html">FAQ</a></li>
-											<li><a href="login.html">Login</a></li>
-											<li><a href="portfolio.html">Portfolio 3 column</a></li>
-											<li><a href="portfolio-2.html">Portfolio 4 column</a></li>
-											<li><a href="404.html">404</a></li>
+											<li><a href="/login">Login</a></li>
+											<li><a href="/login">Register Account</a></li>
 										</ul>
 									</div>
 									<div class="column-4 column">
 										<ul>
-											<li><a href="shop.html">Shop</a></li>
-											<li><a href="shop-list.html">Shop list</a></li>
-											<li><a href="shop-left-sidebar.html">Shop left sidebar</a></li>
-											<li><a href="shop-right-sidebar.html">Shop right sidebar</a></li>
-											<li><a href="product-details.html">Product details</a></li>
+											<li><a href="/Shop/searchBy/lanxi">Shop</a></li>
+											<li><a href="/wishlist">Wishlist</a></li>
 										</ul>
 									</div>
 								</div>
 							</li>
-							<li><a href="shop.html">Shop</a>
+							<li><a href="/Shop/searchBy/lanxi">Shop</a>
 								<div class="mega-menu mega-menu-1">
 									<div class="column-1 column">
 										<ul>
-											<li><a href="shop-list.html">Category 1</a></li>
-											<li><a href="shop-left-sidebar.html">Sub 1</a></li>
-											<li><a href="shop-right-sidebar.html">Sub 2</a></li>
-											<li><a href="shop-list.html">Sub 3</a></li>
-											<li><a href="shop-left-sidebar.html">Sub 4</a></li>
+											<li><a href="/Shop/category/Category 1">Category 1</a></li>
+											<li><a href="/Shop/category/Category 1">Sub 1</a></li>
+											<li><a href="/Shop/category/Category 2">Sub 2</a></li>
+											<li><a href="/Shop/category/Category 3">Sub 3</a></li>
+											<li><a href="/Shop/category/Category 4">Sub 4</a></li>
 										</ul>
 									</div>
 									<div class="column-2 column">
 										<ul>
-											<li><a href="shop-list.html">Category 2</a></li>
-											<li><a href="shop-left-sidebar.html">Sub 1</a></li>
-											<li><a href="shop-right-sidebar.html">Sub 2</a></li>
-											<li><a href="shop-left-sidebar.html">Sub 3</a></li>
-											<li><a href="shop-right-sidebar.html">Sub 4</a></li>
+											<li><a href="/Shop/category/Category 2">Category 2</a></li>
+											<li><a href="/Shop/category/Category 1">Sub 1</a></li>
+											<li><a href="/Shop/category/Category 2">Sub 2</a></li>
+											<li><a href="/Shop/category/Category 3">Sub 3</a></li>
+											<li><a href="/Shop/category/Category 4">Sub 4</a></li>
 										</ul>
 									</div>
 									<div class="column-3 column">
 										<ul>
-											<li><a href="shop-list.html">Category 3</a></li>
-											<li><a href="shop-right-sidebar.html">Sub 1</a></li>
-											<li><a href="shop-left-sidebar.html">Sub 2</a></li>
-											<li><a href="shop-right-sidebar.html">Sub 3</a></li>
-											<li><a href="shop-left-sidebar.html">Sub 4</a></li>
+											<li><a href="/Shop/category/Category 3">Category 3</a></li>
+											<li><a href="/Shop/category/Category 1">Sub 1</a></li>
+											<li><a href="/Shop/category/Category 2">Sub 2</a></li>
+											<li><a href="/Shop/category/Category 3">Sub 3</a></li>
+											<li><a href="/Shop/category/Category 4">Sub 4</a></li>
 										</ul>
 									</div>
 									<div class="column-4 column">
-										<a href="#"><img src="img/product/10.jpg" alt="" /></a>
+										<a href=""><img src="{{ asset('img/product/10.jpg') }}" alt="" /></a>
 									</div>
 								</div>
 							</li>
-							<li><a href="shop.html">New Arrivals</a>
+							<li><a href="/Shop/category/Category%201/l2%hi">New Arrivals</a>
 								<div class="mega-menu mega-menu-1">
 									<div class="column-1 column">
 										<ul>
-											<li><a href="shop-list.html">Category 1</a></li>
-											<li><a href="shop-left-sidebar.html">Sub 1</a></li>
-											<li><a href="shop-right-sidebar.html">Sub 2</a></li>
-											<li><a href="shop-list.html">Sub 3</a></li>
-											<li><a href="shop-left-sidebar.html">Sub 4</a></li>
+											<li><a href="/Shop/category/Category 1">Category 1</a></li>
+											<li><a href="/Shop/category/Category 1">Sub 1</a></li>
+											<li><a href="/Shop/category/Category 2">Sub 2</a></li>
+											<li><a href="/Shop/category/Category 3">Sub 3</a></li>
+											<li><a href="/Shop/category/Category 4">Sub 4</a></li>
 										</ul>
 									</div>
 									<div class="column-2 column">
 										<ul>
-											<li><a href="shop-list.html">Category 2</a></li>
-											<li><a href="shop-left-sidebar.html">Sub 1</a></li>
-											<li><a href="shop-right-sidebar.html">Sub 2</a></li>
-											<li><a href="shop-left-sidebar.html">Sub 3</a></li>
-											<li><a href="shop-right-sidebar.html">Sub 4</a></li>
+											<li><a href="/Shop/category/Category 2">Category 2</a></li>
+											<li><a href="/Shop/category/Category 1">Sub 1</a></li>
+											<li><a href="/Shop/category/Category 2">Sub 2</a></li>
+											<li><a href="/Shop/category/Category 3">Sub 3</a></li>
+											<li><a href="/Shop/category/Category 4">Sub 4</a></li>
 										</ul>
 									</div>
 									<div class="column-3 column">
 										<ul>
-											<li><a href="shop-list.html">Category 3</a></li>
-											<li><a href="shop-right-sidebar.html">Sub 1</a></li>
-											<li><a href="shop-left-sidebar.html">Sub 2</a></li>
-											<li><a href="shop-right-sidebar.html">Sub 3</a></li>
-											<li><a href="shop-left-sidebar.html">Sub 4</a></li>
+											<li><a href="/Shop/category/Category 3">Category 3</a></li>
+											<li><a href="/Shop/category/Category 1">Sub 1</a></li>
+											<li><a href="/Shop/category/Category 2">Sub 2</a></li>
+											<li><a href="/Shop/category/Category 3">Sub 3</a></li>
+											<li><a href="/Shop/category/Category 4">Sub 4</a></li>
 										</ul>
 									</div>
 									<div class="column-4 column">
 										<ul>
-											<li><a href="shop-right-sidebar.html">Category 4</a></li>
-											<li><a href="shop-left-sidebar.html">Sub 1</a></li>
-											<li><a href="shop-right-sidebar.html">Sub 2</a></li>
-											<li><a href="shop-list.html">Sub 3</a></li>
-											<li><a href="shop-left-sidebar.html">Sub 4</a></li>
+											<li><a href="/Shop/category/Category 1">Category 4</a></li>
+											<li><a href="/Shop/category/Category 1">Sub 1</a></li>
+											<li><a href="/Shop/category/Category 2">Sub 2</a></li>
+											<li><a href="/Shop/category/Category 3">Sub 3</a></li>
+											<li><a href="/Shop/category/Category 4">Sub 4</a></li>
 										</ul>
 									</div>
 								</div>
@@ -268,13 +264,11 @@
 							<li><a href="blog.html">Discount</a>
 								<ul class="sub-menu">
 									<li><a href="blog-left-sidebar.html">Rewards</a></li>
-									<li><a href="blog.html">Shop Coupons</a></li>
 									<li><a href="blog-right-sidebar.html">Discount Coupons</a></li>
 								</ul>
 							</li>
-							<li><a href="/aboutus">About Us</a></li>
-							<li><a href="/contact">Contact</a>
-							</li>
+							<li><a href="aboutus">About Us</a></li>
+							<li><a href="contact">Contact</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -290,7 +284,7 @@
 							</li>
 							<li><a href="#">Pages</a>
 								<ul>
-									<li><a href="aboutus.html">About US</a></li>
+									<li><a href="about-us.html">About US</a></li>
 									<li><a href="blog.html">Blog</a></li>
 									<li><a href="blog-left-sidebar.html">Blog left sidebar</a></li>
 									<li><a href="blog-right-sidebar.html">Blog right sidebar</a></li>
@@ -404,6 +398,7 @@
 	</div>
 </div><!--End Main Menu Area-->
 
+
 <div class="page-title fix"><!--Start Title-->
 	<div class="overlay section">
 		<h2>Product Details</h2>
@@ -447,10 +442,6 @@
 					</div>
 					<!-- Nav tabs -->
 					<ul class="tabs-list details-pro-tab-list" role="tablist">
-						<li class="active"><a href="#image-1" data-toggle="tab"><img src="{{ asset('img/single-product/thumb-1.jpg') }}" alt="" /></a></li>
-						<li><a href="#image-2" data-toggle="tab"><img src="{{ asset('img/single-product/thumb-2.jpg') }}" alt="" /></a></li>
-						<li><a href="#image-3" data-toggle="tab"><img src="{{ asset('img/single-product/thumb-3.jpg') }}" alt="" /></a></li>
-						<li><a href="#image-4" data-toggle="tab"><img src="{{ asset('img/single-product/thumb-4.jpg') }}" alt="" /></a></li>
 					</ul>
 				</div>
 			</div>
@@ -466,47 +457,22 @@
 						<i class="on fa fa-star"></i>
 						<i class="on fa fa-star-half-o"></i>
 					</div>
-					<h3><span>{{$product->prod_MRP_price}}</span>{{$product->prod_SELLER_price}}</h3>
-					<h4>10 Reviews</h4>	
-					<h5>Availability - @if($stock>0) In Stock @else Out of Stock @endif</h5> 
+					<h3><span>{{$product->prod_MRP_price}}</span>$135</h3>
+					<h4>10 Reviews</h4>
+					<h5>Availability - <span>In Stock</span></h5>
 					<h6>QUICK OVERVIEW</h6>
-					<p>{{$product->prod_details}}</p>
-					<div class="select-menu fix">
-						<div class="sort fix">
-							<h4>SIZE</h4>
-							<select>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-							</select>
-						</div>
-						<div class="sort fix">
-							<h4>Color</h4>
-							<select>
-								<option value="pink">pink</option>
-								<option value="red">red</option>
-								<option value="blue">blue</option>
-							</select>
-						</div>
-						<div class="sort fix">
-							<h4>Qty</h4>
-							<select>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-							</select>
-						</div>
-					</div>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco aboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepte.</p>
+					
 					<div class="review">
 						<textarea rows="4" placeholder="Write Your Review..."></textarea>
 					</div>
 					<div class="action-btn">
-						<a href="#"><i class="fa fa-shopping-cart"></i></a>
-						<a href="#"><i class="fa fa-heart-o"></i></a>
+						<a><i class="fa fa-shopping-cart" onclick="AddCart('{{csrf_token()}}','{{$product->prod_id}}')"></i></a>
+						<a><i class="fa fa-heart-o" onclick="AddWish('{{csrf_token()}}','{{$product->prod_id}}')"></i></a>
 						<a href="#"><i class="fa fa-refresh"></i></a>
 					</div>
+					<span id="sp-{{$product->prod_id}}"> </span>
+					<span id="spp-{{$product->prod_id}}"> </span>
 				</div>
 			</div>
 			
@@ -515,25 +481,19 @@
 					<!-- Nav tabs -->
 					<ul class="nav product-nav">
 						<li class="active"><a data-toggle="tab" href="#description">DESCRIPTION</a></li>
-						<li class=""><a data-toggle="tab" href="#review">REVIEWS</a></li>
-						<li class=""><a data-toggle="tab" href="#tags">PRODUCTS TAGS</a></li>
-						<li class=""><a data-toggle="tab" href="#custom-tags">CUSTOM TABS</a></li>
+						<li class=""><a data-toggle="tab" href="#review">REVIEWS</a></li>\
 					</ul>
 					<!-- Tab panes -->
 					<div class="tab-content">
 						<div id="description" class="tab-pane fade active in" role="tabpanel">
-							<p>{{$product->prod_description}}</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco aboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepte.</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamc.</p>
 						</div>
 						<div id="review" class="tab-pane fade" role="tabpanel">
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco aboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepte.</p>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamc.</p>
 						</div>
-						<div id="tags" class="tab-pane fade" role="tabpanel">
-							<a href="#">JEWELRY</a><a href="#">Necklaces</a><a href="#">Jewelry Sets</a><a href="#">Churi</a>
-						</div>
-						<div id="custom-tags" class="tab-pane fade" role="tabpanel">
-							<a href="#">JEWELRY</a><a href="#">Necklaces</a><a href="#">Jewelry Sets</a><a href="#">Churi</a>
-						</div>
+						
 					</div>
 				</div>
 			</div>
@@ -549,13 +509,14 @@
 					<div class="product-item fix">
 						<div class="product-img-hover">
 							<!-- Product image -->
-							<a href="/product-details/{{$dt->prod_id}}" class="pro-image fix"><img src="{{ asset('img/product/1.jpg') }}" alt="product" /></a>
+							<a href="/product-details/{{$dt->prod_id}}" class="pro-image fix"><img src="{{ asset('img/featured/1.jpg') }}" alt="featured" /></a>
 							<!-- Product action Btn -->
 							<div class="product-action-btn">
-								<a class="quick-view" href="#"><i class="fa fa-search"></i></a>
-								<a class="favorite" href="#"><i class="fa fa-heart-o"></i></a>
-								<a class="add-cart" href="#"><i class="fa fa-shopping-cart"></i></a>
+								<a class="favorite" ><i class="fa fa-heart-o" onclick="AddWish('{{csrf_token()}}','{{$dt->prod_id}}')"></i></a>
+								<a class="add-cart" ><i class="fa fa-shopping-cart" onclick="AddCart('{{csrf_token()}}','{{$dt->prod_id}}')"></i></a>
 							</div>
+							<span id="sp-{{$dt->prod_id}}"> </span>
+							<span id="spp-{{$dt->prod_id}}"> </span>
 						</div>
 						<div class="pro-name-price-ratting">
 							<!-- Product Name -->
@@ -572,7 +533,7 @@
 							</div>
 							<!-- Product Price -->
 							<div class="pro-price fix">
-								<p><span class="old">{{$dt->prod_MRP_price}}</span><span class="new">{{$dt->prod_SELLER_price}}</span></p>
+								<p><span class="old">${{$dt->prod_SELLER_price}}</span><span class="new">{{$dt->prod_MRP_price}}</span></p>
 							</div>
 						</div>
 					</div><!-- Single Product End -->
@@ -593,18 +554,19 @@
 					<div class="product-item fix">
 						<div class="product-img-hover">
 							<!-- Product image -->
-							<a href="/product-details/{{$dt->prod_id}}" class="pro-image fix"><img src="{{ asset('img/product/1.jpg') }}" alt="product" /></a>
+							<a href="/product-details/{{$dt->prod_id}}" class="pro-image fix"><img src="{{ asset('img/featured/1.jpg') }}" alt="featured" /></a>
 							<!-- Product action Btn -->
 							<div class="product-action-btn">
-								<a class="quick-view" href="#"><i class="fa fa-search"></i></a>
-								<a class="favorite" href="#"><i class="fa fa-heart-o"></i></a>
-								<a class="add-cart" href="#"><i class="fa fa-shopping-cart"></i></a>
+								<a class="favorite" ><i class="fa fa-heart-o" onclick="AddWish('{{csrf_token()}}','{{$dt->prod_id}}')"></i></a>
+								<a class="add-cart" ><i class="fa fa-shopping-cart" onclick="AddCart('{{csrf_token()}}','{{$dt->prod_id}}')"></i></a>
 							</div>
+							<span id="sp-{{$dt->prod_id}}"> </span>
+							<span id="spp-{{$dt->prod_id}}"> </span>
 						</div>
 						<div class="pro-name-price-ratting">
 							<!-- Product Name -->
 							<div class="pro-name">
-								<a "/product-details/{{$dt->prod_id}}">{{$dt->prod_name}}</a>
+								<a href="/product-details/{{$dt->prod_id}}">{{$dt->prod_name}}</a>
 							</div>
 							<!-- Product Ratting -->
 							<div class="pro-ratting">
@@ -616,16 +578,20 @@
 							</div>
 							<!-- Product Price -->
 							<div class="pro-price fix">
-								<p><span class="old">${{$dt->prod_MRP_price}}</span><span class="new">${{$dt->prod_SELLER_price}}</span></p>
+								<p><span class="old">${{$dt->prod_SELLER_price}}</span><span class="new">{{$dt->prod_MRP_price}}</span></p>
 							</div>
 						</div>
 					</div><!-- Single Product End -->
-					@endforeach		
+					@endforeach
+					
+					
 				</div>
 			</div>
-			@endif		
+			@endif
+			
 		</div>
 	</div>
+	
 </section><!--End Product Details Area-->
 
 

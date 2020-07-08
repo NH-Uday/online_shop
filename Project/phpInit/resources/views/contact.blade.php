@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
 	<meta charset="UTF-8">
-	<title>Shopify | Home Page</title>
+	<title>Shopify | Contact</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Fav Icon -->
 	<link id="favicon" rel="icon" type="image/png" href="img/favicon.ico" />
@@ -61,17 +61,18 @@
 			<div class="col-sm-12 col-md-4">
 				<div id="top-menu" class="float-right">
 					<ul>
-						<li>@if(isset($userData))
-							<li><a href="/profile">{{$userData->username}} <i class="fa fa-angle-down"></i></a>
-								<ul>
-									<li><a href="/profile">Profile</a></li>
-									<li><a href="/wishlist">Wishlists</a></li>
-									<li><a href="/logout">Logout</a></li>
-								</ul>
-							</li>
-							@else
-								<a href="/login">Do you have an Account? or Sign Up</a>
-							@endif
+						<li><a href="">My Account</a></li>
+						<li><a href="">$USD <i class="fa fa-angle-down"></i></a>
+							<ul>
+								<li><a href="">Pound</a></li>
+								<li><a href="">BDT</a></li>
+							</ul>
+						</li>
+						<li><a href="">English(UK) <i class="fa fa-angle-down"></i></a>
+							<ul>
+								<li><a href="">English(USA)</a></li>
+								<li><a href="">Bangla</a></li>
+							</ul>
 						</li>
 					</ul>
 				</div>
@@ -83,16 +84,14 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-4 col-lg-3">
-				@if(!isset($userData))
 				<div class="log-link">
 					<p>Well come visitor you can</p>
-					<h5><a href="/login">Login</a> or <a href="/login">Create an account</a></h5>
+					<h5><a href="login.html">Login</a> or <a href="login.html">Create an account</a></h5>
 				</div>
-				@endif
 			</div>
 			<div class="col-sm-4 col-lg-6">
 				<div class="logo text-center">
-					<a href="/">
+					<a href="index.html">
 						<img src="img/header/logo.png" alt="" />
 						<h4>online jewelry store</h4>
 					</a>
@@ -138,9 +137,9 @@
 				<div class="main-menu hidden-sm hidden-xs">
 					<nav>
 						<ul>
-							<li><a href="/" class="active">Home</a>
+							<li><a href="index.html" class="active">Home</a>
 								<ul class="sub-menu">
-									<li><a href="/">Home 1</a></li>
+									<li><a href="index.html">Home 1</a></li>
 									<li><a href="index-2.html">Home 2</a></li>
 									<li><a href="index-3.html">Home 3</a></li>
 								</ul>
@@ -189,29 +188,29 @@
 								<div class="mega-menu mega-menu-1">
 									<div class="column-1 column">
 										<ul>
-											<li><a href="shop-list.html">Category 1</a></li>
-											<li><a href="shop-left-sidebar.html">Sub 1</a></li>
-											<li><a href="shop-right-sidebar.html">Sub 2</a></li>
-											<li><a href="shop-list.html">Sub 3</a></li>
-											<li><a href="shop-left-sidebar.html">Sub 4</a></li>
+											<li><a href="shop-list.html">rings</a></li>
+											<li><a href="shop-left-sidebar.html">diamond ring</a></li>
+											<li><a href="shop-right-sidebar.html">gold ring</a></li>
+											<li><a href="shop-list.html">sliver ring</a></li>
+											<li><a href="shop-left-sidebar.html">Platinum ring</a></li>
 										</ul>
 									</div>
 									<div class="column-2 column">
 										<ul>
-											<li><a href="shop-list.html">Category 2</a></li>
-											<li><a href="shop-left-sidebar.html">Sub 1</a></li>
-											<li><a href="shop-right-sidebar.html">Sub 2</a></li>
-											<li><a href="shop-left-sidebar.html">Sub 3</a></li>
-											<li><a href="shop-right-sidebar.html">Sub 4</a></li>
+											<li><a href="shop-list.html">Bracelets</a></li>
+											<li><a href="shop-left-sidebar.html">diamond Bracelets</a></li>
+											<li><a href="shop-right-sidebar.html">gold Bracelets</a></li>
+											<li><a href="shop-left-sidebar.html">sliver Bracelets</a></li>
+											<li><a href="shop-right-sidebar.html">Platinum Bracelets</a></li>
 										</ul>
 									</div>
 									<div class="column-3 column">
 										<ul>
-											<li><a href="shop-list.html">Category 3</a></li>
-											<li><a href="shop-right-sidebar.html">Sub 1</a></li>
-											<li><a href="shop-left-sidebar.html">Sub 2</a></li>
-											<li><a href="shop-right-sidebar.html">Sub 3</a></li>
-											<li><a href="shop-left-sidebar.html">Sub 4</a></li>
+											<li><a href="shop-list.html">lecklaces</a></li>
+											<li><a href="shop-right-sidebar.html">diamond lecklaces</a></li>
+											<li><a href="shop-left-sidebar.html">gold lecklaces</a></li>
+											<li><a href="shop-right-sidebar.html">sliver lecklaces</a></li>
+											<li><a href="shop-left-sidebar.html">Platinum lecklaces</a></li>
 										</ul>
 									</div>
 									<div class="column-4 column">
@@ -223,57 +222,61 @@
 								<div class="mega-menu mega-menu-1">
 									<div class="column-1 column">
 										<ul>
-											<li><a href="shop-list.html">Category 1</a></li>
-											<li><a href="shop-left-sidebar.html">Sub 1</a></li>
-											<li><a href="shop-right-sidebar.html">Sub 2</a></li>
-											<li><a href="shop-list.html">Sub 3</a></li>
-											<li><a href="shop-left-sidebar.html">Sub 4</a></li>
+											<li><a href="shop-list.html">rings</a></li>
+											<li><a href="shop-left-sidebar.html">diamond ring</a></li>
+											<li><a href="shop-right-sidebar.html">gold ring</a></li>
+											<li><a href="shop-list.html">sliver ring</a></li>
+											<li><a href="shop-left-sidebar.html">Platinum ring</a></li>
 										</ul>
 									</div>
 									<div class="column-2 column">
 										<ul>
-											<li><a href="shop-list.html">Category 2</a></li>
-											<li><a href="shop-left-sidebar.html">Sub 1</a></li>
-											<li><a href="shop-right-sidebar.html">Sub 2</a></li>
-											<li><a href="shop-left-sidebar.html">Sub 3</a></li>
-											<li><a href="shop-right-sidebar.html">Sub 4</a></li>
+											<li><a href="shop-list.html">Bracelets</a></li>
+											<li><a href="shop-left-sidebar.html">diamond Bracelets</a></li>
+											<li><a href="shop-right-sidebar.html">gold Bracelets</a></li>
+											<li><a href="shop-left-sidebar.html">sliver Bracelets</a></li>
+											<li><a href="shop-right-sidebar.html">Platinum Bracelets</a></li>
 										</ul>
 									</div>
 									<div class="column-3 column">
 										<ul>
-											<li><a href="shop-list.html">Category 3</a></li>
-											<li><a href="shop-right-sidebar.html">Sub 1</a></li>
-											<li><a href="shop-left-sidebar.html">Sub 2</a></li>
-											<li><a href="shop-right-sidebar.html">Sub 3</a></li>
-											<li><a href="shop-left-sidebar.html">Sub 4</a></li>
+											<li><a href="shop-list.html">lecklaces</a></li>
+											<li><a href="shop-right-sidebar.html">diamond lecklaces</a></li>
+											<li><a href="shop-left-sidebar.html">gold lecklaces</a></li>
+											<li><a href="shop-right-sidebar.html">sliver lecklaces</a></li>
+											<li><a href="shop-left-sidebar.html">Platinum lecklaces</a></li>
 										</ul>
 									</div>
 									<div class="column-4 column">
 										<ul>
-											<li><a href="shop-right-sidebar.html">Category 4</a></li>
-											<li><a href="shop-left-sidebar.html">Sub 1</a></li>
-											<li><a href="shop-right-sidebar.html">Sub 2</a></li>
-											<li><a href="shop-list.html">Sub 3</a></li>
-											<li><a href="shop-left-sidebar.html">Sub 4</a></li>
+											<li><a href="shop-right-sidebar.html">earrings</a></li>
+											<li><a href="shop-list.html">diamond earrings</a></li>
+											<li><a href="shop-left-sidebar.html">gold earrings</a></li>
+											<li><a href="shop-list.html">sliver earrings</a></li>
+											<li><a href="shop-left-sidebar.html">Platinum earrings</a></li>
 										</ul>
 									</div>
 								</div>
 							</li>
-							<li><a href="portfolio.html">Orders</a>
+							<li><a href="portfolio.html">Portfolio</a>
 								<ul class="sub-menu">
-									<li><a href="portfolio.html">Track Order</a></li>
-									<li><a href="portfolio-2.html">Purchase History</a></li>
+									<li><a href="portfolio.html">Portfolio 3 column</a></li>
+									<li><a href="portfolio-2.html">Portfolio 4 column</a></li>
 								</ul>
 							</li>
-							<li><a href="blog.html">Discount</a>
+							<li><a href="blog.html">Blog</a>
 								<ul class="sub-menu">
-									<li><a href="blog-left-sidebar.html">Rewards</a></li>
-									<li><a href="blog.html">Shop Coupons</a></li>
-									<li><a href="blog-right-sidebar.html">Discount Coupons</a></li>
+									<li><a href="blog.html">Blog Page</a></li>
+									<li><a href="blog-left-sidebar.html">Blog left sidebar</a></li>
+									<li><a href="blog-right-sidebar.html">Blog right sidebar</a></li>
 								</ul>
 							</li>
-							<li><a href="/aboutus">About Us</a></li>
-							<li><a href="/contact">Contact</a>
+							<li><a href="about-us.html">About Us</a></li>
+							<li><a href="contact.html">Contact</a>
+								<ul class="sub-menu">
+									<li><a href="contact.html">Contact 1</a></li>
+									<li><a href="contact-2.html">Contact 2</a></li>
+								</ul>
 							</li>
 						</ul>
 					</nav>
@@ -281,16 +284,16 @@
 				<div class="mobile-menu hidden-md hidden-lg">
 					<nav>
 						<ul>
-							<li><a href="/" class="active">Home</a>
+							<li><a href="index.html" class="active">Home</a>
 								<ul>
-									<li><a href="/">Home 1</a></li>
+									<li><a href="index.html">Home 1</a></li>
 									<li><a href="index-2.html">Home 2</a></li>
 									<li><a href="index-3.html">Home 3</a></li>
 								</ul>
 							</li>
 							<li><a href="#">Pages</a>
 								<ul>
-									<li><a href="aboutus.html">About US</a></li>
+									<li><a href="about-us.html">About US</a></li>
 									<li><a href="blog.html">Blog</a></li>
 									<li><a href="blog-left-sidebar.html">Blog left sidebar</a></li>
 									<li><a href="blog-right-sidebar.html">Blog right sidebar</a></li>
@@ -403,7 +406,6 @@
 		</div>
 	</div>
 </div><!--End Main Menu Area-->
-
 <div class="page-title fix"><!--Start Title-->
 	<div class="overlay section">
 		<h2>Contact</h2>
@@ -416,7 +418,7 @@
 				<div class="row">
 					<div class="col-sm-6">
 						<h4>Contact Us</h4>
-						<p>We’re here to help and answer any question you might have. We look forward to hearing from you 🙂 </p>
+						<p>perspiciatis unde omnis iste natus error sit voluptatem accm doloremque antium, totam rem aperiam, eaque ipsa perspiciatis unde omnis iste  aque ipsa perspiciatis unde omnis iste </p>
 						<div class="info-single">
 							<i class="fa fa-map-marker"></i>
 							<p>Main town,  Anystreen</p>
@@ -449,20 +451,22 @@
 				<div id="googleMap"></div>
 			</div>
 			<div class="contact-form col-sm-12">
-				<h2>DROP A MESSAGE</h2>
+				<h2>LEAVE A MESSAGE</h2>
 				<form action="#">
 					<div class="row">
 						<div class="col-sm-6">
 							<label for="name">Name*</label>
-							<input value="{{$userData->username}}" type="text" id="name" />
+							<input type="text" id="name" />
 							<label for="email">E-mail*</label>
-							<input value="{{$userData->email}}" type="text" id="email" />
+							<input type="text" id="email" />
+							<label for="phone">Phone*</label>
+							<input type="text" id="phone" />
 							<label for="subject">Subject*</label>
 							<input type="text" id="subject" />
 						</div>
 						<div class="col-sm-6">
 							<label for="message">Message*</label>
-							<textarea type="text" name="feedback" id="feedback" rows="7"></textarea>
+							<textarea id="message" rows="7"></textarea>
 							<input type="submit" class="submit" value="send"/>
 						</div>
 					</div>
