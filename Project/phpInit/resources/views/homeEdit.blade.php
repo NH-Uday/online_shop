@@ -72,13 +72,13 @@
 							@if(isset($userData))
 								<ul>
 									<li><input type="text" style="color:black;" value="" placeholder="Type Facebook Link" id="fblink"/>
-									<button><i style="color:lime;" class="fa fa-check" onclick="SiteChange('fblink')"></i></button></a></li>
+									<button><i style="color:lime;" class="fa fa-check" onclick="SiteChanger('{{csrf_token()}}','fblink')"></i></button></li>
 									<li><input type="text" style="color:black;" value="" placeholder="Type Twitter Link" id="twtlink"/>
-									<button><i style="color:lime;" class="fa fa-check" onclick="SiteChange('twtlink')"></i></button></a></li>
+									<button><i style="color:lime;" class="fa fa-check" onclick="SiteChanger('{{csrf_token()}}','twtlink')"></i></button></li>
 									<li><input type="text" style="color:black;" value="" placeholder="Type LinkedIn Link" id="linkedin"/>
-									<button><i style="color:lime;" class="fa fa-check" onclick="SiteChange('linkedin')"></i></button></a></li>
+									<button><i style="color:lime;" class="fa fa-check" onclick="SiteChanger('{{csrf_token()}}','linkedin')"></i></button></li>
 									<li><input type="text" style="color:black;" value="" placeholder="Type Google Link" id="gglink"/>
-									<button><i style="color:lime;" class="fa fa-check" onclick="SiteChange('gglink')"></i></button></a></li>
+									<button><i style="color:lime;" class="fa fa-check" onclick="SiteChanger('{{csrf_token()}}','gglink')"></i></button></li>
 								</ul>
 							@else
 								<a href="/login">Do you have an Account? or Sign Up</a>

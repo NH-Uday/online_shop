@@ -385,6 +385,10 @@
 		<div class="row">
 			<div class="col-sm-6 col-md-5">
 				<div class="login">
+				@if(session()->has('msg'))
+					<p style="text-align:center;color:red;">{{session()->get('msg')}}</p><br><br>
+					{{session()->forget('msg')}}
+				@endif
 					<form id="login-form" method="post">
 						@csrf
 						<h2>Login</h2>

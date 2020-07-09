@@ -46,7 +46,7 @@ class LoginController extends Controller
 			return redirect('/');
 
     	}else{
-            $req->session()->flash('msg', 'invalid username/password');
+            $req->session()->put('msg', 'invalid username/password');
     		return redirect('/login');
     	}
     }
@@ -94,7 +94,7 @@ class LoginController extends Controller
 	public function registerCheck(Request $request){
 		
 		$Validation = Validator::make($request->all(), [
-			'username'    => 'required|unique:users',
+			'username' => 'required|unique:users',
 			'contact'  => 'required|unique:users',
 			'email'    => 'required|email|unique:users',
 			'pass1'	   => 'required|min:5',

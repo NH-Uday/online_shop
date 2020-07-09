@@ -24,6 +24,13 @@ Route::get('/DelWish/{pid}','productController@DelWish')->name('product.DelWish'
 
 Route::get('/Admin/Home/Edit','HomeEditController@Index')->name('HomeEdit.Index');
 Route::get('/SiteChange/{element}/{data}','HomeEditController@SiteChange')->name('HomeEdit.SiteChange');
+Route::post('/SiteChanger','HomeEditController@SiteChanger')->name('HomeEdit.SiteChanger');
+
+Route::get('/profile','accountController@account');
+Route::post('/account','accountController@updateCheck')->name('account.updateCheck');
+Route::post('/pass','accountController@passCheck')->name('account.passCheck');
+Route::post('/proChange','accountController@proChange')->name('account.proChange');
+
 Route::post('/logoChange','HomeEditController@PostLogo')->name('HomeEdit.PostLogo');
 Route::post('/slider1Change','HomeEditController@slider1Change')->name('HomeEdit.slider1Change');
 Route::post('/slider2Change','HomeEditController@slider2Change')->name('HomeEdit.slider2Change');
@@ -46,12 +53,11 @@ Route::get('/about',function(){
 //Route::get('product-details','productController@show');
 Route::get('product-details/{id}','productController@auth');
 
-Route::get('addDetails','addProductdetails@show');
+Route::get('addDetails','AddProductController@show')->name('AddProduct.show');
+Route::post('/AddProduct','AddProductController@Add')->name('AddProduct.Add');
 
 Route::get('aboutus','aboutusController@show');
 
 Route::get('contact','contactController@show');
 Route::post('/feedback','contactController@feedback')->name('contact.feedback');
 
-Route::get('/profile','accountController@account');
-Route::post('/account','accountController@updateCheck')->name('account.updateCheck');

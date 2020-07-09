@@ -174,10 +174,30 @@ function SiteChange(element)
 {
 	var element = element;
 	var data = document.getElementById(element).value;
-	alert(data);
+	//alert(data);
 	$.ajax({
 	   type:'GET',
 	   url:'/SiteChange/'+element+'/'+data,
+	   success:function(data) {
+		   alert("Successfully Information Updated");
+	   }
+	});
+}
+
+function SiteChanger(val, element)
+{
+	var element = element;
+	var data = document.getElementById(element).value;
+	var val = val;
+	
+	$.ajax({
+	   type:'POST',
+	   url:'/SiteChanger',
+	   data:{
+		   _token : val,
+		   element : element,
+		   data : data
+	   },
 	   success:function(data) {
 		   alert("Successfully Information Updated");
 	   }

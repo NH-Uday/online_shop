@@ -152,4 +152,11 @@ class HomeEditController extends Controller
 					-> update(['data'=>$data]);
     }
 	
+	public function SiteChanger(Request $req){
+		
+		$siteUpdate  = DB::table('tbl_sitedata')
+					-> where('element', $req->element)
+					-> update(['data'=> $req->data]);
+    }
+	
 }

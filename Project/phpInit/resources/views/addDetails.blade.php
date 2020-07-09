@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
 	<meta charset="UTF-8">
-	<title>Shopify | {{$userData->username}}</title>
+	<title>Shopify | Cart</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Fav Icon -->
 	<link id="favicon" rel="icon" type="image/png" href="img/favicon.ico" />
@@ -399,11 +399,10 @@
 </div><!--End Main Menu Area-->
 
 
-
 <div class="page-title fix"><!--Start Title-->
-	<div class="overlay section">
-		<h2>Update Your Information</h2>
-	</div>
+  <div class="overlay section">
+    <h2>Add Product Information</h2>
+  </div>
 </div><!--End Title-->
 
 
@@ -412,233 +411,168 @@
 	<p style="text-align:center;color:red;">{{session()->get('msg')}}</p><br><br>
 	{{session()->forget('msg')}}
 @endif
-	<div class="container">
-		<div class="row">
-			<div class="col-md-2"></div>
-			<div class="col-sm-6 col-md-5">
-				<div class="login">
-					<form id="accountform" action="/account" method="post" name="reg">
-						@csrf
-						<h2>Update Account Information.</h2>
-						<p style="color:red;">@foreach($errors->all() as $err)
-							{{$err}} <br>
-								@endforeach</p>
-						<label id="unameLbl">Username<span>*</span></label>
-						<input value="{{$userData->username}}" type="text" name="username" onkeyup="unameChk('{{csrf_token()}}')" />
-						<label id="emailLbl">E-mail Address<span>*</span></label>
-						<input value="{{$userData->email}}" type="text" name="email" onkeyup="emailChk('{{csrf_token()}}')"/>
-						<label id="contactLbl">Contact Number<span>*</span></label>
-						<input value="0{{$userData->contact}}" type="text" name="contact" onkeyup="contactChk('{{csrf_token()}}')"/>
-						
-						<label id="addressLbl">Address</label>
-						<input value="{{$userData->address}}" type="text" name="address"/><br/>
-						<input type="submit" value="Update Information"/><br><br><br>
-					</form>
-						
-						<div class="panel panel-default">
-							<div class="panel-heading" >
-								<a class="collapsed" data-toggle="collapse" data-parent="#checkout-progress" href="#bill-info"><span><i class="fa fa-sign-out"></i></span>CHANGE PASSWORD</a>
-							</div>
-							<div id="bill-info" class="panel-collapse collapse">
-								<div class="panel-body">
-									<div class="bill-info">
-										<form id="passwordform" action="/pass" method="post" name="passwordform">
-											@csrf
-											<label id="passLbl">Old Password<span>*</span></label>
-											<input value="" type="password" name="pass"/><br><br>
-											<label id="pass1Lbl">New Password<span>*</span></label>
-											<input value="" type="password" name="pass1"/>
-											<label id="pass2Lbl">Confirm New Password<span>*</span></label>
-											<input type="password" name="pass2"/>
-											<input type="submit" value="Update Password"/>
-										</form>
-									</div>
-								</div>
-							</div>
-						</div>
-					
-				</div>
-			</div>
-			<div class="col-sm-6 col-md-5">
-				<div style="margin-left:100px;">
-					@if($userData->image != null)
-					<img src="img/user/{{$userData->image}}" style="margin-top:100px;width:250px;height:250px;border-radius:50%;border:1px solid black;position:float;z-index:1;">
-					@else
-					<img src="{{asset('img/user/dff.jpg')}}" style="margin-top:100px;width:250px;height:250px;border-radius:50%;border:1px solid black;position:float;z-index:1;">
-					@endif
-					<div>
-						<form action="/proChange" method="post" enctype="multipart/form-data"> {{csrf_field()}} <input type="file" name="proChange" required><button type="submit"> &nbsp <i style="color:lime;" class="fa fa-check"></i> Change Picture &nbsp </button></form>
-				</div>
-			</div>
-		</div>
-	</div>
-</div><!--End login Area-->
 
-<div class="brand-area section fix"><!--Start Brand Area-->
-	<div class="container">
-		<div class="row">
-			<div class="section-title">
-				<h2>Our Brands</h2>
-				<div class="underline"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2"></div>.
+	  <div class="col-sm-6 col-md-5"></div>
+      <div class="col-sm-6 col-md-5">
+        <div class="login">
+          <form id="accountform" action="/AddProduct" method="post" name="reg">@csrf
+            <h2>Insert Product Information.</h2>
+            <p style="color:red;"> <br></p>
+            <label id="prodnameLbl"><strong>Product name</strong><span>*</span></label>
+            <input value="" type="text" name="pname" required>
+            <label for="exampleFormControlSelect1"><strong>Product category <span>*</span></strong></label>
+            <select class="form-control" id="prodcatLb9" name="pcat" required="required">
+              <option value="Category 1">category1</option>
+              <option value="Category 2">category2</option>
+              <option value="Category 3">category3</option>
+              <option value="Category 4">category4</option>
+              <option value="Category 5">category5</option>
+              <option value="Category 6">category6</option>
+            </select>
+			<label id="prodqtyLb6"><strong>Product Quantity</strong><span>*</span></label>
+            <input value="" type="text" name="pqty" required>
+            <div class="bill-info">
+				<div class="group">
+					<label id="prodprcLb4"><strong>Product Price</strong></label>
+					<input type="text" name="psell" placeholder="Product Sell Price" class="half">
+					<input type="text" name="pmrp" placeholder="Product MRP Price" class="half">
+				</div>
 			</div>
-			<div class="brand-slider owl-carousel">
-				<div class="brand-item"><img src="img/brand/brand-1.png" alt="" /></div>
-				<div class="brand-item"><img src="img/brand/brand-2.png" alt="" /></div>
-				<div class="brand-item"><img src="img/brand/brand-3.png" alt="" /></div>
-				<div class="brand-item"><img src="img/brand/brand-4.png" alt="" /></div>
-				<div class="brand-item"><img src="img/brand/brand-5.png" alt="" /></div>
-				<div class="brand-item"><img src="img/brand/brand-1.png" alt="" /></div>
-				<div class="brand-item"><img src="img/brand/brand-2.png" alt="" /></div>
-				<div class="brand-item"><img src="img/brand/brand-3.png" alt="" /></div>
-				<div class="brand-item"><img src="img/brand/brand-4.png" alt="" /></div>
-				<div class="brand-item"><img src="img/brand/brand-5.png" alt="" /></div>
-			</div>
-		</div>
-	</div>
-</div><!--End Brand Area-->
-<div class="support-area section fix"><!--Start Support Area-->
-	<div class="container">
-		<div class="row">
-			<div class="support col-sm-3">
-				<i class="fa fa-thumbs-up"></i>
-				<h3>High quality</h3>
-				<p>Lorem ipsum dolor sit amet, conseetur adipiscing elit, consectetur</p>
-			</div>
-			<div class="support col-sm-3">
-				<i class="fa fa-bus"></i>
-				<h3>Fast Delivery</h3>
-				<p>Lorem ipsum dolor sit amet, conseetur adipiscing elit, consectetur</p>
-			</div>
-			<div class="support col-sm-3">
-				<i class="fa fa-phone"></i>
-				<h3>24/7 support</h3>
-				<p>Lorem ipsum dolor sit amet, conseetur adipiscing elit, consectetur</p>
-			</div>
-			<div class="support col-sm-3">
-				<i class="fa fa-random"></i>
-				<h3>14 - Day Returns</h3>
-				<p>Lorem ipsum dolor sit amet, conseetur adipiscing elit, consectetur</p>
-			</div>
-		</div>
-	</div>
-</div><!--Start Support Area-->
+        </div>
+      </div>
+	  <div class="col-sm-6 col-md-5">
+        <div class="login">
+			<label id="proddtlsLb2"><strong>Product Details ( Short details with the product )</strong><span>*</span></label>
+            <textarea value="" rows="8" cols="63" type="text" name="pdetail" style="background:transparent;border:1px solid Silver;"></textarea><br>
+			<div class="form-group mt-3">
+              <label class="mr-2" id="prodpicLb7"><strong>Upload product image</strong></label>
+              <input type="file" name="pimg" required>
+            </div>
+            <label id="shopnamesLb8"><strong>Shop name</strong> <span>(Optional)</span></label>
+            <input value="" type="text" name="pshop"/>  
+            </br></br>  
+
+            <div class="offset-md-2 col-md-2">
+              <button type="submit" class="btn btn-primary"> Add Product </button></br></br>
+            </div>
+		   </form>
+          </div>
+	  </div>
+    </div>
+  </div>
+</div><br><br><!--End login Area-->
+
 <div class="footer-top-area fix"><!--Start Footer top area-->
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-6 col-md-3">
-				<div class="footer-about">
-					<div class="image">
-						<img src="img/header/logo.png" alt="" />
-						<h3>online jewelry store</h3>
-					</div>
-					<p>perspiciatis unde omnis iste natus error sit voluptatem accm doloremque antium, totam rem aperiam, eaque ipsa perspiciatis unde omnis iste</p>
-				</div>
-				<div class="footer-contact">
-					<div class="single-contact">
-						<div class="icon">
-							<i class="fa fa-map-marker"></i>
-						</div>
-						<div class="details">
-							<p>Main town, Anystreen</p>
-							<p>C/A 1254 New Yourk</p>
-						</div>
-					</div>
-					<div class="single-contact">
-						<div class="icon">
-							<i class="fa fa-phone"></i>
-						</div>
-						<div class="details">
-							<p>+012  456  456  456</p>
-							<p>+012  356  897  222</p>
-						</div>
-					</div>
-					<div class="single-contact">
-						<div class="icon">
-							<i class="fa fa-dribbble"></i>
-						</div>
-						<div class="details">
-							<a href="#">info@olongker.com</a>
-							<a href="#">www.olongker.com</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-6 col-md-3">
-				<div class="footer-quick-link footer-links">
-					<h2>QUICK LINK</h2>
-					<ul>
-						<li><a href="index.html">Home</a></li>
-						<li><a href="shop.html">Shop</a></li>
-						<li><a href="shop-left-sidebar.html">New Arrivals</a></li>
-						<li><a href="services.html">Services</a></li>	
-						<li><a href="portfolio-1.html">Portfolio</a></li>
-						<li><a href="blog.html">Blog</a></li>
-						<li><a href="#">Shortcodes</a></li>
-						<li><a href="contact.html">Contact</a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="col-sm-12 col-md-6">
-				<div class="row">
-					<div class="col-sm-8 footer-support footer-links">
-						<h2>OUR SUPPORT</h2>
-						<ul>
-							<li><a href="#">Site Map</a></li>
-							<li><a href="#">privacy Policy</a></li>
-							<li><a href="#">Your Account</a></li>
-							<li><a href="#">Term & Conditions</a></li>
-							<li><a href="#">Advance Search</a></li>
-							<li><a href="faq.html">Help & FAQs</a></li>
-							<li><a href="#">Gift Voucher</a></li>
-							<li><a href="contact-2.html">Contact Us</a></li>
-						</ul>
-					</div>
-					<div class="col-sm-4 footer-account footer-links">
-						<h2>my Account</h2>
-						<ul>
-							<li><a href="#">my Account</a></li>
-							<li><a href="#">order History</a></li>
-							<li><a href="#">Returns</a></li>
-							<li><a href="#">Specials</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="footer-newslater fix">
-					<div class="wrap fix">
-						<h3>NEWS LETTER ! </h3>
-						<form action="#">
-							<input type="email" placeholder="Your E-mail...">
-							<button class="submit">SUBSCRIBE</button>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-md-3">
+        <div class="footer-about">
+          <div class="image">
+            <img src="img/header/logo.png" alt="" />
+            <h3>online jewelry store</h3>
+          </div>
+          <p>perspiciatis unde omnis iste natus error sit voluptatem accm doloremque antium, totam rem aperiam, eaque ipsa perspiciatis unde omnis iste</p>
+        </div>
+        <div class="footer-contact">
+          <div class="single-contact">
+            <div class="icon">
+              <i class="fa fa-map-marker"></i>
+            </div>
+            <div class="details">
+              <p>Main town, Anystreen</p>
+              <p>C/A 1254 New Yourk</p>
+            </div>
+          </div>
+          <div class="single-contact">
+            <div class="icon">
+              <i class="fa fa-phone"></i>
+            </div>
+            <div class="details">
+              <p>+012  456  456  456</p>
+              <p>+012  356  897  222</p>
+            </div>
+          </div>
+          <div class="single-contact">
+            <div class="icon">
+              <i class="fa fa-dribbble"></i>
+            </div>
+            <div class="details">
+              <a href="#">info@olongker.com</a>
+              <a href="#">www.olongker.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="footer-quick-link footer-links">
+          <h2>QUICK LINK</h2>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="shop-left-sidebar.html">New Arrivals</a></li>
+            <li><a href="services.html">Services</a></li> 
+            <li><a href="portfolio-1.html">Portfolio</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="#">Shortcodes</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <div class="row">
+          <div class="col-sm-8 footer-support footer-links">
+            <h2>OUR SUPPORT</h2>
+            <ul>
+              <li><a href="#">Site Map</a></li>
+              <li><a href="#">privacy Policy</a></li>
+              <li><a href="#">Your Account</a></li>
+              <li><a href="#">Term & Conditions</a></li>
+              <li><a href="#">Advance Search</a></li>
+              <li><a href="faq.html">Help & FAQs</a></li>
+              <li><a href="#">Gift Voucher</a></li>
+              <li><a href="contact-2.html">Contact Us</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-4 footer-account footer-links">
+            <h2>my Account</h2>
+            <ul>
+              <li><a href="#">my Account</a></li>
+              <li><a href="#">order History</a></li>
+              <li><a href="#">Returns</a></li>
+              <li><a href="#">Specials</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div><!--Start Footer top area-->
 <div class="footer-area fix"><!--Start Footer Area-->
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-6">
-				<div class="copy-right">
-					<p>Shared by <i class="fa fa-love"></i><a href="https://bootstrapthemes.co">BootstrapThemes</a></p>
-				</div>
-			</div>
-			<div class="col-sm-6">
-				<div class="payment">
-					<ul>
-						<li><a href="#"><img src="img/footer/paypal.jpg" alt="" /></a></li>
-						<li><a href="#"><img src="img/footer/visa.jpg" alt="" /></a></li>
-						<li><a href="#"><img src="img/footer/master.jpg" alt="" /></a></li>
-						<li><a href="#"><img src="img/footer/cards.jpg" alt="" /></a></li>
-						<li><a href="#"><img src="img/footer/discover.jpg" alt="" /></a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="copy-right">
+          <p>Shared by <i class="fa fa-love"></i><a href="https://bootstrapthemes.co">BootstrapThemes</a></p>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="payment">
+          <ul>
+            <li><a href="#"><img src="img/footer/paypal.jpg" alt="" /></a></li>
+            <li><a href="#"><img src="img/footer/visa.jpg" alt="" /></a></li>
+            <li><a href="#"><img src="img/footer/master.jpg" alt="" /></a></li>
+            <li><a href="#"><img src="img/footer/cards.jpg" alt="" /></a></li>
+            <li><a href="#"><img src="img/footer/discover.jpg" alt="" /></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </div><!--End Footer Area-->
-	
+  
 <!-- jQuery 2.1.4 -->
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 <!-- Bootstrap JS -->
@@ -666,8 +600,8 @@
 <!-- WOW JS -->
 <script type="text/javascript" src="js/wow.min.js"></script>
 <script>
-	new WOW().init();
-</script>	
+  new WOW().init();
+</script> 
 <!-- Main JS -->
 <script type="text/javascript" src="js/main.js"></script>
 

@@ -922,15 +922,6 @@
 						</ul>
 					</div>
 				</div>
-				<div class="footer-newslater fix">
-					<div class="wrap fix">
-						<h3>NEWS LETTER ! </h3>
-						<form action="#">
-							<input type="email" placeholder="Your E-mail...">
-							<button class="submit">SUBSCRIBE</button>
-						</form>
-					</div>
-				</div>
 			</div>
 		</div>
 	</div>

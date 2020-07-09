@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 08, 2020 at 10:20 AM
+-- Generation Time: Jul 09, 2020 at 01:43 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -40,18 +40,12 @@ CREATE TABLE `tbl_cart` (
 
 INSERT INTO `tbl_cart` (`user_id`, `prod_id`, `prod_quantity`) VALUES
 (2, 21, 1),
-(1, 30, 1),
-(1, 6, 1),
-(1, 7, 1),
-(1, 9, 1),
 (1, 21, 1),
-(1, 29, 1),
-(1, 4, 1),
-(1, 22, 1),
-(1, 10, 1),
-(1, 13, 1),
-(1, 19, 1),
-(1, 42, 1);
+(1, 42, 2),
+(1, 28, 2),
+(1, 8, 2),
+(1, 9, 1),
+(1, 22, 1);
 
 -- --------------------------------------------------------
 
@@ -182,7 +176,10 @@ INSERT INTO `tbl_prod_details` (`prod_id`, `prod_name`, `prod_details`, `prod_MR
 (28, 'Cherry whitening Beauty Melatonin cream', '', '170', NULL, 14, NULL, '2020-03-28 17:10:00', 'jamijoy', 'Category 4'),
 (29, 'LAB-Y whitening Booster body cream', '', '120', NULL, 14, NULL, '2020-03-28 17:18:00', 'jamijoy', 'Category 4'),
 (30, 'Biocos beauty cream', '', '110', NULL, 14, NULL, '2020-03-29 17:18:00', 'jamijoy', 'Category 4'),
-(42, 'Hola Biscuit', '', '60', NULL, 25, NULL, '2020-03-31 02:22:00', 'jami 2', 'Category 4');
+(42, 'Hola Biscuit', '', '60', NULL, 25, NULL, '2020-03-31 02:22:00', 'jami 2', 'Category 4'),
+(43, 'Ceilora Anti Hair Fall Shampoo', 'You Will love the Shampoo Very much, Naurishing and Very Shiney with milky absorber portion for hair for well care.', '300', '340', 35, NULL, '2020-07-09 11:07:46', 'Tribal Herbs', 'Category 3'),
+(44, 'Hansa Hair Herbal Shampoo', '* Repairs Hair Root\r\n* Prevents Hair Falling\r\n* Gives Shiny look\r\n* Perfect hair naurishment', '525', '560', 35, NULL, '2020-07-09 11:12:51', 'Tribal Herbs', 'Category 3'),
+(45, 'Heiko Tama Lightening Haircare (Japnese)', '* Repairs Hair Root\r\n* Prevents Hair Falling', '440', '450', 28, NULL, '2020-07-09 11:17:39', 'Tribal Herbs', 'Category 3');
 
 -- --------------------------------------------------------
 
@@ -212,8 +209,15 @@ INSERT INTO `tbl_prod_visits` (`prod_id`, `userid`) VALUES
 (10, 5),
 (23, 1),
 (12, 1),
+(3, 1),
 (21, 1),
-(22, 1);
+(1, 1),
+(22, 1),
+(0, 1),
+(1, 2),
+(43, 2),
+(44, 2),
+(45, 2);
 
 -- --------------------------------------------------------
 
@@ -233,12 +237,12 @@ CREATE TABLE `tbl_sitedata` (
 INSERT INTO `tbl_sitedata` (`element`, `data`) VALUES
 ('contact1', '(880) 1779 611966'),
 ('email1', 'sales@shopify.com'),
-('fblink', ''),
-('twtlink', ''),
-('linkedin', ''),
-('gglink', ''),
-('sublink', 'A Online Service'),
-('slider1head', 'Shop Now Plzzz'),
+('fblink', 'www.facebook.com/ShopifyBD'),
+('twtlink', 'www.twitter.com/ShopifyBD'),
+('linkedin', 'www.linkedin.com/ShopifyBD'),
+('gglink', 'www.google.com/ShopifyBD'),
+('sublink', 'We serve your desire'),
+('slider1head', 'Site Slide One'),
 ('slider1body', 'Subtitile'),
 ('slider1button', ''),
 ('slider2head', 'Learn To Shop'),
@@ -261,7 +265,15 @@ INSERT INTO `tbl_sitedata` (`element`, `data`) VALUES
 ('ProdShowTitle3', 'NEW ARRIVALS'),
 ('ProdShowTitle4', 'PRODUCTS VISITED'),
 ('ProdShowTitle5', 'FUN FACTORS'),
-('ProdShowTitle6', 'OUR BRANDS');
+('ProdShowTitle6', 'OUR BRANDS'),
+('btnlink1', ''),
+('btnlink2', ''),
+('btnlink3', ''),
+('btnlink4', ''),
+('btnlink5', ''),
+('btnlink6', ''),
+('btnlink7', ''),
+('btnlink8', '');
 
 -- --------------------------------------------------------
 
@@ -290,18 +302,12 @@ CREATE TABLE `tbl_wishlist` (
 --
 
 INSERT INTO `tbl_wishlist` (`user_id`, `prod_id`) VALUES
-(1, 30),
-(1, 22),
-(1, 24),
-(1, 26),
-(1, 3),
-(1, 5),
-(1, 7),
-(1, 8),
-(1, 10),
-(1, 14),
+(1, 15),
+(1, 9),
+(1, 21),
+(1, 16),
 (1, 19),
-(1, 15);
+(1, 1);
 
 -- --------------------------------------------------------
 
@@ -314,6 +320,7 @@ CREATE TABLE `users` (
   `username` varchar(15) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
+  `image` varchar(60) NOT NULL,
   `type` varchar(15) NOT NULL,
   `company` varchar(30) NOT NULL,
   `address` varchar(50) NOT NULL,
@@ -324,11 +331,11 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`userid`, `username`, `email`, `password`, `type`, `company`, `address`, `contact`) VALUES
-(1, 'Jami', 'jamijoyy@gmail.com', '7815696ecbf1c96e6894b779456d330e', 'admin', 'Blu Fashion Ltd.', 'Mohakhali, Dhaka - 1220.', 1779611966),
-(2, 'Uday', 'nahinuday@gmail.com', '7815696ecbf1c96e6894b779456d330e', 'admin', 'N/A', 'N/A', 1700598073),
-(4, 'jamijoy.science', 'jami@gmail.com', '7815696ecbf1c96e6894b779456d330e', 'user', 'teset', '', 1726900207),
-(5, 'ranakader', 'rana.kader@gmail.com', 'debdeecd7ed7c3258ab945cba0396e15', 'user', 'N/A', 'Brooklyn Height, Barisal.', 1581273245);
+INSERT INTO `users` (`userid`, `username`, `email`, `password`, `image`, `type`, `company`, `address`, `contact`) VALUES
+(1, 'Jami', 'jamijoyy@gmail.com', '7815696ecbf1c96e6894b779456d330e', '1.jpg', 'admin', 'N/A', 'Banani, Dhaka - 1220.', 1779611976),
+(2, 'Uday', 'nahinuday@shopify.bd', '7815696ecbf1c96e6894b779456d330e', '2.jpg', 'admin', 'N/A', 'Lalmonir hat, Bangladesh', 1700598073),
+(4, 'jamijoy.science', 'jami@gmail.com', '7815696ecbf1c96e6894b779456d330e', '', 'user', 'teset', '', 1726900207),
+(5, 'ranakader', 'rana.kader@gmail.com', 'debdeecd7ed7c3258ab945cba0396e15', '', 'user', 'N/A', 'Brooklyn Height, Barisal.', 1581273245);
 
 --
 -- Indexes for dumped tables
@@ -402,7 +409,7 @@ ALTER TABLE `tbl_order_details`
 -- AUTO_INCREMENT for table `tbl_prod_details`
 --
 ALTER TABLE `tbl_prod_details`
-  MODIFY `prod_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `prod_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `users`
