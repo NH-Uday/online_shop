@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
 	<meta charset="UTF-8">
-	<title>Shopify | Wishlist</title>
+	<title>Shopify | Cart</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Fav Icon -->
 	<link id="favicon" rel="icon" type="image/png" href="img/favicon.ico" />
@@ -91,6 +91,7 @@
 		</div>
 	</div>
 </div><!--End Header Top Area-->
+
 <div class="header-area"><!--Start Header Area-->
 	<div class="container">
 		<div class="row">
@@ -251,100 +252,48 @@
 </div><!--End Main Menu Area-->
 
 <div class="page-title fix"><!--Start Title-->
-	<div class="overlay section">
-		<h2>Wishlist</h2>
-	</div>
+  <div class="overlay section">
+    <h2>Contact Page Information</h2>
+  </div>
 </div><!--End Title-->
-<section class="wishlist-page page fix"><!--Start Cart Area-->
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-12">
-				<div class="table-responsive">
-					<table class="table wishlist-table">
-						<thead class="table-title">
-							<tr>
-								<th class="produ">PRODUCT</th>
-								<th class="namedes">PRODUCT NAME &amp; DESCRIPTION</th>
-								<th class="unit">UNIT PRICE</th>
-								<th class="valu">ADD TO CART</th>
-								<th class="acti">ACTION</th>
-							</tr>													
-						</thead>
-						<tbody id="wishBody">
-							@foreach($WishData as $dt)
-							<tr class="table-info">
-								<td class="produ">
-									<a href="#"><img alt="" src="img/cart-1.jpg"></a>
-								</td>
-								<td class="namedes">
-									<h2><a href="/product-details/{{$dt->prod_id}}">{{$dt->prod_name}}</a></h2>
-									<p>{{$dt->prod_details}}</p>
-								</td>
-								<td class="unit">
-									<h5>${{$dt->prod_MRP_price}}</h5>
-								</td>
-								<td class="valu">
-									<a class="add-to-cart"><i class="fa fa-shopping-cart" onclick="AddCart('{{csrf_token()}}','{{$dt->prod_id}}')"> Add to Cart </i></a>
-									<p id="sp-{{$dt->prod_id}}"></p>
-								</td>
-								<td class="acti">
-									<a><i class="fa fa-trash-o" onclick="DelWish('{{$dt->prod_id}}')"></i></a>
-								</td>
-							</tr>
-							@endforeach
-						</tbody>
-					</table>
-				</div>
-			</div>
-		</div>
-	</div>
-</section><!--End Cart Area-->
 
-<div class="brand-area section fix"><!--Start Brand Area-->
-	<div class="container">
-		<div class="row">
-			<div class="section-title">
-				<h2>{{$SiteData[30]->data}}</h2>
-				<div class="underline"></div>
-			</div>
-			<div class="brand-slider owl-carousel">
-				<div class="brand-item"><img src="{{asset('img/brand/brand-1.png')}}" alt="" /></div>
-				<div class="brand-item"><img src="{{asset('img/brand/brand-2.png')}}" alt="" /></div>
-				<div class="brand-item"><img src="{{asset('img/brand/brand-3.png')}}" alt="" /></div>
-				<div class="brand-item"><img src="{{asset('img/brand/brand-4.png')}}" alt="" /></div>
-				<div class="brand-item"><img src="{{asset('img/brand/brand-5.png')}}" alt="" /></div>
-				<div class="brand-item"><img src="{{asset('img/brand/brand-1.png')}}" alt="" /></div>
-				<div class="brand-item"><img src="{{asset('img/brand/brand-2.png')}}" alt="" /></div>
-				<div class="brand-item"><img src="{{asset('img/brand/brand-3.png')}}" alt="" /></div>
-				<div class="brand-item"><img src="{{asset('img/brand/brand-4.png')}}" alt="" /></div>
-				<div class="brand-item"><img src="{{asset('img/brand/brand-5.png')}}" alt="" /></div>
-			</div>
-		</div>
-	</div>
-</div><!--End Brand Area-->
 
-<div class="support-area section fix"><!--Start Support Area-->
-	<div class="container">
-		<div class="row">
-			<div class="support col-sm-3">
-				<i class="fa fa-thumbs-up"></i>
-				<h3>High quality</h3>
-			</div>
-			<div class="support col-sm-3">
-				<i class="fa fa-bus"></i>
-				<h3>Fast Delivery</h3>
-			</div>
-			<div class="support col-sm-3">
-				<i class="fa fa-phone"></i>
-				<h3>24/7 support</h3>
-			</div>
-			<div class="support col-sm-3">
-				<i class="fa fa-random"></i>
-				<h3>Exchange</h3>
-			</div>
-		</div>
-	</div>
-</div><!--Start Support Area-->
+<div class="login-page page fix"><!--start login Area-->
+@if(session()->has('msg'))
+	<p style="text-align:center;color:red;">{{session()->get('msg')}}</p><br><br>
+	{{session()->forget('msg')}}
+@endif
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2"></div>.
+	  <div class="col-sm-6 col-md-5"></div>
+      <div class="col-sm-6 col-md-5">
+        <div class="login">
+          <form id="accountform" action="/AddProduct" method="post" name="reg">@csrf
+            <h2>Insert Information for Contact Page.</h2>
+            <p style="color:red;"> <br></p>
+            <label id="proddtlsLb2"><strong>Short note (why contact admin? )</strong><span>*</span></label>
+            <textarea value="" rows="8" cols="63" type="text" name="pdetail" style="background:transparent;border:1px solid Silver;"></textarea><br>
+			<div class="form-group mt-3">
+				<label id="prodnameLbl"><strong>Company Address</strong><span>*</span></label>
+            <input value="" type="text" name="pname" required>
+            <label id="prodnameLbl"><strong>Official phone number</strong><span>*</span></label>
+            <input value="" type="text" name="onum" required>
+            <label id="prodnameLbl"><strong>Official mail</strong><span>*</span></label>
+            <input value="" type="text" name="omail" required>
+              <label class="mr-2" id="prodpicLb7"><strong>Upload Highlighted Image for Contact page</strong></label>
+              <input type="file" name="pimg" required>
+            </div>
+            <div class="offset-md-2 col-md-2">
+              <button type="submit" class="btn btn-primary"> Add </button></br></br>
+            </div>
+		   </form>
+          </div>
+	  </div>
+    </div>
+  </div>
+</div><br><br><!--End login Area-->
 
 <div class="footer-top-area fix"><!--Start Footer top area-->
 	<div class="container">
@@ -430,7 +379,7 @@
 		</div>
 	</div>
 </div>
-	
+  
 <!-- jQuery 2.1.4 -->
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 <!-- Bootstrap JS -->
@@ -458,8 +407,8 @@
 <!-- WOW JS -->
 <script type="text/javascript" src="js/wow.min.js"></script>
 <script>
-	new WOW().init();
-</script>	
+  new WOW().init();
+</script> 
 <!-- Main JS -->
 <script type="text/javascript" src="js/main.js"></script>
 

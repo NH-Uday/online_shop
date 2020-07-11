@@ -61,3 +61,6 @@ Route::get('aboutus','aboutusController@show');
 Route::get('contact','contactController@show');
 Route::post('/feedback','contactController@feedback')->name('contact.feedback');
 
+Route::get('editabout','editaboutController@show')->name('editabout.show');
+
+Route::get('editcontact','editcontactController@show')->name('editcontact.show');

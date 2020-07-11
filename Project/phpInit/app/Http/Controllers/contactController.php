@@ -17,9 +17,21 @@ class contactController extends Controller
 						->where('userid', $req->session()->get('id'))
 						->first();
 						return view('contact')->with(compact('userData'));
+			$SiteData = DB::table('tbl_sitedata')
+					 -> get();
+			$CartData = DB::table('tbl_cart')
+					 -> leftJoin('tbl_prod_details','tbl_cart.prod_id','=','tbl_prod_details.prod_id')
+					 -> where('tbl_cart.user_id',$req->session()->get('id'))
+					 -> get();
+			$mydate=Carbon::now();
+			$hour=$mydate->format("H:i:s");
+			$TimeData = array("Hour"=>$hour);
+			return view('contact')->with(compact('userData','SiteData','TimeData','CartData'));
     	}
     	else{
-    		$req->session()->flash('msg', 'invalid username/password');
+    		$SiteData = DB::table('tbl_sitedata')
+					 -> get();
+    		return view('contact')->with(compact('SiteData'));
     	}
     }
 

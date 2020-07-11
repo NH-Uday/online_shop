@@ -91,6 +91,7 @@
 		</div>
 	</div>
 </div><!--End Header Top Area-->
+
 <div class="header-area"><!--Start Header Area-->
 	<div class="container">
 		<div class="row">
@@ -182,75 +183,27 @@
 								</div>
 							</li>
 							<li><a href="/Shop/searchBy/lanxi">Shop</a>
-								<div class="mega-menu mega-menu-1">
-									<div class="column-1 column">
-										<ul>
-											<li><a href="/Shop/category/Category 1">Category 1</a></li>
-											<li><a href="/Shop/category/Category 1">Sub 1</a></li>
-											<li><a href="/Shop/category/Category 2">Sub 2</a></li>
-											<li><a href="/Shop/category/Category 3">Sub 3</a></li>
-											<li><a href="/Shop/category/Category 4">Sub 4</a></li>
-										</ul>
-									</div>
-									<div class="column-2 column">
-										<ul>
-											<li><a href="/Shop/category/Category 2">Category 2</a></li>
-											<li><a href="/Shop/category/Category 1">Sub 1</a></li>
-											<li><a href="/Shop/category/Category 2">Sub 2</a></li>
-											<li><a href="/Shop/category/Category 3">Sub 3</a></li>
-											<li><a href="/Shop/category/Category 4">Sub 4</a></li>
-										</ul>
-									</div>
-									<div class="column-3 column">
-										<ul>
-											<li><a href="/Shop/category/Category 3">Category 3</a></li>
-											<li><a href="/Shop/category/Category 1">Sub 1</a></li>
-											<li><a href="/Shop/category/Category 2">Sub 2</a></li>
-											<li><a href="/Shop/category/Category 3">Sub 3</a></li>
-											<li><a href="/Shop/category/Category 4">Sub 4</a></li>
-										</ul>
-									</div>
-									<div class="column-4 column">
-										<a href=""><img src="{{ asset('img/product/10.jpg') }}" alt="" /></a>
-									</div>
-								</div>
 							</li>
 							<li><a href="/Shop/category/Category%201/l2%hi">New Arrivals</a>
 								<div class="mega-menu mega-menu-1">
 									<div class="column-1 column">
 										<ul>
 											<li><a href="/Shop/category/Category 1">Category 1</a></li>
-											<li><a href="/Shop/category/Category 1">Sub 1</a></li>
-											<li><a href="/Shop/category/Category 2">Sub 2</a></li>
-											<li><a href="/Shop/category/Category 3">Sub 3</a></li>
-											<li><a href="/Shop/category/Category 4">Sub 4</a></li>
 										</ul>
 									</div>
 									<div class="column-2 column">
 										<ul>
 											<li><a href="/Shop/category/Category 2">Category 2</a></li>
-											<li><a href="/Shop/category/Category 1">Sub 1</a></li>
-											<li><a href="/Shop/category/Category 2">Sub 2</a></li>
-											<li><a href="/Shop/category/Category 3">Sub 3</a></li>
-											<li><a href="/Shop/category/Category 4">Sub 4</a></li>
 										</ul>
 									</div>
 									<div class="column-3 column">
 										<ul>
 											<li><a href="/Shop/category/Category 3">Category 3</a></li>
-											<li><a href="/Shop/category/Category 1">Sub 1</a></li>
-											<li><a href="/Shop/category/Category 2">Sub 2</a></li>
-											<li><a href="/Shop/category/Category 3">Sub 3</a></li>
-											<li><a href="/Shop/category/Category 4">Sub 4</a></li>
 										</ul>
 									</div>
 									<div class="column-4 column">
 										<ul>
 											<li><a href="/Shop/category/Category 1">Category 4</a></li>
-											<li><a href="/Shop/category/Category 1">Sub 1</a></li>
-											<li><a href="/Shop/category/Category 2">Sub 2</a></li>
-											<li><a href="/Shop/category/Category 3">Sub 3</a></li>
-											<li><a href="/Shop/category/Category 4">Sub 4</a></li>
 										</ul>
 									</div>
 								</div>
@@ -276,120 +229,20 @@
 					<nav>
 						<ul>
 							<li><a href="/" class="active">Home</a>
-								<ul>
-									<li><a href="/">Home 1</a></li>
-									<li><a href="index-2.html">Home 2</a></li>
-									<li><a href="index-3.html">Home 3</a></li>
-								</ul>
 							</li>
 							<li><a href="#">Pages</a>
 								<ul>
-									<li><a href="about-us.html">About US</a></li>
-									<li><a href="blog.html">Blog</a></li>
-									<li><a href="blog-left-sidebar.html">Blog left sidebar</a></li>
-									<li><a href="blog-right-sidebar.html">Blog right sidebar</a></li>
-									<li><a href="blog-details.html">Blog details</a></li>
-									<li><a href="cart.html">Cart</a></li>
-									<li><a href="checkout.html">Checkout</a></li>
-									<li><a href="coming-soon.html">Coming soon</a></li>
-									<li><a href="contact.html">Contact</a></li>
-									<li><a href="contact-2.html">Contact 2</a></li>
-									<li><a href="faq.html">FAQ</a></li>
-									<li><a href="login.html">Login</a></li>
-									<li><a href="portfolio.html">Portfolio 3 column</a></li>
-									<li><a href="portfolio-2.html">Portfolio 4 column</a></li>
-									<li><a href="404.html">404</a></li>
-									<li><a href="shop.html">Shop</a></li>
-									<li><a href="shop-list.html">Shop list</a></li>
-									<li><a href="shop-left-sidebar.html">Shop left sidebar</a></li>
-									<li><a href="shop-right-sidebar.html">Shop right sidebar</a></li>
-									<li><a href="product-details.html">Product details</a></li>
+									<li><a href="/Shop/searchBy/lanxi">Shop</a>
+									<li><a href="/ProductCart">Cart</a></li>
+									<a href="/ProductCart"><span>Check Out</span></a>
+									<li><a href="contact">Contact</a></li>
+									<li><a href="aboutus">About US</a></li>
 								</ul>
 							</li>
-							<li><a href="shop.html">Shop</a>
-								<ul>
-									<li><a href="shop-list.html">rings</a>
-									<ul>
-										<li><a href="shop-left-sidebar.html">diamond ring</a></li>
-										<li><a href="shop-right-sidebar.html">gold ring</a></li>
-										<li><a href="shop-list.html">sliver ring</a></li>
-										<li><a href="shop-left-sidebar.html">Platinum ring</a></li>
-									</ul>
-									</li>
-									<li><a href="shop-list.html">Bracelets</a>
-									<ul>
-										<li><a href="shop-left-sidebar.html">diamond Bracelets</a></li>
-										<li><a href="shop-right-sidebar.html">gold Bracelets</a></li>
-										<li><a href="shop-left-sidebar.html">sliver Bracelets</a></li>
-										<li><a href="shop-right-sidebar.html">Platinum Bracelets</a></li>
-									</ul>
-									</li>
-									<li><a href="shop-list.html">lecklaces</a>
-									<ul>
-										<li><a href="shop-right-sidebar.html">diamond lecklaces</a></li>
-										<li><a href="shop-left-sidebar.html">gold lecklaces</a></li>
-										<li><a href="shop-right-sidebar.html">sliver lecklaces</a></li>
-										<li><a href="shop-left-sidebar.html">Platinum lecklaces</a></li>
-									</ul>
-									</li>
-								</ul>
-							</li>
-							<li><a href="shop.html">New Arrivals</a>
-								<ul>
-									<li><a href="shop-list.html">rings</a>
-									<ul>
-										<li><a href="shop-left-sidebar.html">diamond ring</a></li>
-										<li><a href="shop-right-sidebar.html">gold ring</a></li>
-										<li><a href="shop-list.html">sliver ring</a></li>
-										<li><a href="shop-left-sidebar.html">Platinum ring</a></li>
-									</ul>
-									</li>
-									<li><a href="shop-list.html">Bracelets</a>
-									<ul>
-										<li><a href="shop-left-sidebar.html">diamond Bracelets</a></li>
-										<li><a href="shop-right-sidebar.html">gold Bracelets</a></li>
-										<li><a href="shop-left-sidebar.html">sliver Bracelets</a></li>
-										<li><a href="shop-right-sidebar.html">Platinum Bracelets</a></li>
-									</ul>
-									</li>
-									<li><a href="shop-list.html">lecklaces</a>
-									<ul>
-										<li><a href="shop-right-sidebar.html">diamond lecklaces</a></li>
-										<li><a href="shop-left-sidebar.html">gold lecklaces</a></li>
-										<li><a href="shop-right-sidebar.html">sliver lecklaces</a></li>
-										<li><a href="shop-left-sidebar.html">Platinum lecklaces</a></li>
-									</ul>
-									</li>
-									<li><a href="shop-right-sidebar.html">earrings</a>
-									<ul>
-										<li><a href="shop-right-sidebar.html">diamond lecklaces</a></li>
-										<li><a href="shop-left-sidebar.html">gold earrings</a></li>
-										<li><a href="shop-list.html">sliver earrings</a></li>
-										<li><a href="shop-left-sidebar.html">Platinum earrings</a></li>
-									</ul>
-									</li>
-								</ul>
-							</li>
-							<li><a href="portfolio.html">Portfolio</a>
-								<ul>
-									<li><a href="portfolio.html">Portfolio 3 column</a></li>
-									<li><a href="portfolio-2.html">Portfolio 4 column</a></li>
-								</ul>
-							</li>
-							<li><a href="blog.html">Blog</a>
-								<ul>
-									<li><a href="blog.html">Blog 1</a></li>
-									<li><a href="blog-left-sidebar.html">Blog 2</a></li>
-									<li><a href="blog-right-sidebar.html">Blog 3</a></li>
-								</ul>
-							</li>
-							<li><a href="about-us.html">About Us</a></li>
-							<li><a href="contact.html">Contact</a>
-								<ul>
-									<li><a href="contact.html">Contact 1</a></li>
-									<li><a href="contact-2.html">Contact 2</a></li>
-								</ul>
-							</li>
+							<li><a href="/Shop/searchBy/lanxi">Shop</a></li>
+							<li><a href="/Shop/category/Category%201/l2%hi">New Arrivals</a>
+							<li><a href="aboutus">About US</a></li>
+							<li><a href="contact">Contact</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -397,8 +250,6 @@
 		</div>
 	</div>
 </div><!--End Main Menu Area-->
-
-
 
 <div class="page-title fix"><!--Start Title-->
 	<div class="overlay section">
@@ -478,60 +329,60 @@
 	<div class="container">
 		<div class="row">
 			<div class="section-title">
-				<h2>Our Brands</h2>
+				<h2>{{$SiteData[30]->data}}</h2>
 				<div class="underline"></div>
 			</div>
 			<div class="brand-slider owl-carousel">
-				<div class="brand-item"><img src="img/brand/brand-1.png" alt="" /></div>
-				<div class="brand-item"><img src="img/brand/brand-2.png" alt="" /></div>
-				<div class="brand-item"><img src="img/brand/brand-3.png" alt="" /></div>
-				<div class="brand-item"><img src="img/brand/brand-4.png" alt="" /></div>
-				<div class="brand-item"><img src="img/brand/brand-5.png" alt="" /></div>
-				<div class="brand-item"><img src="img/brand/brand-1.png" alt="" /></div>
-				<div class="brand-item"><img src="img/brand/brand-2.png" alt="" /></div>
-				<div class="brand-item"><img src="img/brand/brand-3.png" alt="" /></div>
-				<div class="brand-item"><img src="img/brand/brand-4.png" alt="" /></div>
-				<div class="brand-item"><img src="img/brand/brand-5.png" alt="" /></div>
+				<div class="brand-item"><img src="{{asset('img/brand/brand-1.png')}}" alt="" /></div>
+				<div class="brand-item"><img src="{{asset('img/brand/brand-2.png')}}" alt="" /></div>
+				<div class="brand-item"><img src="{{asset('img/brand/brand-3.png')}}" alt="" /></div>
+				<div class="brand-item"><img src="{{asset('img/brand/brand-4.png')}}" alt="" /></div>
+				<div class="brand-item"><img src="{{asset('img/brand/brand-5.png')}}" alt="" /></div>
+				<div class="brand-item"><img src="{{asset('img/brand/brand-1.png')}}" alt="" /></div>
+				<div class="brand-item"><img src="{{asset('img/brand/brand-2.png')}}" alt="" /></div>
+				<div class="brand-item"><img src="{{asset('img/brand/brand-3.png')}}" alt="" /></div>
+				<div class="brand-item"><img src="{{asset('img/brand/brand-4.png')}}" alt="" /></div>
+				<div class="brand-item"><img src="{{asset('img/brand/brand-5.png')}}" alt="" /></div>
 			</div>
 		</div>
 	</div>
 </div><!--End Brand Area-->
+
 <div class="support-area section fix"><!--Start Support Area-->
 	<div class="container">
 		<div class="row">
 			<div class="support col-sm-3">
 				<i class="fa fa-thumbs-up"></i>
 				<h3>High quality</h3>
-				<p>Lorem ipsum dolor sit amet, conseetur adipiscing elit, consectetur</p>
 			</div>
 			<div class="support col-sm-3">
 				<i class="fa fa-bus"></i>
 				<h3>Fast Delivery</h3>
-				<p>Lorem ipsum dolor sit amet, conseetur adipiscing elit, consectetur</p>
 			</div>
 			<div class="support col-sm-3">
 				<i class="fa fa-phone"></i>
 				<h3>24/7 support</h3>
-				<p>Lorem ipsum dolor sit amet, conseetur adipiscing elit, consectetur</p>
 			</div>
 			<div class="support col-sm-3">
 				<i class="fa fa-random"></i>
-				<h3>14 - Day Returns</h3>
-				<p>Lorem ipsum dolor sit amet, conseetur adipiscing elit, consectetur</p>
+				<h3>Exchange</h3>
 			</div>
 		</div>
 	</div>
 </div><!--Start Support Area-->
+
 <div class="footer-top-area fix"><!--Start Footer top area-->
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-6 col-md-3">
 				<div class="footer-about">
+					<a href="/">
 					<div class="image">
 						<img src="img/header/logo.png" alt="" />
-						<h3>online jewelry store</h3>
+						<h3>{{$SiteData[6]->data}}</h3>
 					</div>
-					<p>perspiciatis unde omnis iste natus error sit voluptatem accm doloremque antium, totam rem aperiam, eaque ipsa perspiciatis unde omnis iste</p>
+					</a>
+					<p>Site Informational Data Area</p>
 				</div>
 				<div class="footer-contact">
 					<div class="single-contact">
@@ -548,8 +399,8 @@
 							<i class="fa fa-phone"></i>
 						</div>
 						<div class="details">
-							<p>+012  456  456  456</p>
-							<p>+012  356  897  222</p>
+							<p>{{$SiteData[0]->data}}</p>
+							<p>{{$SiteData[0]->data}}</p>
 						</div>
 					</div>
 					<div class="single-contact">
@@ -557,8 +408,8 @@
 							<i class="fa fa-dribbble"></i>
 						</div>
 						<div class="details">
-							<a href="#">info@olongker.com</a>
-							<a href="#">www.olongker.com</a>
+							<a href="#">{{$SiteData[1]->data}}</a>
+							<a href="#">www.example.com</a>
 						</div>
 					</div>
 				</div>
@@ -567,77 +418,43 @@
 				<div class="footer-quick-link footer-links">
 					<h2>QUICK LINK</h2>
 					<ul>
-						<li><a href="index.html">Home</a></li>
-						<li><a href="shop.html">Shop</a></li>
-						<li><a href="shop-left-sidebar.html">New Arrivals</a></li>
-						<li><a href="services.html">Services</a></li>	
-						<li><a href="portfolio-1.html">Portfolio</a></li>
-						<li><a href="blog.html">Blog</a></li>
-						<li><a href="#">Shortcodes</a></li>
-						<li><a href="contact.html">Contact</a></li>
+						<li><a href="/Shop/searchBy/lanxi">Shop</a>
+						<li><a href="/wishlist">Wishlist</a></li>
+						<li><a href="/ProductCart">Cart</a></li>
+						<li><a href="/Shop/category/Category%201/l2%hi">New Arrivals</a>
+						<li><a href="aboutus">About US</a></li>
+						<li><a href="contact">Contact</a></li>
 					</ul>
 				</div>
 			</div>
 			<div class="col-sm-12 col-md-6">
 				<div class="row">
 					<div class="col-sm-8 footer-support footer-links">
-						<h2>OUR SUPPORT</h2>
-						<ul>
-							<li><a href="#">Site Map</a></li>
-							<li><a href="#">privacy Policy</a></li>
-							<li><a href="#">Your Account</a></li>
-							<li><a href="#">Term & Conditions</a></li>
-							<li><a href="#">Advance Search</a></li>
-							<li><a href="faq.html">Help & FAQs</a></li>
-							<li><a href="#">Gift Voucher</a></li>
-							<li><a href="contact-2.html">Contact Us</a></li>
-						</ul>
+                        <a href="{{$SiteData[2]->data}}"><i class="fa fa-facebook"></i></a></br>
+						<a href="{{$SiteData[3]->data}}"><i class="fa fa-twitter"></i></a></br>
+						<a href="{{$SiteData[4]->data}}"><i class="fa fa-linkedin"></i></a></br>
+						<a href="{{$SiteData[5]->data}}"><i class="fa fa-google-plus"></i></a>
 					</div>
 					<div class="col-sm-4 footer-account footer-links">
-						<h2>my Account</h2>
-						<ul>
-							<li><a href="#">my Account</a></li>
-							<li><a href="#">order History</a></li>
-							<li><a href="#">Returns</a></li>
-							<li><a href="#">Specials</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="footer-newslater fix">
-					<div class="wrap fix">
-						<h3>NEWS LETTER ! </h3>
-						<form action="#">
-							<input type="email" placeholder="Your E-mail...">
-							<button class="submit">SUBSCRIBE</button>
-						</form>
+						<h2>My Account</h2>
+						@if(isset($userData))
+								<ul>
+									<li><a href="/profile"><i class="fa fa-child"> My Account </i></a></li>
+									<li><a href="/wishlist"><i class="	fa fa-bookmark"> Wishlist </i></a></li>
+									<li><a href="/logout"><i class="fa fa-sign-out"> Sign out </i></a></li>
+									@if($userData->type=='admin')
+										<li><a href="/Admin/Home/Edit"><i class="fa fa-bank"> Admin Home </i></a></li>
+									@endif
+								</ul>
+						@else
+							<a href="/login"><strong>Create an Account</strong></a><h3><span id="tz"></span></h3>
+						@endif
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div><!--Start Footer top area-->
-<div class="footer-area fix"><!--Start Footer Area-->
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-6">
-				<div class="copy-right">
-					<p>Shared by <i class="fa fa-love"></i><a href="https://bootstrapthemes.co">BootstrapThemes</a></p>
-				</div>
-			</div>
-			<div class="col-sm-6">
-				<div class="payment">
-					<ul>
-						<li><a href="#"><img src="img/footer/paypal.jpg" alt="" /></a></li>
-						<li><a href="#"><img src="img/footer/visa.jpg" alt="" /></a></li>
-						<li><a href="#"><img src="img/footer/master.jpg" alt="" /></a></li>
-						<li><a href="#"><img src="img/footer/cards.jpg" alt="" /></a></li>
-						<li><a href="#"><img src="img/footer/discover.jpg" alt="" /></a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
-</div><!--End Footer Area-->
+</div>
 	
 <!-- jQuery 2.1.4 -->
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
