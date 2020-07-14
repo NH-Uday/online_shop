@@ -235,7 +235,7 @@ function qtyChange(action,pid,price)
 		   $("#qtytxt-"+pid).val(newqty);
 		   $("#subtottxt").val(newtot);
 		   $("#tottxt").val(newtot);
-		   $("#val-"+pid).html(newprice);
+		   $("#val-"+pid).html('$'+newprice);
 		   $("#subtot").html(newtot);
 		   $("#tot").html(newtot);
 	   }
@@ -246,4 +246,73 @@ function searchBy()
 {
 	var txt = document.getElementById("srcTxt").value;
 	window.location.replace('/Shop/searchBy/'+txt);
+}
+
+function searchListBy()
+{
+	var txt = document.getElementById("srcTxt").value;
+	window.location.replace('/shop/withtag/searchBy/'+txt);
+}
+
+function SrcOrder()
+{
+	var ord = document.getElementById("ord").value;
+	
+	$.ajax({
+	   type:'GET',
+	   url:'/SrcOrder/'+ord,
+	   success:function(data) {
+		   $("#orderTab").html(data);
+	   }
+	});
+}
+
+function AccCon()
+{
+	var ord = document.getElementById("forgetName").value;
+	
+	if(ord==null){
+		alert('Please Enter Your Username/Contact.');
+	}else{
+		alert(ord);
+		$.ajax({
+		   type:'GET',
+		   url:'/SrcAcc/'+ord,
+		   success:function(data) {
+			   $("#forgetDiv").html(data);
+			   document.getElementById("forgetNameDiv").style.display="none";
+		   }
+		});
+	}
+}
+
+function RangeVal()
+{
+	var ord = document.getElementById("price-amount").value;
+	var tag = document.getElementById("srcDT").value;
+	var val = document.getElementById("valDT").value;
+	var arr = ord.split("$");
+	var min = arr[1].split(" ");
+	window.location.replace('/shop/withtag/'+tag+'/'+val+'/rangeBy/'+min[0]+'/'+arr[2]);
+}
+
+function hider()
+{
+	document.getElementById("proDIvs").style.display="block";
+	document.getElementById("payment-met").style.display="none";
+	document.getElementById("ordDIvs").style.display="none";
+}
+
+function hiders()
+{
+	document.getElementById("payment-met").style.display="block";
+	document.getElementById("proDIvs").style.display="none";
+	document.getElementById("ordDIvs").style.display="none";
+}
+
+function hidert()
+{
+	document.getElementById("payment-met").style.display="none";
+	document.getElementById("proDIvs").style.display="none";
+	document.getElementById("ordDIvs").style.display="block";
 }

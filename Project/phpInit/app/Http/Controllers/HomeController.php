@@ -17,7 +17,10 @@ class HomeController extends Controller
 		
 		if( $req->session()->has('id') ){
 			
-			$getData = DB::table('tbl_prod_details')->orderBy('created_date','desc')->get();
+			$getData = DB::table('tbl_prod_details')
+					-> rightJoin('tbl_prod_image','tbl_prod_details.prod_id','=','tbl_prod_image.prod_id')
+					-> orderBy('created_date','desc')
+					-> get();
 			
 			$userData = DB::table('users')
 						->where('userid', $req->session()->get('id'))
@@ -39,6 +42,9 @@ class HomeController extends Controller
 					  ->where('tbl_cart.user_id',$req->session()->get('id'))
 					  ->get();
 					  
+			$imgData = DB::table('tbl_prod_image')
+					  ->get();
+					  
 			$SiteData = DB::table('tbl_sitedata')
 					  ->get();
 					  
@@ -46,7 +52,7 @@ class HomeController extends Controller
 			$hour=$mydate->format("H:i:s");
 			$TimeData = array("Hour"=>$hour);
 			
-			return view('index',['prodData'=>$getData, 'userData'=>$userData, 'historyData'=>$historyData, 'trendProd'=>$trendProd, 'CartData'=>$CartData, 'SiteData'=>$SiteData, 'TimeData'=>$TimeData]);
+			return view('index',['prodData'=>$getData, 'userData'=>$userData, 'historyData'=>$historyData, 'imgData'=>$imgData, 'trendProd'=>$trendProd, 'CartData'=>$CartData, 'SiteData'=>$SiteData, 'TimeData'=>$TimeData]);
 			
 		}else{
 			
@@ -57,9 +63,12 @@ class HomeController extends Controller
 					  -> get();
 			
 			$CartData = DB::table('tbl_cart')
-					  ->leftJoin('tbl_prod_details','tbl_cart.prod_id','=','tbl_prod_details.prod_id')
-					  ->where('tbl_cart.user_id',$req->session()->get('id'))
-					  ->get();
+					 -> leftJoin('tbl_prod_details','tbl_cart.prod_id','=','tbl_prod_details.prod_id')
+					 -> where('tbl_cart.user_id',$req->session()->get('id'))
+					 -> get();
+			
+			$imgData  = DB::table('tbl_prod_image')
+					 -> get();
 			
 			$SiteData = DB::table('tbl_sitedata')
 					  ->get();
@@ -68,9 +77,12 @@ class HomeController extends Controller
 			$hour=$mydate->format("H:i:s");
 			$TimeData = array("Hour"=>$hour);
 			
-			$getData = DB::table('tbl_prod_details')->orderBy('created_date','desc')->get();
+			$getData = DB::table('tbl_prod_details')
+					-> rightJoin('tbl_prod_image','tbl_prod_details.prod_id','=','tbl_prod_image.prod_id')
+					-> orderBy('created_date','desc')
+					-> get();
 			
-			return view('index',['prodData'=>$getData, 'trendProd'=>$trendProd, 'CartData'=>$CartData, 'SiteData'=>$SiteData, 'TimeData'=>$TimeData]);
+			return view('index',['prodData'=>$getData, 'trendProd'=>$trendProd, 'CartData'=>$CartData, 'imgData'=>$imgData, 'SiteData'=>$SiteData, 'TimeData'=>$TimeData]);
 			
 		}
     }

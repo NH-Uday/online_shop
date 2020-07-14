@@ -121,7 +121,8 @@ class LoginController extends Controller
 		if(!$status1){
 			return redirect("/login");
 		}else{
-			return redirect("/");
+			$req->session()->put('msg', 'Account Has Been Registered <br> Please Log in.');
+			return redirect('/login');
 		}
     }
 }

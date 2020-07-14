@@ -23,6 +23,7 @@ Route::get('/wishlist','WishController@Index')->name('Wish.Index');
 Route::get('/DelWish/{pid}','productController@DelWish')->name('product.DelWish');
 
 Route::get('/Admin/Home/Edit','HomeEditController@Index')->name('HomeEdit.Index');
+Route::get('/DashBoard','DashBoardController@Index')->name('DashBoard.Index');
 Route::get('/SiteChange/{element}/{data}','HomeEditController@SiteChange')->name('HomeEdit.SiteChange');
 Route::post('/SiteChanger','HomeEditController@SiteChanger')->name('HomeEdit.SiteChanger');
 
@@ -42,8 +43,24 @@ Route::post('/postcadChange','HomeEditController@postcadChange')->name('HomeEdit
 
 Route::get('/Shop/{searchType}/{value}','ShopController@Index')->name('Shop.Index');
 Route::get('/Shop/{searchType}/{value}/{sorts}','ShopController@Index')->name('Shop.Index');
+Route::get('/shop/withtag/{searchType}/{value}','ShopController@Index2')->name('Shop.Index2');
+Route::get('/shop/withtag/{searchType}/{value}/{sorts}','ShopController@Index2')->name('Shop.Index2');
+Route::get('/shop/withtag/{searchType}/{value}/{sorts}/{min}/{max}','ShopController@Index2')->name('Shop.Index2');
+
+Route::get('/Order','OrderController@Index')->name('Order.Index');
+Route::get('/SrcOrder/{ord}','OrderController@SrcOrder')->name('Order.SrcOrder');
+Route::get('/Coupon','CouponController@Index')->name('Coupon.Index');
 
 Route::get('/checkout','CartController@checkout')->name('Shop.checkout');
+
+Route::get('/SrcAcc/{uname}','accountController@SrcAcc')->name('account.SrcAcc');
+
+Route::get('/payments','ManagerialController@Payments')->name('Managerial.Payments');
+Route::get('/Conditions','ManagerialController@Conditions')->name('Managerial.Conditions');
+Route::get('/SiteMap','ManagerialController@SiteMap')->name('Managerial.SiteMap');
+Route::get('/services','ManagerialController@services')->name('Managerial.services');
+Route::get('/Blog','ManagerialController@Blog')->name('Managerial.Blog');
+Route::get('/FAQ','ManagerialController@FAQ')->name('Managerial.FAQ');
 
 Route::get('/logout','LogoutController@index')->name('logout.index');
 Route::get('/about',function(){
@@ -52,15 +69,17 @@ Route::get('/about',function(){
 
 //Route::get('product-details','productController@show');
 Route::get('product-details/{id}','productController@auth');
+Route::post('/revUpload','productController@revUpload')->name('product.revUpload');
 
 Route::get('addDetails','AddProductController@show')->name('AddProduct.show');
 Route::post('/AddProduct','AddProductController@Add')->name('AddProduct.Add');
+Route::post('/UpdateProduct','AddProductController@UpdateProduct')->name('AddProduct.UpdateProduct');
 
 Route::get('aboutus','aboutusController@show');
 
 Route::get('contact','contactController@show');
 Route::post('/feedback','contactController@feedback')->name('contact.feedback');
 
-Route::get('editabout','editaboutController@show')->name('editabout.show');
+Route::get('/AutoUser/{num}','contactController@auto')->name('contact.auto');
+Route::get('/AutoLibo','contactController@auto1')->name('contact.auto1');
 
-Route::get('editcontact','editcontactController@show')->name('editcontact.show');

@@ -80,16 +80,46 @@ class AddProductController extends Controller
 					]);
 			
 			$pid = DB::table('tbl_prod_details')->orderBy('prod_id','desc')->value('prod_id');
+			
+			$imgUp = DB::table('tbl_prod_image')->insert([
+					'prod_id' => $pid
+					]);
 				
-			if($req->hasFile('pimg'))
-			{
-				$file = $req->file('pimg');
-				$file->move('img/shop',$pid.'.'.$file->getClientOriginalExtension());
-				$imageLink = $pid.'.'.$file->getClientOriginalExtension();
+			if($req->hasFile('pimg1')){
+				$file = $req->file('pimg1');
+				$file->move('img/shop',$pid.'v1.'.$file->getClientOriginalExtension());
+				$imageLink = $pid.'v1.'.$file->getClientOriginalExtension();
 				
-				$imageUpdate = DB::table('tbl_prod_details')
+				$imageUpdate = DB::table('tbl_prod_image')
 							-> where('prod_id', $pid)
-							-> update(['prod_image'=>$imageLink]);
+							-> update(['image1'=>$imageLink]);
+			}
+			if($req->hasFile('pimg2')){
+				$file = $req->file('pimg2');
+				$file->move('img/shop',$pid.'v2.'.$file->getClientOriginalExtension());
+				$imageLink = $pid.'v2.'.$file->getClientOriginalExtension();
+				
+				$imageUpdate = DB::table('tbl_prod_image')
+							-> where('prod_id', $pid)
+							-> update(['image2'=>$imageLink]);
+			}
+			if($req->hasFile('pimg3')){
+				$file = $req->file('pimg3');
+				$file->move('img/shop',$pid.'v3.'.$file->getClientOriginalExtension());
+				$imageLink = $pid.'v3.'.$file->getClientOriginalExtension();
+				
+				$imageUpdate = DB::table('tbl_prod_image')
+							-> where('prod_id', $pid)
+							-> update(['image3'=>$imageLink]);
+			}
+			if($req->hasFile('pimg4')){
+				$file = $req->file('pimg4');
+				$file->move('img/shop',$pid.'v4.'.$file->getClientOriginalExtension());
+				$imageLink = $pid.'v4.'.$file->getClientOriginalExtension();
+				
+				$imageUpdate = DB::table('tbl_prod_image')
+							-> where('prod_id', $pid)
+							-> update(['image4'=>$imageLink]);
 			}
 			
 			if(!$status1){
@@ -101,6 +131,106 @@ class AddProductController extends Controller
     	}
     	else{
     		$req->session()->put('msg', 'Login First Please !');
+			return redirect('/login');
+    	}
+    }
+	
+	public function UpdateProduct(Request $req){
+    	if( $req->session()->has('id') ){
+    		
+			$userData = DB::table('users')
+					 -> where('userid', $req->session()->get('id'))
+					 -> first();
+			
+			$Validation = Validator::make($req->all(), [
+				'pname'   => 'required',
+				'pqty'    => 'required',
+				'psell'   => 'required',
+				'pmrp'    => 'required',
+				'pdetail' => 'required'
+			]);
+
+			if($Validation->fails()){
+				return back()
+					->with('errors', $Validation->errors())
+					->withInput();
+			}
+			
+			if($req->pshop==null){
+				$shopname = $userData->username;
+			}else{
+				$shopname = $req->pshop;
+			}
+			
+			$pid = $req->pid;
+			
+			$status1 = DB::table('tbl_prod_details')
+					-> where('prod_id',$pid)-> update([
+						'prod_name'         => $req->pname,
+						'prod_details'      => $req->pdetail,
+						'prod_MRP_price'    => $req->pmrp,
+						'prod_SELLER_price' => $req->psell,
+						'prod_qty'          => $req->pqty,
+						'prod_shop'         => $shopname
+						]);
+			
+			
+			$imgSet = DB::table('tbl_prod_image')
+				   -> where('prod_id', $pid)
+				   -> first();
+			
+			if(!$imgSet){
+				$imgUp = DB::table('tbl_prod_image')->insert([
+						'prod_id' => $pid
+						]);
+			}
+				
+			if($req->hasFile('pimg1')){
+				$file = $req->file('pimg1');
+				$file->move('img/shop',$pid.'v1.'.$file->getClientOriginalExtension());
+				$imageLink = $pid.'v1.'.$file->getClientOriginalExtension();
+				
+				$imageUpdate = DB::table('tbl_prod_image')
+							-> where('prod_id', $pid)
+							-> update(['image1'=>$imageLink]);
+			}
+			if($req->hasFile('pimg2')){
+				$file = $req->file('pimg2');
+				$file->move('img/shop',$pid.'v2.'.$file->getClientOriginalExtension());
+				$imageLink = $pid.'v2.'.$file->getClientOriginalExtension();
+				
+				$imageUpdate = DB::table('tbl_prod_image')
+							-> where('prod_id', $pid)
+							-> update(['image2'=>$imageLink]);
+			}
+			if($req->hasFile('pimg3')){
+				$file = $req->file('pimg3');
+				$file->move('img/shop',$pid.'v3.'.$file->getClientOriginalExtension());
+				$imageLink = $pid.'v3.'.$file->getClientOriginalExtension();
+				
+				$imageUpdate = DB::table('tbl_prod_image')
+							-> where('prod_id', $pid)
+							-> update(['image3'=>$imageLink]);
+			}
+			if($req->hasFile('pimg4')){
+				$file = $req->file('pimg4');
+				$file->move('img/shop',$pid.'v4.'.$file->getClientOriginalExtension());
+				$imageLink = $pid.'v4.'.$file->getClientOriginalExtension();
+				
+				$imageUpdate = DB::table('tbl_prod_image')
+							-> where('prod_id', $pid)
+							-> update(['image4'=>$imageLink]);
+			}
+			
+			if(!$status1){
+				$req->session()->put('msg', 'Product Information Update Failed !');
+				return redirect('/product-details/'.$pid);
+			}else{
+				return redirect('/product-details/'.$pid);
+			}
+    	}
+    	else{
+    		$req->session()->put('msg', 'You Have To Login First !');
 			return redirect('/login');
     	}
     }

@@ -2996,6 +2996,7 @@ h4.heading {
 }
 .add-to-cart:hover {
   background: #555;
+  cursor:pointer;
   color: #fff !important;
 }
 .coupon {
@@ -3447,4 +3448,124 @@ h4.heading {
 
 .cart-qty-box:hover{
   cursor:pointer;
+}
+
+.confirm-data{
+	text-align:center;
+	color:red;
+}
+.err-data{
+	color:red;
+}
+.chk-display{
+	color:lime;
+}
+.pro-pic-dens{
+	margin-left:100px;
+}
+.det-area{
+	background:transparent;
+	border:1px solid Silver;
+}
+.pro-pic-aux{
+	margin-top:100px;
+	width:250px;
+	height:250px;
+	border-radius:50%;
+	border:1px solid black;
+	position:float;
+	z-index:1;
+}
+
+.grand-pr{
+	text-align:right;
+}
+.grand-pr-at{
+	text-align:right;
+	font-size:2em;
+}
+.pro-det-area{
+	text-align:left;
+	width:550px;
+	padding:10px;
+	background:transparent;
+	border:none;
+}
+
+.rev-area{
+	margin-top:-20px;
+	width:420px;
+	padding:10px;
+	background:transparent;
+	border:1px solid silver;
+}
+
+.rev-btn{
+	margin-top:10px;
+	padding:10px;
+	background:transparent;
+	border:1px solid black;
+	border-radius:5px;
+}
+
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.custom-file-input::before {
+  content: 'Select Image';
+  display: inline-block;
+  background: linear-gradient(top, #f9f9f9, #e3e3e3);
+  border: 1px solid #999;
+  border-radius: 3px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-weight: 700;
+  font-size: 10pt;
+}
+.custom-file-input:hover::before {
+  border-color: black;
+}
+.custom-file-input:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+.time-foot {
+  font-size:0.5em;
+  color:orange;
+}
+
+.shop-img {
+  height:200px;
+}
+.shop-img2 {
+  height:150px;
+}
+.pro-name-fix {
+  position:fixed;
+}
+
+.wally {
+  margin-top:10px;
+  background-color:white;
+  padding:5px 25px;
+  border-radius:5px;
+  text-align:center;
+  box-shadow:1px 2px #888888;
+}
+.nam-tab-dash{
+  border-radius:5px;
+  width:200px;
+}
+.nam-prod-dash{
+  border-radius:5px;
+  width:500px;
+}
+.ad-min{
+  color:pink;
+}
+.us-er{
+  color:lime;
 }

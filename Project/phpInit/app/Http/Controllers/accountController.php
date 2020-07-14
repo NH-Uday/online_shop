@@ -32,7 +32,7 @@ class accountController extends Controller
 			return view('account')->with(compact('userData','SiteData','TimeData','CartData'));
     	}
     	else{
-    		$req->session()->put('msg', 'Login First Please !');
+    		$req->session()->put('msg', 'Please Login First !');
 			return redirect('/login');
     	}
     }
@@ -111,4 +111,21 @@ class accountController extends Controller
 			return redirect('/profile');
 		}
     }
+	
+	public function SrcAcc($uname=null, Request $req){
+		
+		
+		$MailData = DB::table('users')
+				 -> where('username',$uname)
+				 -> orWhere('contact',$uname)
+				 -> first();
+		
+		if($MailData!=null){
+			$mail = explode('@',$MailData->email);
+			echo '<h5>Your are just 2 steps ahead of Password Change: </h5><br>
+					<h4><small>Hello, </small> '.$MailData->username.'</h4>
+					<p>A Mail has been sent to your account : '.substr($mail[0],0,2).'*******@'.$mail[1].'</p>
+						<a href="/login">Not your Account ?</a>';
+		}
+	}
 }
