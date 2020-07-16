@@ -83,3 +83,7 @@ Route::post('/feedback','contactController@feedback')->name('contact.feedback');
 Route::get('/AutoUser/{num}','contactController@auto')->name('contact.auto');
 Route::get('/AutoLibo','contactController@auto1')->name('contact.auto1');
 
+Route::get('editabout','editaboutController@show')->name('editabout.show');
+
+Route::get('editcontact','editcontactController@show')->name('editcontact.show');
+

@@ -33,6 +33,9 @@ class CouponController extends Controller
 					  
 			$SiteData = DB::table('tbl_sitedata')
 					  ->get();
+
+			$imgData = DB::table('tbl_prod_image')
+					  ->get();
 					  
 			$couponDT = DB::table('tbl_coupon')
 					 -> get();
@@ -41,7 +44,7 @@ class CouponController extends Controller
 			$hour=$mydate->format("H:i:s");
 			$TimeData = array("Hour"=>$hour);
 			
-			return view('coupon',['userData'=>$userData, 'historyData'=>$historyData, 'CartData'=>$CartData, 'SiteData'=>$SiteData, 'TimeData'=>$TimeData, 'couponDT'=>$couponDT]);
+			return view('coupon',['userData'=>$userData, 'historyData'=>$historyData, 'CartData'=>$CartData, 'SiteData'=>$SiteData, 'imgData'=>$imgData, 'TimeData'=>$TimeData, 'couponDT'=>$couponDT]);
 			
 		}else{
 			

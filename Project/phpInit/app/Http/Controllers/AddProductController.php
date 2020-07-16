@@ -28,10 +28,12 @@ class AddProductController extends Controller
 					 -> where('tbl_cart.user_id',$req->session()->get('id'))
 					 -> get();
 			$mydate=Carbon::now();
+			$imgData = DB::table('tbl_prod_image')
+					  ->get();
 			$hour=$mydate->format("H:i:s");
 			$TimeData = array("Hour"=>$hour);
 			
-			return view('addDetails')->with(compact('userData','SiteData','TimeData','CartData'));
+			return view('addDetails')->with(compact('userData','SiteData', 'imgData','TimeData','CartData',));
     	}
     	else{
     		$req->session()->put('msg', 'Login First Please !');

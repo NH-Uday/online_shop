@@ -33,6 +33,9 @@ class OrderController extends Controller
 					  
 			$SiteData = DB::table('tbl_sitedata')
 					  ->get();
+
+			$imgData = DB::table('tbl_prod_image')
+					  ->get();
 					  
 			$mydate=Carbon::now();
 			$hour=$mydate->format("H:i:s");
@@ -43,7 +46,7 @@ class OrderController extends Controller
 					  -> groupBy('order_id')
 					  -> get();
 			
-			return view('order',['userData'=>$userData, 'historyData'=>$historyData, 'CartData'=>$CartData, 'SiteData'=>$SiteData, 'TimeData'=>$TimeData, 'OrderData'=>$OrderData]);
+			return view('order',['userData'=>$userData, 'historyData'=>$historyData, 'CartData'=>$CartData, 'SiteData'=>$SiteData, 'imgData'=>$imgData, 'TimeData'=>$TimeData, 'OrderData'=>$OrderData]);
 			
 		}else{
 			
